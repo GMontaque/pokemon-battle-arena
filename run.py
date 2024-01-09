@@ -1,8 +1,13 @@
+from classes.player import Player
+
+player1 = Player(name="steve",is_human=True)
+player2 = Player(name="steve",is_human=True)
 
 def play_game():
-    global pl_pokemon
     print("game is running")
     print("please select which pokemon you want to fight with: ")
+    player1.pick_pokemon()
+    player2.pick_pokemon()
 
 
 
