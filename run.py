@@ -27,7 +27,7 @@ def game_start():
             print("********************* end insert rules of game********************")
             break
         except ValueError as e:
-            print(f"Error: {e}")
+            print(f"{e}")
 
     play = " "
 
@@ -42,6 +42,6 @@ def game_start():
             else:
                 print("Proffessor Oak: Ok see you next time")
         except ValueError as e:
-            print(f"Error: {e}")
+            print(f"{e}")
 
 game_start()
