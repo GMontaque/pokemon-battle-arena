@@ -1,3 +1,4 @@
+import re
 from classes.player import Player
 
 player1 = Player(name="steve",is_human=True)
@@ -12,21 +13,30 @@ def play_game():
 
 
 def game_start():
-    print('''welcome to pokemon battle area where trainers are tested''')
-    name = input("what is your name player: ")
-    # name = "steve"
-    print(f"Hello {name}, welcome my names professor oak are you I hope your ready")
-    print("*********************start insert rules of game********************")
-    print("content")
-    print("********************* end insert rules of game********************")
+    print('''Proffessor Oak: welcome to pokemon battle area where trainers are tested''')
+    while True:
+        try:
+            user_name = input("Proffessor Oak: what is your name player? ")
+            if not user_name:
+                raise ValueError("Proffessor Oak: Oops seems you forgot to enter your name, why not try again")
+            elif not re.match("^[A-Za-z]+$", user_name):
+                raise ValueError("Proffessor Oak: Oops seems you entered a number, why not try again")
+            print(f"Proffessor Oak: Hello {user_name}, welcome my names professor oak, I hope your ready to fight")
+            print("*********************start insert rules of game********************")
+            print("content")
+            print("********************* end insert rules of game********************")
+            break
+        except ValueError as e:
+            print(f"Error: {e}")
+
     play = " "
 
     # play_game()
-    while play.lower() not in ['yes', 'no']:
-        play = input("Are you ready to fight'yes' or 'no': ")
-        if play == "yes":
+    while play.lower() not in ['fight', 'exit']:
+        play = input("Enter fight when your ready to contiune or 'exit' to exit the game: ")
+        if play == "fight":
             play_game()
         else:
-            print("ok see you next time")
+            print("Proffessor Oak: Ok see you next time")
 
 game_start()
