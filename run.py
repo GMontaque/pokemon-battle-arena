@@ -33,10 +33,15 @@ def game_start():
 
     # play_game()
     while play.lower() not in ['fight', 'exit']:
-        play = input("Enter fight when your ready to contiune or 'exit' to exit the game: ")
-        if play == "fight":
-            play_game()
-        else:
-            print("Proffessor Oak: Ok see you next time")
+        try:
+            play = input("Enter fight when your ready to contiune or 'exit' to exit the game: ")
+            if play.lower() not in ['fight', 'exit']:
+                    raise ValueError("Proffessor Oak: Oops, close but I need an answer, either fight or exit")
+            elif play == "fight":
+                play_game()
+            else:
+                print("Proffessor Oak: Ok see you next time")
+        except ValueError as e:
+            print(f"Error: {e}")
 
 game_start()
