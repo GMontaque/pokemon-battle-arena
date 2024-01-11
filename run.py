@@ -6,11 +6,15 @@ player2 = Player(name="steve",is_human=True)
 
 def play_game():
     print("game is running")
-    print("please select which pokemon you want to fight with: ")
-    player1.pick_pokemon()
-    player2.pick_pokemon()
-
-
+    print("Proffessor Oak: Great!, now lets pick your pokemon: ")
+    pokemon_battle_player1 = player1.pick_pokemon()
+    print("------------------------------------------------")
+    print("Proffessor Oak: Now, player 2 choose your pokemon")
+    print("------------------------------------------------")
+    pokemon_battle_player2 = player1.pick_pokemon()
+    print(f"player 1 picked {pokemon_battle_player1}, and player 2 picked {pokemon_battle_player2}")
+    # player1.pick_pokemon()
+    # player2.pick_pokemon()
 
 def game_start():
     print('''Proffessor Oak: welcome to pokemon battle area where trainers are tested''')
@@ -34,7 +38,7 @@ def game_start():
     # play_game()
     while play.lower() not in ['fight', 'exit']:
         try:
-            play = input("Enter fight when your ready to contiune or 'exit' to exit the game: ")
+            play = input("Enter 'fight' when your ready to contiune or 'exit' to exit the game: ")
             if play.lower() not in ['fight', 'exit']:
                     raise ValueError("Proffessor Oak: Oops, close but I need an answer, either fight or exit")
             elif play == "fight":
