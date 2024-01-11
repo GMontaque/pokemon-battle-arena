@@ -1,3 +1,5 @@
+import re
+
 class Player:
     '''create the player class'''
     def __init__(self,**kwargs):
@@ -15,9 +17,26 @@ class Player:
 
             print("Please choose from the follow pokemon Squirtle, Charmander or Bulbasaur")
 
-            # user inputs pokemon name
-
-            pokemon_name = input("Which pokemon would you like to review: ").lower()
+            # user inputs pokemon name and value is checked
+            pokemon_name_input = True
+            while pokemon_name_input:
+                try:
+                    # input pokemon name
+                    pokemon_name = input("Which pokemon would you like to review: ").lower()
+                    # checks for no value
+                    if not pokemon_name:
+                        raise ValueError("Proffessor Oak: Oops doesn't seen like you choose a pokemon, please try again")
+                    # checks for incorrect value format
+                    elif not re.match("^[A-Za-z]+$", pokemon_name):
+                        raise ValueError("Proffessor Oak: Oops don't think i've heard of that pokemon, please try again")
+                    # checks input matches pokemon names in dicitionary 
+                    elif not dic.get(pokemon_name, None):
+                        raise ValueError("Proffessor Oak: Oops thats not one of the pokemon you can choose, please try again")
+                    else:
+                        # once user enters a correct value, resets loop
+                        pokemon_name_input = False    
+                except ValueError as e:
+                    print(f"{e}")
 
             # Display the pokemon details i.e description, pokemon type and attacks
 
@@ -40,7 +59,7 @@ class Player:
                 print(f"No worries, {pokemon_name} was not added to your battle party.")
 
         return pokemon_picked
-             
+
 # ----===========================================================
 # dictionary of all the pokemon user can choose
 dic = {
