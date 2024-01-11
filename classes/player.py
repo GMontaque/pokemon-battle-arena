@@ -1,12 +1,16 @@
 class Player:
+    '''create the player class'''
     def __init__(self,**kwargs):
         self.name = kwargs["name"]
         self.is_human = kwargs["is_human"]
 
 
     def pick_pokemon(self):
+        '''players are asked to pick 3 pokemon they wish to fight with '''
+        # stores the pokemon picked for each player
         pokemon_picked = []
 
+        # loops till member chooses 3 pokemon
         while len(pokemon_picked) < 3:
 
             print("Please choose from the follow pokemon Squirtle, Charmander or Bulbasaur")
@@ -15,7 +19,7 @@ class Player:
 
             pokemon_name = input("Which pokemon would you like to review: ").lower()
 
-            # Display the pokemon details
+            # Display the pokemon details i.e description, pokemon type and attacks
 
             print(f"{pokemon_name} is a {dic[pokemon_name]['description']}")
 
@@ -23,37 +27,22 @@ class Player:
 
             print(f"{pokemon_name} has the following attacks {dic[pokemon_name]['attacks']}")
 
-            # Ask the user if they want to add the pokeon to there battle pack
+            # Asks the user if they want to add the pokemon to there battle pack
 
             picking_pokemon = input(f"Do you want to add {pokemon_name} to your battle party? (yes/no): ")
 
-            # If the user wants to add the pokemon it will append it to the battle pack
-
+            # If the user selects "yes" it will add the pokemon to the battle pack
             if picking_pokemon.lower() == "yes":
                 pokemon_picked.append(pokemon_name)
                 print(f"{pokemon_name} added to battle party.")
             else:
+                # if user inputs no, function loops back to beginning
                 print(f"No worries, {pokemon_name} was not added to your battle party.")
 
         return pokemon_picked
-
-    # def pick_pokemon(self):
-    #     print('''
-    #     please choose a pokemon numer 0 to 2
-
-    #     [0]: squirtle
-
-    #     [1]: charmander
-
-    #     [2]: bulbasaur
-        
-    #     ''')
-    #     seleceted = -1
-    #     while seleceted == -1:
-    #         seleceted = int(input("choose a pokemon: "))
-        
+             
 # ----===========================================================
-
+# dictionary of all the pokemon user can choose
 dic = {
     "squirtle":{"description":"turtle like pokemon that likes to make jokes and enjoys a good swin",
     "pokemon_type":"water",

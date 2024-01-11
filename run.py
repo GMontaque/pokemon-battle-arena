@@ -1,20 +1,26 @@
 import re
 from classes.player import Player
 
-player1 = Player(name="steve",is_human=True)
-player2 = Player(name="steve",is_human=True)
+def play_game(user1,user2):
+    # stores players names
+    player_1 = user1
+    player_2 = user2
 
-def play_game():
-    print("game is running")
+    # creates a player object for each player
+    player1 = Player(name=player_1,is_human=True)
+    player2 = Player(name=player_2,is_human=True)
+    
+    # player choose the pokemon they will battle with
     print("Proffessor Oak: Great!, now lets pick your pokemon: ")
     pokemon_battle_player1 = player1.pick_pokemon()
     print("------------------------------------------------")
     print("Proffessor Oak: Now, player 2 choose your pokemon")
     print("------------------------------------------------")
     pokemon_battle_player2 = player1.pick_pokemon()
-    print(f"player 1 picked {pokemon_battle_player1}, and player 2 picked {pokemon_battle_player2}")
-    # player1.pick_pokemon()
-    # player2.pick_pokemon()
+    print(f"{player_1} picked {pokemon_battle_player1}, and {player_2} picked {pokemon_battle_player2}")
+    
+    print(player1.name)
+    print(player2.name)
 
 def game_start():
     print('''Proffessor Oak: welcome to pokemon battle area where trainers are tested''')
@@ -42,7 +48,7 @@ def game_start():
             if play.lower() not in ['fight', 'exit']:
                     raise ValueError("Proffessor Oak: Oops, close but I need an answer, either fight or exit")
             elif play == "fight":
-                play_game()
+                play_game(user1= user_name,user2= "John")
             else:
                 print("Proffessor Oak: Ok see you next time")
         except ValueError as e:
