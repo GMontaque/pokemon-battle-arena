@@ -47,8 +47,22 @@ class Player:
             print(f"{pokemon_name} has the following attacks {dic[pokemon_name]['attacks']}")
 
             # Asks the user if they want to add the pokemon to there battle pack
-
-            picking_pokemon = input(f"Do you want to add {pokemon_name} to your battle party? (yes/no): ")
+            pokemon_pick_input = True
+            while pokemon_pick_input:
+                try:
+                    # input players choice on pokemon
+                    picking_pokemon = input(f"Do you want to add {pokemon_name} to your battle party? (yes/no): ")
+                    # checks for no value
+                    if not picking_pokemon:
+                        raise ValueError("Proffessor Oak: Oops you didn't respond, please try again")
+                    # checks for incorrect value and format
+                    elif picking_pokemon.lower() not in ['yes', 'no']:
+                        raise ValueError("Proffessor Oak: Sorry but i need a 'YES' or 'NO' answer")
+                    else:
+                        # once user enters a correct value, resets loop
+                        pokemon_pick_input = False    
+                except ValueError as e:
+                    print(f"{e}")
 
             # If the user selects "yes" it will add the pokemon to the battle pack
             if picking_pokemon.lower() == "yes":
