@@ -13,11 +13,12 @@ def play_game(user1,user2):
     # player choose the pokemon they will battle with
     print("Proffessor Oak: Great!, now lets pick your pokemon: ")
     pokemon_battle_player1 = player1.pick_pokemon()
+    print(f"{player_1} picked {pokemon_battle_player1}")
     print("------------------------------------------------")
     print("Proffessor Oak: Now, player 2 choose your pokemon")
     print("------------------------------------------------")
-    pokemon_battle_player2 = player1.pick_pokemon()
-    print(f"{player_1} picked {pokemon_battle_player1}, and {player_2} picked {pokemon_battle_player2}")
+    pokemon_battle_player2 = player2.pick_pokemon()
+    print(f"{player_2} picked {pokemon_battle_player2}")
     
     print(player1.name)
     print(player2.name)
