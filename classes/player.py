@@ -5,15 +5,15 @@ class Player:
     def __init__(self,**kwargs):
         self.name = kwargs["name"]
         self.is_human = kwargs["is_human"]
+        # stores the pokemon picked for each player
+        self.battle_pokemon = {}
 
 
     def pick_pokemon(self):
         '''players are asked to pick 3 pokemon they wish to fight with '''
-        # stores the pokemon picked for each player
-        pokemon_picked = []
 
         # loops till member chooses 3 pokemon
-        while len(pokemon_picked) < 3:
+        while len(self.battle_pokemon) < 3:
 
             print("Please choose from the follow pokemon Squirtle, Charmander or Bulbasaur")
 
@@ -29,8 +29,8 @@ class Player:
                     # checks for incorrect value format
                     elif not re.match("^[A-Za-z]+$", pokemon_name):
                         raise ValueError("Proffessor Oak: Oops don't think i've heard of that pokemon, please try again")
-                    # checks input matches pokemon names in dicitionary 
-                    elif not dic.get(pokemon_name, None):
+                    # checks input matches pokemon name against pokedex dicitionary 
+                    elif not pokedex.get(pokemon_name, None):
                         raise ValueError("Proffessor Oak: Oops thats not one of the pokemon you can choose, please try again")
                     else:
                         # once user enters a correct value, resets loop
@@ -40,11 +40,11 @@ class Player:
 
             # Display the pokemon details i.e description, pokemon type and attacks
 
-            print(f"{pokemon_name} is a {dic[pokemon_name]['description']}")
+            print(f"{pokemon_name} is a {pokedex[pokemon_name]['description']}")
 
-            print(f"{pokemon_name} is a {dic[pokemon_name]['pokemon_type']} type pokemon")
+            print(f"{pokemon_name} is a {pokedex[pokemon_name]['pokemon_type']} type pokemon")
 
-            print(f"{pokemon_name} has the following attacks {dic[pokemon_name]['attacks']}")
+            print(f"{pokemon_name} has the following attacks {pokedex[pokemon_name]['attacks']}")
 
             # Asks the user if they want to add the pokemon to there battle pack
             pokemon_pick_input = True
@@ -65,18 +65,22 @@ class Player:
                     print(f"{e}")
 
             # If the user selects "yes" it will add the pokemon to the battle pack
-            if picking_pokemon.lower() == "yes":
-                pokemon_picked.append(pokemon_name)
+          
+            if picking_pokemon.lower() == "yes" and pokemon_name in pokedex and not pokemon_name in self.battle_pokemon:
+                self.selected_days = pokedex[pokemon_name]
+                self.battle_pokemon[pokemon_name] = self.selected_days
                 print(f"{pokemon_name} added to battle party.")
+            elif picking_pokemon.lower() == "no":
+                # if user inputs no, function loops back to beginning
+                print(f"Proffessor Oak: No worries, {pokemon_name} was not added to your battle party.")
             else:
                 # if user inputs no, function loops back to beginning
-                print(f"No worries, {pokemon_name} was not added to your battle party.")
-
-        return pokemon_picked
+                print(f"Proffessor Oak: looks like you already addeds, {pokemon_name} why not try another pokemon.")
+        return self.battle_pokemon
 
 # ----===========================================================
-# dictionary of all the pokemon user can choose
-dic = {
+# pokedex dicitionary stores all the pokemon the user can choose from
+pokedex = {
     "squirtle":{"description":"turtle like pokemon that likes to make jokes and enjoys a good swin",
     "pokemon_type":"water",
     "attacks":{"s1":20,"s2":30,"s3":40,"s4":50}},
