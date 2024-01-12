@@ -64,11 +64,16 @@ class Player:
                 except ValueError as e:
                     print(f"{e}")
 
-            # If the user selects "yes" it will add the pokemon to the battle pack
-          
+            '''
+            checks user response is yes, also that pokemon_name can be found in pokedex and 
+            pokemon has not already been added to battle_pokemon
+            '''
             if picking_pokemon.lower() == "yes" and pokemon_name in pokedex and not pokemon_name in self.battle_pokemon:
-                self.selected_days = pokedex[pokemon_name]
-                self.battle_pokemon[pokemon_name] = self.selected_days
+                # get the key in the pokedex dicitionary
+                self.selected_pokemon_name = pokedex[pokemon_name]
+                # adds selected pokemon to battle_pokemon as dictionary
+                self.battle_pokemon[pokemon_name] = self.selected_pokemon_name
+                # confirmation to user pokemon added
                 print(f"{pokemon_name} added to battle party.")
             elif picking_pokemon.lower() == "no":
                 # if user inputs no, function loops back to beginning
