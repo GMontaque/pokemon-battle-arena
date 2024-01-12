@@ -1,4 +1,5 @@
 import re
+import random
 
 class Player:
     '''create the player class'''
@@ -13,76 +14,85 @@ class Player:
 
     def pick_pokemon(self):
         '''players are asked to pick 3 pokemon they wish to fight with '''
+        if self.is_human:
+            # loops till member chooses 3 pokemon
+            while len(self.battle_pokemon) < 3:
 
-        # loops till member chooses 3 pokemon
-        while len(self.battle_pokemon) < 3:
+                print("Please choose from the follow pokemon Squirtle, Charmander or Bulbasaur")
 
-            print("Please choose from the follow pokemon Squirtle, Charmander or Bulbasaur")
+                # user inputs pokemon name and value is checked
+                pokemon_name_input = True
+                while pokemon_name_input:
+                    try:
+                        # input pokemon name
+                        pokemon_name = input("Which pokemon would you like to review: ").lower()
+                        # checks for no value
+                        if not pokemon_name:
+                            raise ValueError("Proffessor Oak: Oops doesn't seen like you choose a pokemon, please try again")
+                        # checks for incorrect value format
+                        elif not re.match("^[A-Za-z]+$", pokemon_name):
+                            raise ValueError("Proffessor Oak: Oops don't think i've heard of that pokemon, please try again")
+                        # checks input matches pokemon name against pokedex dicitionary 
+                        elif not pokedex.get(pokemon_name, None):
+                            raise ValueError("Proffessor Oak: Oops thats not one of the pokemon you can choose, please try again")
+                        else:
+                            # once user enters a correct value, resets loop
+                            pokemon_name_input = False    
+                    except ValueError as e:
+                        print(f"{e}")
 
-            # user inputs pokemon name and value is checked
-            pokemon_name_input = True
-            while pokemon_name_input:
-                try:
-                    # input pokemon name
-                    pokemon_name = input("Which pokemon would you like to review: ").lower()
-                    # checks for no value
-                    if not pokemon_name:
-                        raise ValueError("Proffessor Oak: Oops doesn't seen like you choose a pokemon, please try again")
-                    # checks for incorrect value format
-                    elif not re.match("^[A-Za-z]+$", pokemon_name):
-                        raise ValueError("Proffessor Oak: Oops don't think i've heard of that pokemon, please try again")
-                    # checks input matches pokemon name against pokedex dicitionary 
-                    elif not pokedex.get(pokemon_name, None):
-                        raise ValueError("Proffessor Oak: Oops thats not one of the pokemon you can choose, please try again")
-                    else:
-                        # once user enters a correct value, resets loop
-                        pokemon_name_input = False    
-                except ValueError as e:
-                    print(f"{e}")
+                # Display the pokemon details i.e description, pokemon type and attacks
 
-            # Display the pokemon details i.e description, pokemon type and attacks
+                print(f"{pokemon_name} is a {pokedex[pokemon_name]['description']}")
 
-            print(f"{pokemon_name} is a {pokedex[pokemon_name]['description']}")
+                print(f"{pokemon_name} is a {pokedex[pokemon_name]['pokemon_type']} type pokemon")
 
-            print(f"{pokemon_name} is a {pokedex[pokemon_name]['pokemon_type']} type pokemon")
+                print(f"{pokemon_name} has the following attacks {pokedex[pokemon_name]['attacks']}")
 
-            print(f"{pokemon_name} has the following attacks {pokedex[pokemon_name]['attacks']}")
+                # Asks the user if they want to add the pokemon to there battle pack
+                pokemon_pick_input = True
+                while pokemon_pick_input:
+                    try:
+                        # input players choice on pokemon
+                        picking_pokemon = input(f"Do you want to add {pokemon_name} to your battle party? (yes/no): ")
+                        # checks for no value
+                        if not picking_pokemon:
+                            raise ValueError("Proffessor Oak: Oops you didn't respond, please try again")
+                        # checks for incorrect value and format
+                        elif picking_pokemon.lower() not in ['yes', 'no']:
+                            raise ValueError("Proffessor Oak: Sorry but i need a 'YES' or 'NO' answer")
+                        else:
+                            # once user enters a correct value, resets loop
+                            pokemon_pick_input = False    
+                    except ValueError as e:
+                        print(f"{e}")
 
-            # Asks the user if they want to add the pokemon to there battle pack
-            pokemon_pick_input = True
-            while pokemon_pick_input:
-                try:
-                    # input players choice on pokemon
-                    picking_pokemon = input(f"Do you want to add {pokemon_name} to your battle party? (yes/no): ")
-                    # checks for no value
-                    if not picking_pokemon:
-                        raise ValueError("Proffessor Oak: Oops you didn't respond, please try again")
-                    # checks for incorrect value and format
-                    elif picking_pokemon.lower() not in ['yes', 'no']:
-                        raise ValueError("Proffessor Oak: Sorry but i need a 'YES' or 'NO' answer")
-                    else:
-                        # once user enters a correct value, resets loop
-                        pokemon_pick_input = False    
-                except ValueError as e:
-                    print(f"{e}")
-
-            '''
-            checks user response is yes, also that pokemon_name can be found in pokedex and 
-            pokemon has not already been added to battle_pokemon
-            '''
-            if picking_pokemon.lower() == "yes" and pokemon_name in pokedex and not pokemon_name in self.battle_pokemon:
-                # get the key in the pokedex dicitionary
-                self.selected_pokemon_name = pokedex[pokemon_name]
-                # adds selected pokemon to battle_pokemon as dictionary
-                self.battle_pokemon[pokemon_name] = self.selected_pokemon_name
-                # confirmation to user pokemon added
-                print(f"{pokemon_name} added to battle party.")
-            elif picking_pokemon.lower() == "no":
-                # if user inputs no, function loops back to beginning
-                print(f"Proffessor Oak: No worries, {pokemon_name} was not added to your battle party.")
-            else:
-                # if user inputs no, function loops back to beginning
-                print(f"Proffessor Oak: looks like you already addeds, {pokemon_name} why not try another pokemon.")
+                '''
+                checks user response is yes, also that pokemon_name can be found in pokedex and 
+                pokemon has not already been added to battle_pokemon
+                '''
+                if picking_pokemon.lower() == "yes" and pokemon_name in pokedex and not pokemon_name in self.battle_pokemon:
+                    # get the key in the pokedex dicitionary
+                    self.selected_pokemon_name = pokedex[pokemon_name]
+                    # adds selected pokemon to battle_pokemon as dictionary
+                    self.battle_pokemon[pokemon_name] = self.selected_pokemon_name
+                    # confirmation to user pokemon added
+                    print(f"{pokemon_name} added to battle party.")
+                elif picking_pokemon.lower() == "no":
+                    # if user inputs no, function loops back to beginning
+                    print(f"Proffessor Oak: No worries, {pokemon_name} was not added to your battle party.")
+                else:
+                    # if user inputs no, function loops back to beginning
+                    print(f"Proffessor Oak: looks like you already addeds, {pokemon_name} why not try another pokemon.")
+        else:
+            # loops until 3 pokemon selected
+            while len(self.battle_pokemon) < 3:
+                # selects a random pokemon in pokedex
+                random_pokemon = random.choice(list(pokedex.keys()))
+                # checks pokemon is not in battle_pokemon before added new value
+                if not random_pokemon in self.battle_pokemon:
+                    # adds pokemon
+                    self.battle_pokemon[random_pokemon] = pokedex[random_pokemon]
         return self.battle_pokemon
 
 # ----===========================================================
