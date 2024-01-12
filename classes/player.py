@@ -3,7 +3,9 @@ import re
 class Player:
     '''create the player class'''
     def __init__(self,**kwargs):
+        # name of the player
         self.name = kwargs["name"]
+        # if player is human or computer
         self.is_human = kwargs["is_human"]
         # stores the pokemon picked for each player
         self.battle_pokemon = {}
