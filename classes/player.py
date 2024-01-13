@@ -72,7 +72,7 @@ class Player:
                     try:
                         # input players choice on pokemon
                         picking_pokemon = input(f"Do you want to add "
-                                                "{pokemon_name} to your battle"
+                                                f"{pokemon_name} to your battle"
                                                 " party? (yes/no): ")
                         # checks for no value
                         if not picking_pokemon:
