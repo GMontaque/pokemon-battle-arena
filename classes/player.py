@@ -11,7 +11,6 @@ class Player:
         # stores the pokemon picked for each player
         self.battle_pokemon = {}
 
-
     def pick_pokemon(self):
         '''players are asked to pick 3 pokemon they wish to fight with '''
         if self.is_human:
@@ -100,14 +99,17 @@ class Player:
 pokedex = {
     "squirtle":{"description":"turtle like pokemon that likes to make jokes and enjoys a good swin",
     "pokemon_type":"water",
+    "health": 120,
     "attacks":{"s1":20,"s2":30,"s3":40,"s4":50}},
 
     "charmander":{"description":"fire like pokemon that likes can have a temper so be careful not to anger",
     "pokemon_type":"fire",
+    "health":120,
     "attacks":{"c1":20,"c2":30,"c3":40,"c4":50}},
 
     "bulbasaur":{"description":"green type pokemon that can be found in the surroudning forests enjoing the sun",
     "pokemon_type":"earth",
+    "health": 120,
     "attacks":{"b1":20,"b2":30,"b3":40,"b4":50}}
 }
 
