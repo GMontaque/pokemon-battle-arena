@@ -36,7 +36,18 @@ def game_start():
         except ValueError as e:
             print(f"{e}")
 
-    pc_check = input(f"Proffessor Oak: Well hello {user_name}, its nice to meet you, did you bring a friend to fight agaisnt?: ")
+    while True:
+        try:
+            pc_check = input(f"Proffessor Oak: Well hello {user_name}, its nice to meet you, did you bring a friend to fight agaisnt?: ")
+            if not pc_check:
+                raise ValueError("Proffessor Oak: Oops seems you forgot to enter your name, why not try again")
+            elif pc_check.lower() not in ['yes', 'no']:
+                raise ValueError("Proffessor Oak: Oops sorry i didn't understnad, was that a 'yes' or 'no' ")
+            break
+        except ValueError as e:
+            print(f"{e}")        
+
+    
 
     if pc_check == "yes":
         while True:
