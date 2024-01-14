@@ -38,4 +38,9 @@ class Battle:
 
             if defender_pokemon["health"] < 0:
                 break
+            self.flip()
 
+    def flip(self):
+        temp = self.attacker_pokemon
+        self.attacker_pokemon = self.defender_pokemon
+        self.defender_pokemon = temp
