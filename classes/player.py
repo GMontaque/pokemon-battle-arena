@@ -72,8 +72,8 @@ class Player:
                     try:
                         # input players choice on pokemon
                         picking_pokemon = input(f"Do you want to add "
-                                                f"{pokemon_name} to your battle"
-                                                " party? (yes/no): ")
+                                                f"{pokemon_name} to your "
+                                                "battle party? (yes/no): ")
                         # checks for no value
                         if not picking_pokemon:
                             raise ValueError("Proffessor Oak: Oops you didn't "
@@ -129,19 +129,22 @@ class Player:
 
 
 pokedex = {
-    "squirtle": {"description": "turtle like pokemon that likes "
+    "squirtle": {"name": "squirtle",
+                 "description": "turtle like pokemon that likes "
                  "to make jokes and enjoys a good swin",
                  "pokemon_type": "water",
                  "health": 120,
                  "attacks": {"s1": 20, "s2": 30, "s3": 40, "s4": 50}},
 
-    "charmander": {"description": "fire like pokemon that likes "
+    "charmander": {"name": "charmander",
+                   "description": "fire like pokemon that likes "
                    "can have a temper so be careful not to anger",
                    "pokemon_type": "fire",
                    "health": 120,
                    "attacks": {"c1": 20, "c2": 30, "c3": 40, "c4": 50}},
 
-    "bulbasaur": {"description": "green type pokemon that can be found "
+    "bulbasaur": {"name": "bulbasaur",
+                  "description": "green type pokemon that can be found "
                   "in the surroudning forests enjoing the sun",
                   "pokemon_type": "earth",
                   "health": 120,
