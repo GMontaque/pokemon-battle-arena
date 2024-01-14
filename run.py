@@ -8,20 +8,21 @@ def play_game(user1, user2, npc):
     player_1 = user1
     player_2 = user2
 
+    print("Proffessor Oak: Great!, now lets pick your pokemon: ")
+
     # creates a player object for each player
     player1 = Player(name=player_1, is_human=True)
-    player2 = Player(name=player_2, is_human=npc)
-    # player choose the pokemon they will battle with
-    print("Proffessor Oak: Great!, now lets pick your pokemon: ")
+    # method called for player to choose the pokemon they will battle with
     pokemon_battle_player1 = player1.pick_pokemon()
     print(f"{player_1} picked {pokemon_battle_player1}")
     print("------------------------------------------------")
     print(f"Proffessor Oak: Now, {player_2} choose your pokemon")
     print("------------------------------------------------")
+    # creates a player object for each player
+    player2 = Player(name=player_2, is_human=npc)
+    # method called for player to choose the pokemon they will battle with
     pokemon_battle_player2 = player2.pick_pokemon()
     print(f"{player_2} picked {pokemon_battle_player2}")
-    print(player1.name)
-    print(player2.name)
 
     print("Proffessor Oak: Excellent you've both choosen now they"
           " go to to battle arena")
