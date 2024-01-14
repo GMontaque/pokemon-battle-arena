@@ -34,7 +34,7 @@ class Battle:
             defender_health = defender_pokemon["health"]
             new_health = defender_health - attack
             defender_pokemon["health"] = new_health
-            print(f"{defender_pokemon["name"]} new health is {new_health}")
+            print(f"{defender_pokemon['name']} new health is {new_health}")
 
             if defender_pokemon["health"] < 0:
                 break
