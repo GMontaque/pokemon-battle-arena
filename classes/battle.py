@@ -1,3 +1,5 @@
+import random
+
 class Battle:
     def __init__(self, p1, p2):
         # player one object
@@ -46,7 +48,7 @@ class Battle:
             print(f"Proffessor Oak: excellten choice, you have choosen "
               f"{defender_pokemon_name}")
             # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
-            self.defender_pokemon = self.attacker.battle_pokemon[defender_pokemon_name]
+            self.defender_pokemon = self.defender.battle_pokemon[defender_pokemon_name]
             self.battle_stadium()
         
 
@@ -61,8 +63,13 @@ class Battle:
             print("defender: ", defender_pokemon["name"])
             # prints attacking pokemon attacks
             print(attacker_pokemon["attacks"])
-            # input asking user what attack they wish to do
-            player_attack_choice = input(f"what attack do you wish to use: ")
+            # checks if player 2 is human or computer
+            if self.attacker.is_human:
+                # input asking user what attack they wish to do
+                player_attack_choice = input(f"what attack do you wish to use: ")
+            else:
+                # computer chooses random attack
+                player_attack_choice = random.choice(list(attacker_pokemon["attacks"]))
             # gets attack value deducates the amount from the defending pokemons health
             attack = attacker_pokemon["attacks"][player_attack_choice]
             defender_health = defender_pokemon["health"]
@@ -71,9 +78,11 @@ class Battle:
             defender_pokemon["health"] = new_health
             # prints new defending pokemon health
             print(f"{defender_pokemon['name']} new health is {new_health}")
-
-            if defender_pokemon["health"] < 0:
+            #checks pokemon healh
+            if defender_pokemon["health"] <= 0:
+                # deletes fainted pokemon from battle_pokemon object
                 del self.defender.battle_pokemon[defender_pokemon["name"]]
+                # player with fainted pokemon chooses another
                 self.choose_new_pokemon()
                 break
             # flips attacker and defending to allow for turn based gameplay
