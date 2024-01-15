@@ -12,7 +12,7 @@ class Battle:
     def fight_setup(self):
         # asks attacking player for name of pokemon they will use
         attacker_pokemon_name = input(f"Proffessor Oak: {self.attacker.name} "
-                                      "which pokemon"
+                                      "which pokemon "
                                       "do you want to fight with first: ")
         # confirms name choice of defending pokemon
         print(f"Proffessor Oak: excellten choice, you have choosen "
@@ -28,6 +28,27 @@ class Battle:
         self.attacker_pokemon = self.attacker.battle_pokemon[attacker_pokemon_name]
         # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
         self.defender_pokemon = self.attacker.battle_pokemon[defender_pokemon_name]
+
+    def choose_new_pokemon(self):
+        fainted_pokemon_trainer = self.defender.name
+        fainted_pokemon = self.defender_pokemon["name"]
+        print(f"Proffessor Oak: {fainted_pokemon_trainer} looks like {fainted_pokemon} fainted ")
+        current_attacking_pokemon = self.attacker_pokemon["name"]
+        print(f"the attacker {current_attacking_pokemon} is alive")
+        
+        if len(self.defender.battle_pokemon) == 0:
+            print(f"Proffessor Oak: O dear {fainted_pokemon_trainer} all your pokemon have fainted, you loose")
+        else:
+            defender_pokemon_name = input(f"Proffessor Oak: {fainted_pokemon_trainer} "
+                                      "which pokemon do you want to fight "
+                                      "with next: ")
+            # confirms name choice of defending pokemon
+            print(f"Proffessor Oak: excellten choice, you have choosen "
+              f"{defender_pokemon_name}")
+            # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
+            self.defender_pokemon = self.attacker.battle_pokemon[defender_pokemon_name]
+            self.battle_stadium()
+        
 
     def battle_stadium(self):
         print("Proffessor Oak: let the battle begin")
@@ -52,6 +73,8 @@ class Battle:
             print(f"{defender_pokemon['name']} new health is {new_health}")
 
             if defender_pokemon["health"] < 0:
+                del self.defender.battle_pokemon[defender_pokemon["name"]]
+                self.choose_new_pokemon()
                 break
             # flips attacker and defending to allow for turn based gameplay
             self.flip()
