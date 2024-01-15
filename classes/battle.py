@@ -27,7 +27,7 @@ class Battle:
         # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
         self.attacker_pokemon = self.attacker.battle_pokemon[attacker_pokemon_name]
         # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
-        self.defender_pokemon = self.attacker.battle_pokemon[defender_pokemon_name]
+        self.defender_pokemon = self.defender.battle_pokemon[defender_pokemon_name]
 
     def choose_new_pokemon(self):
         fainted_pokemon_trainer = self.defender.name
