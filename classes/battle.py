@@ -84,3 +84,8 @@ class Battle:
         temp = self.attacker_pokemon
         self.attacker_pokemon = self.defender_pokemon
         self.defender_pokemon = temp
+
+        # flips player objects
+        temp_trainer = self.attacker
+        self.attacker = self.defender
+        self.defender = temp_trainer
