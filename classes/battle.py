@@ -71,11 +71,11 @@ class Battle:
             # displays trainer name, pokemon name, pokemon health and attack pokemon moves
             print(
                 f"[ Trainer: {self.attacker.name}] \n"
-                f"[ Attacker: {attacker_pokemon["name"]} HP: {health_bar_attack} ({attacker_health}) ]\n"
+                f"[ Attacker: {attacker_pokemon['name']} HP: {health_bar_attack} ({attacker_health}) ]\n"
                 f"{attacker_pokemon["attacks"]}\n"
                 "\n"
                 f"[ Trainer: {self.defender.name}]\n"
-                f"[ Defender: { defender_pokemon["name"]} HP: {health_bar_defend} ({defender_health}) ]\n"
+                f"[ Defender: { defender_pokemon['name']} HP: {health_bar_defend} ({defender_health}) ]\n"
             )
             
             # checks if player 2 is human or computer
