@@ -12,7 +12,6 @@ class Player:
         # stores the pokemon picked for each player
         self.battle_pokemon = {}
 
-        
     def pick_pokemon(self):
         '''players are asked to pick 3 pokemon they wish to fight with '''
         if self.is_human:
@@ -55,7 +54,7 @@ class Player:
                 pokemon type and attacks
                 '''
                 print("-----------------------------------------")
-                #Pokemon name
+                # Pokemon Name
                 print(f"Name: {pokemon_name.capitalize()}")
 
                 # description
