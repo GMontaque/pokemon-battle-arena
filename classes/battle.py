@@ -72,7 +72,7 @@ class Battle:
             print(
                 f"[ Trainer: {self.attacker.name}] \n"
                 f"[ Attacker: {attacker_pokemon['name']} HP: {health_bar_attack} ({attacker_health}) ]\n"
-                f"{attacker_pokemon["attacks"]}\n"
+                f"{attacker_pokemon['attacks']}\n"
                 "\n"
                 f"[ Trainer: {self.defender.name}]\n"
                 f"[ Defender: { defender_pokemon['name']} HP: {health_bar_defend} ({defender_health}) ]\n"
