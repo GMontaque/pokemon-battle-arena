@@ -12,6 +12,7 @@ class Player:
         # stores the pokemon picked for each player
         self.battle_pokemon = {}
 
+        
     def pick_pokemon(self):
         '''players are asked to pick 3 pokemon they wish to fight with '''
         if self.is_human:
@@ -53,17 +54,22 @@ class Player:
                 ''' Display the pokemon details i.e description,
                 pokemon type and attacks
                 '''
+                print("-----------------------------------------")
+                #Pokemon name
+                print(f"Name: {pokemon_name.capitalize()}")
+
                 # description
-                print(f"{pokemon_name} is a "
+                print(f"Description: {pokemon_name} is a "
                       f"{pokedex[pokemon_name]['description']}")
 
                 # pokemon type
-                print(f"{pokemon_name} is a "
-                      f"{pokedex[pokemon_name]['pokemon_type']} type pokemon")
+                print(f"Pokemon Type: "
+                      f"{pokedex[pokemon_name]['pokemon_type']}")
 
                 # pokemon attack list and values
-                print(f"{pokemon_name} has the following attacks "
-                      f"{pokedex[pokemon_name]['attacks']}")
+                print(f"Attack Moves: {pokedex[pokemon_name]['attacks']}")
+
+                print("-----------------------------------------")
 
                 ''' Asks the user if they want
                 to add the pokemon to their battle pack
