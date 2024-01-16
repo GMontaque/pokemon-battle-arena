@@ -3,31 +3,34 @@ from classes.player import Player
 from classes.battle import Battle
 
 
-def play_game(user1, user2, npc):
+def play_game(user1, user2, human):
     # stores players names
     player_1 = user1
     player_2 = user2
 
     print("Proffessor Oak: Great!, now lets pick your pokemon: ")
 
-    # creates a player object for each player
+    # creates player1 object
     player1 = Player(name=player_1, is_human=True)
-    # method called for player to choose the pokemon they will battle with
+    # method called for player1 to choose the pokemon they wish to battle with
     pokemon_battle_player1 = player1.pick_pokemon()
     print(f"{player_1} picked {pokemon_battle_player1}")
     print("------------------------------------------------")
     print(f"Proffessor Oak: Now, {player_2} choose your pokemon")
     print("------------------------------------------------")
-    # creates a player object for each player
-    player2 = Player(name=player_2, is_human=npc)
-    # method called for player to choose the pokemon they will battle with
+    # creates players object
+    player2 = Player(name=player_2, is_human=human)
+    # method called for player2 to choose the pokemon they wish to battle with
     pokemon_battle_player2 = player2.pick_pokemon()
     print(f"{player_2} picked {pokemon_battle_player2}")
 
     print("Proffessor Oak: Excellent you've both choosen now they"
           " go to to battle arena")
+    # creates battle area from Battle Class
     battle = Battle(player1, player2)
+    # lets palyers choose which pokemon to start the battle with
     battle.fight_setup()
+    # starts the actually battle
     battle.battle_stadium()
 
 
@@ -107,9 +110,8 @@ def game_start():
 
     play = " "
 
-    # play_game()
     # asks user if they are ready to fight
-    while play.lower() not in ['fight', 'exit']:
+    while True:
         try:
             play = input("Proffessor Oak: Enter 'fight' when your ready to "
                          "contiune or 'exit' to exit the game: ")
@@ -118,10 +120,14 @@ def game_start():
                 raise ValueError("Proffessor Oak: Oops, close but I need an "
                                  "answer, either fight or exit")
             elif play == "fight":
-                play_game(user1=user_name, user2=user_name2, npc=human_player)
+                play_game(user1=user_name,
+                          user2=user_name2,
+                          human=human_player)
+                break
             else:
                 # prints if user states no
                 print("Proffessor Oak: Ok see you next time")
+                break
         except ValueError as e:
             # prints error message
             print(f"{e}")
