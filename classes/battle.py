@@ -54,15 +54,30 @@ class Battle:
 
     def battle_stadium(self):
         print("Proffessor Oak: let the battle begin")
+        print("-----------------------------------------")
 
-        while True:
-            # pokemon objects same as in fight_setup
+        while True:  
+            # represents the choosen pokemon object as choose in fight_setup
             attacker_pokemon = self.attacker_pokemon
             defender_pokemon = self.defender_pokemon
-            print("attacker: ", attacker_pokemon["name"])
-            print("defender: ", defender_pokemon["name"])
-            # prints attacking pokemon attacks
-            print(attacker_pokemon["attacks"])
+            # gets the pokemons health
+            attacker_health = attacker_pokemon["health"]
+            defender_health = defender_pokemon["health"]
+            # generates the pokemon on screen health bar
+            health_bar_attack = "="*int(attacker_health/10)
+            health_bar_defend = "="*int(defender_health/10)
+            
+            # generates the onscreen battle and displays stats
+            # displays trainer name, pokemon name, pokemon health and attack pokemon moves
+            print(
+                f"[ Trainer: {self.attacker.name}] \n"
+                f"[ Attacker: {attacker_pokemon["name"]} HP: {health_bar_attack} ({attacker_health}) ]\n"
+                f"{attacker_pokemon["attacks"]}\n"
+                "\n"
+                f"[ Trainer: {self.defender.name}]\n"
+                f"[ Defender: { defender_pokemon["name"]} HP: {health_bar_defend} ({defender_health}) ]\n"
+            )
+            
             # checks if player 2 is human or computer
             if self.attacker.is_human:
                 # input asking user what attack they wish to do
@@ -70,14 +85,20 @@ class Battle:
             else:
                 # computer chooses random attack
                 player_attack_choice = random.choice(list(attacker_pokemon["attacks"]))
+
             # gets attack value deducates the amount from the defending pokemons health
             attack = attacker_pokemon["attacks"][player_attack_choice]
             defender_health = defender_pokemon["health"]
             new_health = defender_health - attack
+
             # updates defending pokemons health
             defender_pokemon["health"] = new_health
+
             # prints new defending pokemon health
             print(f"{defender_pokemon['name']} new health is {new_health}")
+
+            print("-----------------------------------------")
+
             #checks pokemon healh
             if defender_pokemon["health"] <= 0:
                 # deletes fainted pokemon from battle_pokemon object
