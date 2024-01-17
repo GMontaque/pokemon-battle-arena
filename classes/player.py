@@ -135,23 +135,86 @@ class Player:
 
 pokedex = {
     "squirtle": {"name": "squirtle",
-                 "description": "turtle like pokemon that likes "
+                 "description": "This Tiny Turtle Pokémon draws its"
+                 " long neck into its shell to launch incredible "
+                 "Water attacks with amazing range and accuracy. "
+                 "The blasts can be quite powerful."
                  "to make jokes and enjoys a good swin",
                  "pokemon_type": "water",
-                 "health": 120,
-                 "attacks": {"s1": 20, "s2": 30, "s3": 40, "s4": 50}},
-
+                 "health": 240,
+                 "attacks": {"Water Gun": 20, "Aqua Tail": 30,
+                             "Surf": 40, "Whirlpool": 50}},
     "charmander": {"name": "charmander",
-                   "description": "fire like pokemon that likes "
-                   "can have a temper so be careful not to anger",
+                   "description": "A flame burns on the tip of its "
+                   "tail from birth. It is said that a Charmander "
+                   "dies if its flame ever goes out.",
                    "pokemon_type": "fire",
-                   "health": 120,
-                   "attacks": {"c1": 20, "c2": 30, "c3": 40, "c4": 50}},
-
+                   "health": 240,
+                   "attacks": {"Ember": 20, "Fire Fang": 30,
+                               "Flamethrower": 40, "Inferno": 50}},
     "bulbasaur": {"name": "bulbasaur",
-                  "description": "green type pokemon that can be found "
-                  "in the surroudning forests enjoing the sun",
-                  "pokemon_type": "earth",
-                  "health": 120,
-                  "attacks": {"b1": 20, "b2": 30, "b3": 40, "b4": 50}}
+                  "description": "It bears the seed of a plant on "
+                  "its back from birth. The seed slowly develops. "
+                  "Researchers are unsure whether to classify "
+                  "Bulbasaur as a plant or animal. Bulbasaur are "
+                  "extremely tough and very difficult to capture "
+                  "in the wild.",
+                  "pokemon_type": "grass",
+                  "health": 240,
+                  "attacks": {"Vine Whip": 20, "Razor Leaf": 30,
+                              "Seed Bomb": 40, "Leaf Storm": 50}},
+    "grimer": {"name": "grimer",
+               "description": "A Sludge Pokémon. Born from sludge, these "
+               "Pokémon specialize in Sludge attacks.",
+               "pokemon_type": "posion",
+               "health": 240,
+               "attacks": {"Poison Gas": 20, "Sludge": 30, "Gunk Shot": 40,
+                           "Acid Spray": 50}},
+    "pikachu": {"name": "pikachu",
+                "description": "the Mouse Pokémon. It can generate electric "
+                "attacks from the electric pouches located in both "
+                "of its cheeks",
+                "pokemon_type": "Electric",
+                "health": 240,
+                "attacks": {"Thunder Shock": 20, "Thunder Wave": 30,
+                            "ThunderBolt": 40, "Electro Ball": 50}},
+    "abra": {"name": "abra",
+             "description": "a Psychic Power Pokémon. It sleeps eighteen "
+                            "hours a day, but employs telekinesis even while "
+                            "sleeping.",
+             "pokemon_type": "psychic",
+             "health": 240,
+             "attacks": {"Confusion": 20, "Psychic": 30, "Dream Eater": 40,
+                         "Guard Split": 50}},
+    "rattata": {"name": "rattata",
+                "description": "A Forest Pokémon, Rattata. It likes cheese, "
+                "nuts, fruits, and berries. It also comes out into open fields"
+                " to steal food from stupid travelers",
+                "pokemon_type": "normal",
+                "health": 240,
+                "attacks": {"Tackle": 20, "Quick Attack": 30, "Take Down": 40,
+                            "Facade": 50}},
+    "sandshrew": {"name": "sandshrew",
+                  "description": "the Mouse Pokémon. Sandshrew hates moisture"
+                  " and lives in holes it digs in dry places. It protects "
+                  "itself by curling into a ball.",
+                  "pokemon_type": "ground",
+                  "health": 240,
+                  "attacks": {"Sand Attack": 20, "Bulldoze": 30,
+                              "Mud Slap": 40, "Dig": 50}},
+    "Hitmonlee": {"name": "Hitmonlee",
+                  "description": "the Kicking Pokémon. This nimble Pokémon "
+                  "launches lethal kicks from almost any position.",
+                  "pokemon_type": "fighting",
+                  "health": 240,
+                  "attacks": {"Low sweep": 20, "Double kick": 30,
+                              "Sucker punch": 40, "Axe kick": 50}},
+    "dratini": {"name": "dratini",
+                "description": "the Dragon Pokémon. Dratini sheds its skin as "
+                "it grows, often doing so while hidden behind large "
+                "powerful waterfalls.",
+                "pokemon_type": "dragon",
+                "health": 240,
+                "attacks": {"Twister": 20, "Dragon tail": 30,
+                            "Dragon rush": 40, "Outrage": 50}}
 }
