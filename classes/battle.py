@@ -1,4 +1,5 @@
 import random
+import re
 
 class Battle:
     def __init__(self, p1, p2):
@@ -12,18 +13,59 @@ class Battle:
         self.defender_pokemon = None
 
     def fight_setup(self):
-        # asks attacking player for name of pokemon they will use
-        attacker_pokemon_name = input(f"Proffessor Oak: {self.attacker.name} "
+        # user inputs pokemon name and value is checked
+        while True:
+            try:
+                # asks attacking player for name of pokemon they will use
+                attacker_pokemon_name = input(f"Proffessor Oak: {self.attacker.name} "
                                       "which pokemon "
-                                      "do you want to fight with first: ")
-        # confirms name choice of defending pokemon
+                                      "do you want to fight with first: ").lower()
+                # checks for no value
+                if not attacker_pokemon_name:
+                    raise ValueError("Proffessor Oak: Oops doesn't "
+                                             "seem like you choose a pokemon, "
+                                                "please try again")
+                    ''' checks input matches pokemon name in players battle pack
+                    '''
+                elif not self.attacker.battle_pokemon.get(attacker_pokemon_name, None):
+                    raise ValueError("Proffessor Oak: Oops thats not "
+                                             "one of the pokemon in your battle pack"
+                                             " , please try again")
+                else:
+                    # once user enters a correct value, exits loop
+                    break
+            except ValueError as e:
+                print(f"{e}")
+
+        # confirms name choice of player 1 pokemon
         print(f"Proffessor Oak: excellten choice, you have choosen "
               f"{attacker_pokemon_name}")
-        # asks defending player for name of pokemon they will use
-        defender_pokemon_name = input(f"Proffessor Oak: {self.defender.name} "
-                                      "which pokemon do you want to fight "
-                                      "with first: ")
-        # confirms name choice of defending pokemon
+
+        while True:
+            try:
+                # asks defending player for name of pokemon they will use
+                defender_pokemon_name = input(f"Proffessor Oak: {self.defender.name} "
+                                            "which pokemon do you want to fight "
+                                            "with first: ").lower()
+                # checks for no value
+                if not defender_pokemon_name:
+                    raise ValueError("Proffessor Oak: Oops doesn't "
+                                             "seem like you choose a pokemon, "
+                                                "please try again")
+                    ''' checks input matches pokemon name in players battle pack
+                    '''
+                elif not self.defender.battle_pokemon.get(defender_pokemon_name, None):
+                    raise ValueError("Proffessor Oak: Oops thats not "
+                                             "one of the pokemon in your battle pack"
+                                             " , please try again")
+                else:
+                    # once user enters a correct value, exits loop
+                    break
+            except ValueError as e:
+                print(f"{e}")      
+
+
+        # confirms name choice of player 2 pokemon
         print(f"Proffessor Oak: excellten choice, you have choosen "
               f"{defender_pokemon_name}")
         # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
