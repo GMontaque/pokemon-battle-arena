@@ -82,6 +82,12 @@ class Battle:
         
         if len(self.defender.battle_pokemon) == 0:
             print(f"Proffessor Oak: O dear {fainted_pokemon_trainer} all your pokemon have fainted, you loose")
+        elif self.defender.is_human == False:
+            pokemon_random_name = random.choice(list(self.defender.battle_pokemon))
+            self.defender_pokemon = self.defender.battle_pokemon[pokemon_random_name]
+            print(f"Proffessor Oak: excellten choice, you have choosen "
+              f"{pokemon_random_name}")
+            self.battle_stadium()
         else:
             defender_pokemon_name = input(f"Proffessor Oak: {fainted_pokemon_trainer} "
                                       "which pokemon do you want to fight "
