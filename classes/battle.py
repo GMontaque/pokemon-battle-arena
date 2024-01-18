@@ -123,15 +123,17 @@ class Battle:
             # checks if player 2 is human or computer
             if self.attacker.is_human:
                 # input asking user what attack they wish to do
-                player_attack_choice = input(f"what attack do you wish to use: ")
+                player_attack_choice = int(input(f"what attack do you wish to use: "))
             else:
                 # computer chooses random attack
                 player_attack_choice = random.choice(list(attacker_pokemon["attacks"]))
 
             # gets attack value deducates the amount from the defending pokemons health
-            attack = attacker_pokemon["attacks"][player_attack_choice]
+            attack = attacker_pokemon["attacks"][player_attack_choice][-2:]
+            attack_name = attacker_pokemon["attacks"][player_attack_choice][:-4]
+            print(f"{attacker_pokemon['name']} used {attack_name} causing {attack} damage")
             defender_health = defender_pokemon["health"]
-            new_health = defender_health - attack
+            new_health = defender_health - int(attack)
 
             # updates defending pokemons health
             defender_pokemon["health"] = new_health
