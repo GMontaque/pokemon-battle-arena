@@ -128,11 +128,15 @@ class Battle:
                 # computer chooses random attack
                 player_attack_choice = random.choice(list(attacker_pokemon["attacks"]))
 
-            # gets attack value deducates the amount from the defending pokemons health
+            # gets the number value of the string
             attack = attacker_pokemon["attacks"][player_attack_choice][-2:]
+            # gets the name of the attack
             attack_name = attacker_pokemon["attacks"][player_attack_choice][:-4]
+            # prints what the attacker did
             print(f"{attacker_pokemon['name']} used {attack_name} causing {attack} damage")
+            #  deducates the attack amount from the defending pokemons health
             defender_health = defender_pokemon["health"]
+            # updates defending pokemon health
             new_health = defender_health - int(attack)
 
             # updates defending pokemons health
