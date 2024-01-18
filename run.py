@@ -2,6 +2,22 @@ import re
 from classes.player import Player
 from classes.battle import Battle
 
+def game_restart(user1,user2):
+    # player 1 and 2 names
+    player_1 = user1
+    player_2 = user2
+    play_again = input(f"Proffessor Oak: Well I hope you had fun {player_1}, do you want to try again: ")
+    if play_again == "yes":
+        npc_needed = input(f"Proffessor Oak: Excellent, will you be fighting {player_2} again? ")
+        if npc_needed == "no":
+            print("Proffessor Oak: No worries you can fight against John")
+            # player 2 becomes the PC
+            play_game(player_1, user2= "John", human= False)
+        else:
+            play_game(player_1, player_2, human= True)
+    else:
+        print("Proffessor Oak: No worries come back any time")
+  
 
 def play_game(user1, user2, human):
     # stores players names
@@ -32,6 +48,10 @@ def play_game(user1, user2, human):
     battle.fight_setup()
     # starts the actually battle
     battle.battle_stadium()
+    print("battle finished")
+    # asks user if they wish to restart and play again
+    # pass player 1 and 2 name
+    game_restart(player_1,player_2)
 
 
 def game_start():
