@@ -15,6 +15,8 @@ class Player:
 
     def pick_pokemon(self):
         '''players are asked to pick 3 pokemon they wish to fight with '''
+        for name,entry in pokedex.items():
+                entry['health'] = 240
         if self.is_human:
             # loops till member chooses 3 pokemon
             while len(self.battle_pokemon) < 3:
