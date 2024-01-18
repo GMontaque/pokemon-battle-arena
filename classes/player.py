@@ -12,6 +12,7 @@ class Player:
         # stores the pokemon picked for each player
         self.battle_pokemon = {}
 
+
     def pick_pokemon(self):
         '''players are asked to pick 3 pokemon they wish to fight with '''
         if self.is_human:
@@ -142,16 +143,16 @@ pokedex = {
                  "to make jokes and enjoys a good swin",
                  "pokemon_type": "water",
                  "health": 240,
-                 "attacks": {"Water Gun": 20, "Aqua Tail": 30,
-                             "Surf": 40, "Whirlpool": 50}},
+                 "attacks": {1: "Water Gun: 20", 2: "Aqua Tail: 30",
+                             3: "Surf: 40", 4: "Whirlpool: 50"}},
     "charmander": {"name": "charmander",
                    "description": "A flame burns on the tip of its "
                    "tail from birth. It is said that a Charmander "
                    "dies if its flame ever goes out.",
                    "pokemon_type": "fire",
                    "health": 240,
-                   "attacks": {"Ember": 20, "Fire Fang": 30,
-                               "Flamethrower": 40, "Inferno": 50}},
+                   "attacks": {1: "Ember: 20", 2: "Fire Fang: 30",
+                               3:"Flamethrower: 40", 4: "Inferno: 50"}},
     "bulbasaur": {"name": "bulbasaur",
                   "description": "It bears the seed of a plant on "
                   "its back from birth. The seed slowly develops. "
@@ -161,60 +162,60 @@ pokedex = {
                   "in the wild.",
                   "pokemon_type": "grass",
                   "health": 240,
-                  "attacks": {"Vine Whip": 20, "Razor Leaf": 30,
-                              "Seed Bomb": 40, "Leaf Storm": 50}},
+                  "attacks": {1: "Vine Whip: 20", 2: "Razor Leaf: 30",
+                              3: "Seed Bomb: 40", 4: "Leaf Storm: 50"}},
     "grimer": {"name": "grimer",
                "description": "A Sludge Pokémon. Born from sludge, these "
                "Pokémon specialize in Sludge attacks.",
                "pokemon_type": "posion",
                "health": 240,
-               "attacks": {"Poison Gas": 20, "Sludge": 30, "Gunk Shot": 40,
-                           "Acid Spray": 50}},
+               "attacks": {1: "Poison Gas: 20", 2: "Sludge: 30", 3: "Gunk Shot: 40",
+                           4: "Acid Spray: 50"}},
     "pikachu": {"name": "pikachu",
                 "description": "the Mouse Pokémon. It can generate electric "
                 "attacks from the electric pouches located in both "
                 "of its cheeks",
                 "pokemon_type": "Electric",
                 "health": 240,
-                "attacks": {"Thunder Shock": 20, "Thunder Wave": 30,
-                            "ThunderBolt": 40, "Electro Ball": 50}},
+                "attacks": {1:"Thunder Shock: 20", 2:"Thunder Wave: 30",
+                            3: "ThunderBolt: 40", 4: "Electro Ball: 50"}},
     "abra": {"name": "abra",
              "description": "a Psychic Power Pokémon. It sleeps eighteen "
                             "hours a day, but employs telekinesis even while "
                             "sleeping.",
              "pokemon_type": "psychic",
              "health": 240,
-             "attacks": {"Confusion": 20, "Psychic": 30, "Dream Eater": 40,
-                         "Guard Split": 50}},
+             "attacks": {1: "Confusion: 20", 2: "Psychic: 30", 3:"Dream Eater: 40",
+                         4: "Guard Split: 50"}},
     "rattata": {"name": "rattata",
                 "description": "A Forest Pokémon, Rattata. It likes cheese, "
                 "nuts, fruits, and berries. It also comes out into open fields"
                 " to steal food from stupid travelers",
                 "pokemon_type": "normal",
                 "health": 240,
-                "attacks": {"Tackle": 20, "Quick Attack": 30, "Take Down": 40,
-                            "Facade": 50}},
+                "attacks": {1: "Tackle: 20", 2: "Quick Attack: 30", 3: "Take Down: 40",
+                            4:"Facade: 50"}},
     "sandshrew": {"name": "sandshrew",
                   "description": "the Mouse Pokémon. Sandshrew hates moisture"
                   " and lives in holes it digs in dry places. It protects "
                   "itself by curling into a ball.",
                   "pokemon_type": "ground",
                   "health": 240,
-                  "attacks": {"Sand Attack": 20, "Bulldoze": 30,
-                              "Mud Slap": 40, "Dig": 50}},
+                  "attacks": {1: "Sand Attack: 20", 2: "Bulldoze: 30",
+                              3: "Mud Slap: 40", 4:"Dig: 50"}},
     "Hitmonlee": {"name": "Hitmonlee",
                   "description": "the Kicking Pokémon. This nimble Pokémon "
                   "launches lethal kicks from almost any position.",
                   "pokemon_type": "fighting",
                   "health": 240,
-                  "attacks": {"Low sweep": 20, "Double kick": 30,
-                              "Sucker punch": 40, "Axe kick": 50}},
+                  "attacks": {1: "Low sweep: 20", 2: "Double kick: 30",
+                              3:"Sucker punch: 40", 4: "Axe kick: 50"}},
     "dratini": {"name": "dratini",
                 "description": "the Dragon Pokémon. Dratini sheds its skin as "
                 "it grows, often doing so while hidden behind large "
                 "powerful waterfalls.",
                 "pokemon_type": "dragon",
                 "health": 240,
-                "attacks": {"Twister": 20, "Dragon tail": 30,
-                            "Dragon rush": 40, "Outrage": 50}}
+                "attacks": {1: "Twister: 20", 2: "Dragon tail: 30",
+                            3:"Dragon rush: 40", 4:"Outrage: 50"}}
 }
