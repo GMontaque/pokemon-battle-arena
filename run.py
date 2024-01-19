@@ -83,11 +83,11 @@ def game_start():
             # checks their is a value
             if not pc_check:
                 raise ValueError("Proffessor Oak: Oops seems you forgot to "
-                                 "enter your name, why not try again")
+                                 "write Yes or No, why not try again")
             # checks the value is in the correct format
             elif pc_check.lower() not in ['yes', 'no']:
                 raise ValueError("Proffessor Oak: Oops sorry i didn't "
-                                 "understnad, was that a 'yes' or 'no' ")
+                                 "understand, was that a 'yes' or 'no' ")
             break
         except ValueError as e:
             # prints error message
@@ -110,8 +110,8 @@ def game_start():
                                      "a number, why not try again")
                 # passed to play game as used when picking battle pokemon party
                 human_player = True
-                print(f"Proffessor Oak: Well hello {user_name2} and "
-                      f"{user_name}, welcome my names professor oak and "
+                print(f"Proffessor Oak: Well hello {user_name} and "
+                      f"{user_name2}, welcome my names professor oak and "
                       "I hope your ready to fight")
                 break
             except ValueError as e:
