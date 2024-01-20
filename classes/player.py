@@ -1,5 +1,6 @@
 import re
 import random
+import copy
 
 
 class Player:
@@ -108,7 +109,7 @@ class Player:
                     self.selected_pokemon_name = pokedex[pokemon_name]
                     # adds selected pokemon to battle_pokemon as dictionary
                     self.battle_pokemon[pokemon_name] = (
-                        self.selected_pokemon_name)
+                        copy.deepcopy(self.selected_pokemon_name))
                     # confirmation to user pokemon added
                     print(f"{pokemon_name} added to battle party.")
                 elif picking_pokemon.lower() == "no":
@@ -130,7 +131,7 @@ class Player:
                 if random_pokemon not in self.battle_pokemon:
                     # adds pokemon
                     self.battle_pokemon[random_pokemon] = (
-                        pokedex[random_pokemon])
+                        copy.deepcopy(pokedex[random_pokemon]))
         return self.battle_pokemon
 
 # pokedex dicitionary stores all the pokemon the user can choose from
