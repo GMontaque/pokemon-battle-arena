@@ -10,7 +10,6 @@ class Player:
         self.name = kwargs["name"]
         # if player is human or computer
         self.is_human = kwargs["is_human"]
-        # stores the pokemon picked for each player
         self.battle_pokemon = {}
 
 
@@ -206,7 +205,7 @@ pokedex = {
                   "health": 240,
                   "attacks": {1: "Sand Attack: 20", 2: "Bulldoze: 30",
                               3: "Mud Slap: 40", 4:"Dig: 50"}},
-    "Hitmonlee": {"name": "Hitmonlee",
+    "hitmonlee": {"name": "hitmonlee",
                   "description": "the Kicking Pokémon. This nimble Pokémon "
                   "launches lethal kicks from almost any position.",
                   "pokemon_type": "fighting",
