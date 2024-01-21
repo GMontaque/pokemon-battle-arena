@@ -42,27 +42,31 @@ class Battle:
               f"{attacker_pokemon_name}")
 
         while True:
-            try:
-                # asks defending player for name of pokemon they will use
-                defender_pokemon_name = input(f"Proffessor Oak: {self.defender.name} "
-                                            "which pokemon do you want to fight "
-                                            "with first: ").lower()
-                # checks for no value
-                if not defender_pokemon_name:
-                    raise ValueError("Proffessor Oak: Oops doesn't "
-                                             "seem like you choose a pokemon, "
-                                                "please try again")
-                    ''' checks input matches pokemon name in players battle pack
-                    '''
-                elif not self.defender.battle_pokemon.get(defender_pokemon_name, None):
-                    raise ValueError("Proffessor Oak: Oops thats not "
-                                             "one of the pokemon in your battle pack"
-                                             " , please try again")
-                else:
-                    # once user enters a correct value, exits loop
-                    break
-            except ValueError as e:
-                print(f"{e}")      
+            if self.defender.is_human:
+                try:
+                    # asks defending player for name of pokemon they will use
+                    defender_pokemon_name = input(f"Proffessor Oak: {self.defender.name} "
+                                                "which pokemon do you want to fight "
+                                                "with first: ").lower()
+                    # checks for no value
+                    if not defender_pokemon_name:
+                        raise ValueError("Proffessor Oak: Oops doesn't "
+                                                "seem like you choose a pokemon, "
+                                                    "please try again")
+                        ''' checks input matches pokemon name in players battle pack
+                        '''
+                    elif not self.defender.battle_pokemon.get(defender_pokemon_name, None):
+                        raise ValueError("Proffessor Oak: Oops thats not "
+                                                "one of the pokemon in your battle pack"
+                                                " , please try again")
+                    else:
+                        # once user enters a correct value, exits loop
+                        break
+                except ValueError as e:
+                    print(f"{e}")
+            else:
+                defender_pokemon_name = random.choice(list(self.defender.battle_pokemon))
+                break   
 
 
         # confirms name choice of player 2 pokemon
