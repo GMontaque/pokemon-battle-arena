@@ -60,7 +60,7 @@ def game_start():
     while True:
         try:
             # askes for users name
-            user_name = input("Proffessor Oak: what is your name young man? ")
+            user_name = input("Proffessor Oak: what is your name young man? ").capitalize()
             # checks their is a value
             if not user_name:
                 raise ValueError("Proffessor Oak: Oops seems you forgot to"
@@ -99,7 +99,7 @@ def game_start():
         while True:
             try:
                 # asks for players 2's name
-                user_name2 = input("Hello friend, whats your name be? ")
+                user_name2 = input("Hello friend, whats your name be? ").capitalize()
                 # checks their is a value
                 if not user_name2:
                     raise ValueError("Proffessor Oak: Oops seems you forgot "
