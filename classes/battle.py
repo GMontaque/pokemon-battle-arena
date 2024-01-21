@@ -106,6 +106,10 @@ class Battle:
               f"{pokemon_random_name}")
             self.battle_stadium()
         else:
+            current_defender_pokemon = [
+                    list(self.defender.battle_pokemon)
+                ]
+            print(tabulate(current_defender_pokemon,headers=["Pokemon Left in party"], tablefmt="double_grid"))
             defender_pokemon_name = input(f"Proffessor Oak: {fainted_pokemon_trainer} "
                                       "which pokemon do you want to fight "
                                       "with next: ")
