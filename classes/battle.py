@@ -1,5 +1,6 @@
 import random
 import re
+from tabulate import tabulate
 
 class Battle:
     def __init__(self, p1, p2):
@@ -15,6 +16,12 @@ class Battle:
     def fight_setup(self):
         # user inputs pokemon name and value is checked
         while True:
+            battle_pokemon_names_attacker = [
+                    list(self.attacker.battle_pokemon)
+            ]
+                                
+            # display table
+            print(tabulate(battle_pokemon_names_attacker, tablefmt="double_grid"))
             try:
                 # asks attacking player for name of pokemon they will use
                 attacker_pokemon_name = input(f"Proffessor Oak: {self.attacker.name} "
@@ -43,6 +50,12 @@ class Battle:
 
         while True:
             if self.defender.is_human:
+                battle_pokemon_names_defender = [
+                    list(self.defender.battle_pokemon)
+                ]
+                                
+                # display table
+                print(tabulate(battle_pokemon_names_defender, tablefmt="double_grid"))
                 try:
                     # asks defending player for name of pokemon they will use
                     defender_pokemon_name = input(f"Proffessor Oak: {self.defender.name} "
