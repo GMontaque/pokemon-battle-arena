@@ -1,6 +1,7 @@
 import re
 import random
 import copy
+from tabulate import tabulate
 
 
 class Player:
@@ -10,6 +11,7 @@ class Player:
         self.name = kwargs["name"]
         # if player is human or computer
         self.is_human = kwargs["is_human"]
+        # stores the pokemon picked for each player
         self.battle_pokemon = {}
 
 
@@ -20,9 +22,16 @@ class Player:
         if self.is_human:
             # loops till member chooses 3 pokemon
             while len(self.battle_pokemon) < 3:
-
-                print("Please choose from the follow pokemon Squirtle, "
-                      "Charmander or Bulbasaur")
+                print("Please choose from the follow")
+                pokemon_names = [
+                    ["Squirtle", "Charmander","Bulbasaur"], 
+                    ["Grimer", "Pikachu","Abra"], 
+                    ["Rattata", "Sandshrew","Hitmonlee"], 
+                    ["Dratini"]
+                ]
+                                
+                # display table
+                print(tabulate(pokemon_names, tablefmt="double_grid"))
 
                 # user inputs pokemon name and value is checked
                 while True:
