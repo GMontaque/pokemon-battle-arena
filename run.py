@@ -40,7 +40,7 @@ def play_game(user1, user2, human):
     pokemon_battle_player2 = player2.pick_pokemon()
     print(f"{player_2} picked {pokemon_battle_player2}")
 
-    print("Proffessor Oak: Excellent you've both choosen now they"
+    print("Proffessor Oak: Excellent you've both now choosen your pokemon, lets"
           " go to to battle arena")
     # creates battle area from Battle Class
     battle = Battle(player1, player2)
