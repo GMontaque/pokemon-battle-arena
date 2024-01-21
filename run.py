@@ -8,7 +8,7 @@ def game_restart(user1,user2):
     player_2 = user2
     play_again = input(f"Proffessor Oak: Well I hope you had fun {player_1}, do you want to try again: ")
     if play_again == "yes":
-        npc_needed = input(f"Proffessor Oak: Excellent, will you be fighting {player_2} again? ")
+        npc_needed = input(f"Proffessor Oak: Excellent, do you wish to play against a human player? ")
         if npc_needed == "no":
             print("Proffessor Oak: No worries you can fight against John")
             # player 2 becomes the PC
