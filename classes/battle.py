@@ -109,17 +109,27 @@ class Battle:
             current_defender_pokemon = [
                     list(self.defender.battle_pokemon)
                 ]
-            print(tabulate(current_defender_pokemon,headers=["Pokemon Left in party"], tablefmt="double_grid"))
-            defender_pokemon_name = input(f"Proffessor Oak: {fainted_pokemon_trainer} "
-                                      "which pokemon do you want to fight "
-                                      "with next: ")
-            # confirms name choice of defending pokemon
-            print(f"Proffessor Oak: excellten choice, you have choosen "
-              f"{defender_pokemon_name}")
-            # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
-            self.defender_pokemon = self.defender.battle_pokemon[defender_pokemon_name]
-            self.battle_stadium()
-        
+            while True:  
+                print(tabulate(current_defender_pokemon,headers=["Pokemon Left in party"], tablefmt="double_grid"))            
+                try:
+                    # input asking user what attack they wish to do
+                    defender_pokemon_name = input(f"Proffessor Oak: {fainted_pokemon_trainer} "
+                                                  "which pokemon do you want to fight "
+                                                  "with next: ")
+                    # checks if value is a number and if value is either 1,2,3 or 4
+                    if defender_pokemon_name in self.defender.battle_pokemon:
+                        # updates input value to a number
+                        # confirms name choice of defending pokemon
+                        print(f"Proffessor Oak: excellten choice, you have choosen "
+                        f"{defender_pokemon_name}")
+                        # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
+                        self.defender_pokemon = self.defender.battle_pokemon[defender_pokemon_name]
+                        self.battle_stadium()
+                        break
+                    else:
+                        raise ValueError("Proffessor Oak: Oops sorry thats not one of the options please try again")
+                except ValueError as e:
+                        print(f"{e}")
 
     def battle_stadium(self):
         print("Proffessor Oak: let the battle begin")
