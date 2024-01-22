@@ -149,8 +149,19 @@ class Battle:
             
             # checks if player 2 is human or computer
             if self.attacker.is_human:
-                # input asking user what attack they wish to do
-                player_attack_choice = int(input(f"what attack do you wish to use: "))
+                while True:
+                    try:
+                        # input asking user what attack they wish to do
+                        player_attack_choice = input(f"what attack do you wish to use: ")
+                        # checks if value is a number and if value is either 1,2,3 or 4
+                        if player_attack_choice.isdigit() and player_attack_choice in ["1","2","3","4"]:
+                            # updates input value to a number
+                            player_attack_choice = int(player_attack_choice)
+                            break
+                        else:
+                            raise ValueError("Proffessor Oak: Oops sorry thats not one of the options try typing 1,2,3 or 4 ")
+                    except ValueError as e:
+                        print(f"{e}")
             else:
                 # computer chooses random attack
                 player_attack_choice = random.choice(list(attacker_pokemon["attacks"]))
