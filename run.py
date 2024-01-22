@@ -6,15 +6,37 @@ def game_restart(user1,user2):
     # player 1 and 2 names
     player_1 = user1
     player_2 = user2
-    play_again = input(f"Proffessor Oak: Well I hope you had fun {player_1}, do you want to try again: ")
+    
+    while True:
+        # gets the name for player 2
+        try:
+            play_again = input(f"Proffessor Oak: Well I hope you had fun {player_1}, do you want to try again: ")
+            # checks their is a value
+            if play_again.lower() not in ['yes', 'no']:
+                raise ValueError("Proffessor Oak: Oop, Sorry I need a Yes or No answer, why not try again")
+            break
+        except ValueError as e:
+            # prints error message
+            print(f"{e}")
+
     if play_again == "yes":
-        npc_needed = input(f"Proffessor Oak: Excellent, do you wish to play against a human player? ")
+        while True:
+            # gets the name for player 2
+            try:
+                npc_needed = input(f"Proffessor Oak: Excellent, do you wish to play against a human player? ")
+                # checks their is a value
+                if npc_needed.lower() not in ['yes', 'no']:
+                    raise ValueError("Proffessor Oak: Oop, Sorry I need a Yes or No answer, why not try again")
+                break
+            except ValueError as e:
+                # prints error message
+                print(f"{e}")
         if npc_needed == "no":
             print("Proffessor Oak: No worries you can fight against John")
             # player 2 becomes the PC
             play_game(player_1, user2= "John", human= False)
         else:
-            play_game(player_1, player_2, human= True)
+            play_game(player_1, player_2, human= True)       
     else:
         print("Proffessor Oak: No worries come back any time")
   
