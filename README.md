@@ -1,32 +1,11 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Pokemon Battle Arena
 
-Welcome,
+## About the Project
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+![picture of initial game screem](assets/img/)
 
-## Reminders
+- I have taken inspiration for creating this game from the very populator Pokémon franchise, in that game a player follows the story of a new trainer building up his skills, catching new Pokémon and battling other trainers with the Pokémon he catches. The specific game that I have created is just the battle part where a player is given the option to fight against another player or they can play against the PC, before this the players or pc will choose their battle Pokémon.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+- To do this a player is given the option to review a number of Pokémon. When reviewing the Pokémon it displays the Pokémon type, a description which explains the Pokémon along with their name and the attack moves they can do. This then allows the user to make an informed decision as to the Pokémon they will to have in their battle party. Once the user has chosen their Pokémon, they are taken to the battle area which is where the actually battle takes place. The players will take turn to complete an attack until one of the players Pokémon has a health of 0 (fainted). When the players Pokémon faints, they are then asked to selected another Pokémon from their party, when a player has no more Pokémon in their party the game finishes and the user can either play again against another player or pc. The other option is to exit the game completely.
 
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
+[Live Website Link](https://pokemon-battle-arena-52c50ec4c2a7.herokuapp.com/)
