@@ -60,3 +60,21 @@
 - The game is easy to play
 - Included in the program is error handling and feedback for the user
 - The program has been created to guide users to improve the play ability
+
+## How to play the game and Game Design
+
+**Walk through of the game**
+
+- First the user (player 1) will be asked for their name, the player 1 will be asked if they are going to be playing against a friend (human player). If they say yes to this then they will be directed to entire the users name (player 2), if they say no to this then a pre-defined user name will be used by the game.
+- Once the names have been selected the user will be shown the rules of the game, and what to expect. Once they have read through this, they will then be given the option to move to the Pokémon selection stage or they can exit the game here.
+- Assuming they have type “fight” and moved to the Pokémon selection stage the players will take turns in reviewing Pokémon before being asked if the Pokémon is to be added to their battle pack. Once player 1 has chosen all their Pokémon, player 2 will be asked to choose their Pokémon. If player 2 is the PC this will be automated.
+- When Pokémon selection is completed, players are taken to the battle area, firstly each player is asked to choose which Pokémon from their battle pack they wish to start with. If player 2 is a PC this is automated. After Pokémon selected begins the turn-based attacks, each player can choose from 1 of 4 attacks they can do against the other player. Multipliers have also been included being that the Pokémon’s type is taken into account, if the attacker is super effective against the defender, then the attackers attack is double. But if they are not supper effective than the normal value of the attack is done and the defenders health is deducted that amount.
+- When a players Pokémon faint (0 health) they are given the option to bring out another Pokémon, and the battle will continue again. This loop will continue until one player has no Pokémon left to fight with and the game will be over.
+- The player will then be taken to the next stage where they will be asked firstly if they wish to play another game, if they say yes, they will then be asked if they wish to play against a human player 2. If they say no then a PC player 2 will be used and they will then both be taken to the Pokémon selection stage to pick a new set of 3 Pokémon to add to their battle pack before going into the battle area.
+- The player also has the option to completing exit the game during this next stage if they do not wish to play another game
+
+**Game Design**
+
+- The idea behind the design choice of the game was heavily influcenced by the pokemon games, in the pokemon games there is a character called professor oak. His role in the game is to provide the user with information and detail and guides the user through the game and and provides new and important information. I have used that in my game and created the game as a story and in a conversational style all inputs of information that the user has to make are questions presented to them by professor oak and I have contiened this theme with the error handling such as if the user enters the incorrect value.
+
+- Also when desgining the game I have used information from the actual pokemon game such as names descripitons of pokemon, pokmeon attack moves and the pokemon types so that a person with previous knowledge of the games can pick up the game I have created easily as they will be able to tap into the same areas of knowledge.
