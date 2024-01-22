@@ -1,4 +1,6 @@
+import os
 import re
+import time
 from classes.player import Player
 from classes.battle import Battle
 
@@ -45,8 +47,6 @@ def play_game(user1, user2, human):
     # stores players names
     player_1 = user1
     player_2 = user2
-
-    print("Proffessor Oak: Great!, now lets pick your pokemon: ")
 
     # creates player1 object
     player1 = Player(name=player_1, is_human=True)
@@ -162,6 +162,9 @@ def game_start():
                 raise ValueError("Proffessor Oak: Oops, close but I need an "
                                  "answer, either fight or exit")
             elif play == "fight":
+                print("Proffessor Oak: Great!, now lets pick your pokemon: ")
+                time.sleep(2.5)
+                os.system("clear")
                 play_game(user1=user_name,
                           user2=user_name2,
                           human=human_player)
