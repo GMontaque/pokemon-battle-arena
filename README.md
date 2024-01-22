@@ -78,3 +78,95 @@
 - The idea behind the design choice of the game was heavily influcenced by the pokemon games, in the pokemon games there is a character called professor oak. His role in the game is to provide the user with information and detail and guides the user through the game and and provides new and important information. I have used that in my game and created the game as a story and in a conversational style all inputs of information that the user has to make are questions presented to them by professor oak and I have contiened this theme with the error handling such as if the user enters the incorrect value.
 
 - Also when desgining the game I have used information from the actual pokemon game such as names descripitons of pokemon, pokmeon attack moves and the pokemon types so that a person with previous knowledge of the games can pick up the game I have created easily as they will be able to tap into the same areas of knowledge.
+
+## Data Model and Flowchart
+
+## Website Features
+
+**Welcome page**
+
+**Player 1 User input name and validation**
+
+**Player 2 selection - human or computer**
+
+**Game Rules**
+
+**Each player reviewing picking Pokémon for battle pack**
+
+**Players adding Pokémon to battle pack**
+
+**Pc adding Pokémon to battle pack**
+
+**Entering battle arena**
+
+**Pokémon fight in battle arena display**
+
+**Health reduction**
+
+**Selection a new Pokémon**
+
+**Restart and end game**
+
+## Future Implementations
+
+## Technologies and Languages
+
+- Python - Object Oriented Coding Lanugage
+- Gitpod – a cloud development environment
+- GitHub – a code hosting platform for version control, collaboration and editing websites
+- VS Code Desktop – IDE used to code the program
+- Heroku - used to deploy the program
+- Re – regular expression
+  - This was imported and used to check that the user input only contains letters
+- Random
+  - This was used when the pc needed to select an option at random
+- Copy and deepcopy
+  - A deep copy constructs a new compound object and then, recursively, inserts copies into it of the objects found in the original.
+- tabulate
+  - used to create tables in python
+
+## Testing
+
+- The testing that i have completed for can be found in the following file
+  - [Website Testing](websiteTesting.md)
+
+## Deployment
+
+### Deploying the Website to GitHub Pages
+
+- The website was deployed to GitHub Pages using the following steps:
+- In the GitHub repository, go to the "Settings" tab.
+- From the left-side menu, select 'Pages.'
+- In the source section drop-down menu, choose the 'main' branch.
+- Click 'Save.'
+- Upon successful publishing, a live link will be displayed in a green banner.
+
+### To deploy on Heroku:
+
+- Log in to Heroku - or set up a new account.
+- From the dashboard, click 'Create new app'.
+- Name your app - it will need to be unique. Select Region, then 'Create'.
+- Click on the 'Settings' tab.
+- Scroll down to Config Vars and click 'Reveal Config Vars'.
+- In the 'Key' field enter 'PORT', and in the 'Value' field enter '8000'.
+- If there is a credentials file, this will also need to be entered into the Config Vars setting.
+- Staying within 'Settings', scroll down to Buildpacks and click on 'Add Buildpacks'.
+- Select 'python' first and click 'Save changes'.
+- Then do the same again and this time select 'nodejs' and click 'Save changes'.
+- Ensure the buildpacks are in the order of python first and nodejs second.
+- Scroll to the top and select 'Deploy'.
+- In 'Deployment method' select 'GitHub' and confirm you want to connect.
+- Enter your GitHub repository into the search bar, and then 'Connect'.
+- Under 'Automatic deploys', click on 'Enable Automatic Deploys' if you want the app to update every time you push changes to GitHub.
+- Finally, click on 'Deploy Branch' under 'Manual deploy' to deploy your app. Once completed, you will be able to view your deployed link.
+
+### Cloning the Repository
+
+- Click on the "Code" button located near the top right corner of the page.
+- Copy the HTTPS or SSH URL displayed.
+- Open your terminal (or Git Bash on Windows) and navigate to your desired directory.
+- Enter "git clone" followed by a space, and paste the copied URL.
+- Press enter to execute the command, creating a local copy of the GitHub repository.
+- You now have the GitHub repository cloned to your local machine.
+
+## Credit and Content
