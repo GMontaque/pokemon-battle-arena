@@ -55,10 +55,7 @@ def play_game(user1, user2, human):
     player1 = Player(name=player_1, is_human=True)
     # method called for player1 to choose the pokemon they wish to battle with
     pokemon_battle_player1 = player1.pick_pokemon()
-    print(f"Proffessor Oak: That you sorted, {player_1.capitalize()} you've choosen your pokemon")
-    print(f"{player_1.capitalize()} picked {pokemon_battle_player1}")
-    time.sleep(2.5)
-    os.system("clear")
+    print(f"Proffessor Oak: That is you sorted {player_1.capitalize()}, you've choosen your pokemon")
     print("------------------------------------------------")
     print(f"Proffessor Oak: Now, {player_2.capitalize()} choose your pokemon")
     print("------------------------------------------------")
@@ -66,11 +63,11 @@ def play_game(user1, user2, human):
     player2 = Player(name=player_2, is_human=human)
     # method called for player2 to choose the pokemon they wish to battle with
     pokemon_battle_player2 = player2.pick_pokemon()
-    print(f"{player_2.capitalize()} picked {pokemon_battle_player2}")
+    print(f"Proffessor Oak: That is you sorted {player_2.capitalize()}, you've choosen your pokemon")
+    time.sleep(3)
+    os.system("clear")
     print("Proffessor Oak: Excellent you've both now choosen your pokemon, lets"
           " go to to battle arena")
-    time.sleep(2.5)
-    os.system("clear")
     # creates battle area from Battle Class
     battle = Battle(player1, player2)
     # lets palyers choose which pokemon to start the battle with
