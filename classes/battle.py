@@ -179,15 +179,22 @@ class Battle:
                 player_attack_choice = random.choice(list(attacker_pokemon["attacks"]))
 
             # gets the number value of the string
-            attack = attacker_pokemon["attacks"][player_attack_choice][-2:]
+            attack = attacker_pokemon["attacks"][player_attack_choice][1][-2:]
             # gets the name of the attack
-            attack_name = attacker_pokemon["attacks"][player_attack_choice][:-4]
-            # prints what the attacker did
-            print(f"{attacker_pokemon['name']} used {attack_name} causing {attack} damage")
+            attack_name = attacker_pokemon["attacks"][player_attack_choice][1][:-4]
             #  deducates the attack amount from the defending pokemons health
             defender_health = defender_pokemon["health"]
-            # updates defending pokemon health
-            new_health = defender_health - int(attack)
+            attack_type = attacker_pokemon["attacks"][player_attack_choice][0]
+            defender_weakness = defender_pokemon["x2_attack"]
+            if attack_type in defender_weakness:
+                # updates defending pokemon health
+                new_health = defender_health - (int(attack)+40)
+                # prints what the attacker did
+                print(f"{attacker_pokemon['name']} used {attack_name} causing {(int(attack)+40)} damage as it was super effective")
+            else:
+                new_health = defender_health - int(attack)
+                # prints what the attacker did
+                print(f"{attacker_pokemon['name']} used {attack_name} causing {attack} damage")
 
             # updates defending pokemons health
             defender_pokemon["health"] = new_health
