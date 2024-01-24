@@ -45,8 +45,9 @@ class Battle:
                 print(f"{e}")
 
         # confirms name choice of player 1 pokemon
-        print(f"Proffessor Oak: excellten choice, you have choosen "
+        print(f"Proffessor Oak: excellten choice {self.attacker.name}, you have choosen "
               f"{attacker_pokemon_name}")
+        print("-----------------------------------------------")
 
         while True:
             if self.defender.is_human:
@@ -83,8 +84,9 @@ class Battle:
 
 
         # confirms name choice of player 2 pokemon
-        print(f"Proffessor Oak: excellten choice, you have choosen "
+        print(f"Proffessor Oak: excellten choice {self.defender.name}, you have choosen "
               f"{defender_pokemon_name}")
+        print("-----------------------------------------------")
         # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
         self.attacker_pokemon = self.attacker.battle_pokemon[attacker_pokemon_name]
         # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
@@ -189,9 +191,6 @@ class Battle:
 
             # updates defending pokemons health
             defender_pokemon["health"] = new_health
-
-            # prints new defending pokemon health
-            print(f"{defender_pokemon['name']} new health is {new_health}")
 
             print("-----------------------------------------")
 
