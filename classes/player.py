@@ -120,6 +120,7 @@ class Player:
                         copy.deepcopy(self.selected_pokemon_name))
                     # confirmation to user pokemon added
                     print(f"{pokemon_name} added to battle party.")
+                    print("-----------------------------------------------------")
                 elif picking_pokemon.lower() == "no":
                     # if user inputs no, function loops back to beginning
                     print(f"Proffessor Oak: No worries, {pokemon_name} "
@@ -129,6 +130,7 @@ class Player:
                     print(f"Proffessor Oak: looks like you already addeds, "
                           f"{pokemon_name} why not try another pokemon.")
         else:
+            print(f"Player {self.name} is choosing his pokemon")
             # loops until 3 pokemon selected
             while len(self.battle_pokemon) < 3:
                 # selects a random pokemon in pokedex
@@ -140,6 +142,7 @@ class Player:
                     # adds pokemon
                     self.battle_pokemon[random_pokemon] = (
                         copy.deepcopy(pokedex[random_pokemon]))
+            print(f"Pokemon selection complete")
         return self.battle_pokemon
 
 # pokedex dicitionary stores all the pokemon the user can choose from
