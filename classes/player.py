@@ -157,16 +157,18 @@ pokedex = {
                  "to make jokes and enjoys a good swin",
                  "pokemon_type": "water",
                  "health": 240,
-                 "attacks": {1: "Water Gun: 20", 2: "Aqua Tail: 30",
-                             3: "Surf: 40", 4: "Whirlpool: 50"}},
+                 "attacks": {1:["normal","Tackle: 10"], 2:["water","Surf: 20"],
+                              3:["ground","Mud Shot: 30"], 4:["water","Hydro Pump: 40"]},
+                 "x2_attack":{"grass", "electric"}},
     "charmander": {"name": "charmander",
                    "description": "A flame burns on the tip of its "
                    "tail from birth. It is said that a Charmander "
                    "dies if its flame ever goes out.",
                    "pokemon_type": "fire",
                    "health": 240,
-                   "attacks": {1: "Ember: 20", 2: "Fire Fang: 30",
-                               3:"Flamethrower: 40", 4: "Inferno: 50"}},
+                   "attacks": {1:["electric","Thunder Punch: 10"], 2:["fire","Flamethrower: 20"],
+                               3:["dragon","Dragon Breath: 30"], 4:["fire","Overheat: 40"]},
+                   "x2_attack":{"water", "ground"}},
     "bulbasaur": {"name": "bulbasaur",
                   "description": "It bears the seed of a plant on "
                   "its back from birth. The seed slowly develops. "
@@ -176,60 +178,68 @@ pokedex = {
                   "in the wild.",
                   "pokemon_type": "grass",
                   "health": 240,
-                  "attacks": {1: "Vine Whip: 20", 2: "Razor Leaf: 30",
-                              3: "Seed Bomb: 40", 4: "Leaf Storm: 50"}},
+                  "attacks": {1:["normal","Tackle: 10"], 2:["grass","Leaf Storm: 20"],
+                              3:["normal","Body Slam: 30"], 4:["grass","Solar Bean: 40"]},
+                  "x2_attack":{"fire", "ice"}},
     "grimer": {"name": "grimer",
                "description": "A Sludge Pokémon. Born from sludge, these "
                "Pokémon specialize in Sludge attacks.",
                "pokemon_type": "posion",
                "health": 240,
-               "attacks": {1: "Poison Gas: 20", 2: "Sludge: 30", 3: "Gunk Shot: 40",
-                           4: "Acid Spray: 50"}},
+               "attacks": {1:["ground","Mud Slap: 10"], 2:["posion","Sludge Bomb: 20"],
+                           3:["ghost","Shadow Punch: 30"], 4:["posion","Memento: 40"]},
+               "x2_attack":{"ground", "psychic"}},
     "pikachu": {"name": "pikachu",
                 "description": "the Mouse Pokémon. It can generate electric "
                 "attacks from the electric pouches located in both "
                 "of its cheeks",
                 "pokemon_type": "Electric",
                 "health": 240,
-                "attacks": {1:"Thunder Shock: 20", 2:"Thunder Wave: 30",
-                            3: "ThunderBolt: 40", 4: "Electro Ball: 50"}},
+                "attacks": {1:["ground","dig: 10"], 2:["electric","Thunder Punch: 20"],
+                            3:["normal","Quick Attack: 30"], 4:["electric","Thunder: 40"]},
+                "x2_attack":{"ground"}},
     "abra": {"name": "abra",
              "description": "a Psychic Power Pokémon. It sleeps eighteen "
                             "hours a day, but employs telekinesis even while "
                             "sleeping.",
              "pokemon_type": "psychic",
              "health": 240,
-             "attacks": {1: "Confusion: 20", 2: "Psychic: 30", 3:"Dream Eater: 40",
-                         4: "Guard Split: 50"}},
+             "attacks": {1:["grass","Energy Ball: 10"], 2:["psychic","Dream Eater: 20"],
+                         3:["fighting","Drain Punch: 30"], 4:["psychic","Psychic: 40"]},
+             "x2_attack":{"ghost", "dark"}},
     "rattata": {"name": "rattata",
                 "description": "A Forest Pokémon, Rattata. It likes cheese, "
                 "nuts, fruits, and berries. It also comes out into open fields"
                 " to steal food from stupid travelers",
                 "pokemon_type": "normal",
                 "health": 240,
-                "attacks": {1: "Tackle: 20", 2: "Quick Attack: 30", 3: "Take Down: 40",
-                            4:"Facade: 50"}},
+                "attacks": {1:["normal","Quick Attack: 10"], 2:["normal","Pluck: 20"],
+                            3:["ground","Dig: 30"], 4:["normal","Cut: 40"]},
+                "x2_attack":{"fighting"}},
     "sandshrew": {"name": "sandshrew",
                   "description": "the Mouse Pokémon. Sandshrew hates moisture"
                   " and lives in holes it digs in dry places. It protects "
                   "itself by curling into a ball.",
                   "pokemon_type": "ground",
                   "health": 240,
-                  "attacks": {1: "Sand Attack: 20", 2: "Bulldoze: 30",
-                              3: "Mud Slap: 40", 4:"Dig: 50"}},
+                  "attacks": {1:["fighting","Focus Punch: 10"], 2:["ground","Sand Tomb: 20"],
+                              3:["bug","Fury Cutter: 30"], 4:["ground","Dig: 40"]},
+                  "x2_attack":{"water","grass"}},
     "hitmonlee": {"name": "hitmonlee",
                   "description": "the Kicking Pokémon. This nimble Pokémon "
                   "launches lethal kicks from almost any position.",
                   "pokemon_type": "fighting",
                   "health": 240,
-                  "attacks": {1: "Low sweep: 20", 2: "Double kick: 30",
-                              3:"Sucker punch: 40", 4: "Axe kick: 50"}},
+                  "attacks": {1:["ground","Bulldoze: 10"], 2:["fighting","Focus Blast: 20"],
+                              3:["normal","Body Slam: 30"], 4:["fighting","Close Combat: 40"]},
+                  "x2_attack":{"psychic","flying"}},
     "dratini": {"name": "dratini",
                 "description": "the Dragon Pokémon. Dratini sheds its skin as "
                 "it grows, often doing so while hidden behind large "
                 "powerful waterfalls.",
                 "pokemon_type": "dragon",
                 "health": 240,
-                "attacks": {1: "Twister: 20", 2: "Dragon tail: 30",
-                            3:"Dragon rush: 40", 4:"Outrage: 50"}}
+                  "attacks": {1:["water","Chilling Water: 10"], 2:["dragon","Draco Meteor: 20"],
+                              3:["ice","Ice Beam: 30"], 4:["dragon","Outrage: 40"]},
+                  "x2_attack":{"dragon","ice"}}
 }
