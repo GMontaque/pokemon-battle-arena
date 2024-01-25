@@ -47,8 +47,7 @@ class Battle:
         # confirms name choice of player 1 pokemon
         print(f"Proffessor Oak: excellten choice {self.attacker.name}, you have choosen "
               f"{attacker_pokemon_name}")
-        print("-----------------------------------------------")
-
+        print("-----------------------------------------------------")
         while True:
             if self.defender.is_human:
                 battle_pokemon_names_defender = [
@@ -86,7 +85,7 @@ class Battle:
         # confirms name choice of player 2 pokemon
         print(f"Proffessor Oak: excellten choice {self.defender.name}, you have choosen "
               f"{defender_pokemon_name}")
-        print("-----------------------------------------------")
+        print("-----------------------------------------------------")
         # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
         self.attacker_pokemon = self.attacker.battle_pokemon[attacker_pokemon_name]
         # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
@@ -135,7 +134,7 @@ class Battle:
 
     def battle_stadium(self):
         print("Proffessor Oak: let the battle begin")
-        print("-----------------------------------------")
+        print("-----------------------------------------------------")
 
         while True:  
             # represents the choosen pokemon object as choose in fight_setup
@@ -148,15 +147,20 @@ class Battle:
             health_bar_attack = "="*int(attacker_health/10)
             health_bar_defend = "="*int(defender_health/10)
             
+            attacker_pokemon_attacks = {}
+            for i in range(1,5):
+                attacker_pokemon_attacks[i] =  attacker_pokemon["attacks"][i][1]
+
+            printed_attacks = ' '.join(f"| {key}: {value}" for key, value in attacker_pokemon_attacks.items())
             # generates the onscreen battle and displays stats
             # displays trainer name, pokemon name, pokemon health and attack pokemon moves
             print(
-                f"[ Trainer: {self.attacker.name}] \n"
-                f"[ Attacker: {attacker_pokemon['name']} HP: {health_bar_attack} ({attacker_health}) ]\n"
-                f"{attacker_pokemon['attacks']}\n"
+                f"[ Trainer:  {self.attacker.name}] \n"
+                f"[ Attacker: {attacker_pokemon['name'].capitalize()} HP: {health_bar_attack} ({attacker_health}) ]\n"
+                f"[ Attakcs:  {printed_attacks} |]\n"
                 "\n"
-                f"[ Trainer: {self.defender.name}]\n"
-                f"[ Defender: { defender_pokemon['name']} HP: {health_bar_defend} ({defender_health}) ]\n"
+                f"[ Trainer:  {self.defender.name}]\n"
+                f"[ Defender: {defender_pokemon['name'].capitalize()} HP: {health_bar_defend} ({defender_health}) ]\n"
             )
             
             # checks if player 2 is human or computer
@@ -199,7 +203,7 @@ class Battle:
             # updates defending pokemons health
             defender_pokemon["health"] = new_health
 
-            print("-----------------------------------------")
+            print("-----------------------------------------------------")
 
             #checks pokemon healh
             if defender_pokemon["health"] <= 0:
