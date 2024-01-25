@@ -22,6 +22,7 @@ class Player:
         if self.is_human:
             # loops till member chooses 3 pokemon
             while len(self.battle_pokemon) < 3:
+                print("-----------------------------------------------------")
                 print("Please choose from the follow")
                 pokemon_names = [
                     ["Squirtle", "Charmander","Bulbasaur"], 
@@ -38,7 +39,7 @@ class Player:
                     try:
                         # input pokemon name
                         pokemon_name = input("Which pokemon would you like "
-                                             "to review: ").lower()
+                                             "to review: ")
                         # checks for no value
                         if not pokemon_name:
                             raise ValueError("Proffessor Oak: Oops doesn't "
@@ -65,7 +66,7 @@ class Player:
                 ''' Display the pokemon details i.e description,
                 pokemon type and attacks
                 '''
-                print("-----------------------------------------")
+                print("-----------------------------------------------------")
                 # Pokemon Name
                 print(f"Name: {pokemon_name.capitalize()}")
 
@@ -77,10 +78,14 @@ class Player:
                 print(f"Pokemon Type: "
                       f"{pokedex[pokemon_name]['pokemon_type']}")
 
-                # pokemon attack list and values
-                print(f"Attack Moves: {pokedex[pokemon_name]['attacks']}")
+                attack_pokemon_list = []
+                for i in range(1,5):
+                    attack_pokemon_list.append(pokedex[pokemon_name]['attacks'][i][1])
 
-                print("-----------------------------------------")
+                # pokemon attack list and values
+                print(f"Attack Moves: {', '.join(attack_pokemon_list)}")
+
+                print("-----------------------------------------------------")
 
                 ''' Asks the user if they want
                 to add the pokemon to their battle pack
