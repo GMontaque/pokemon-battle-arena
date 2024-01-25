@@ -4,18 +4,22 @@ import time
 from classes.player import Player
 from classes.battle import Battle
 
-def game_restart(user1,user2):
+
+def game_restart(user1, user2):
     # player 1 and 2 names
     player_1 = user1
     player_2 = user2
-    
+
     while True:
         # gets the name for player 2
         try:
-            play_again = input(f"Proffessor Oak: Well I hope you had fun {player_1}, do you want to try again: ").lower().replace(" ", "")
+            play_again = input(f"Proffessor Oak: Well I hope you had fun "
+                               "{player_1}, do you want to try again: "
+                               ).lower().replace(" ", "")
             # checks their is a value
             if play_again.lower() not in ['yes', 'no']:
-                raise ValueError("Proffessor Oak: Oop, Sorry I need a Yes or No answer, why not try again")
+                raise ValueError("Proffessor Oak: Oop, Sorry I need a Yes "
+                                 "or No answer, why not try again")
             break
         except ValueError as e:
             # prints error message
@@ -25,10 +29,13 @@ def game_restart(user1,user2):
         while True:
             # gets the name for player 2
             try:
-                npc_needed = input(f"Proffessor Oak: Excellent, do you wish to play against a human player? ").lower().replace(" ", "")
+                npc_needed = input(f"Proffessor Oak: Excellent, do you wish "
+                                   "to play against a human player? "
+                                   ).lower().replace(" ", "")
                 # checks their is a value
                 if npc_needed.lower() not in ['yes', 'no']:
-                    raise ValueError("Proffessor Oak: Oop, Sorry I need a Yes or No answer, why not try again")
+                    raise ValueError("Proffessor Oak: Oop, Sorry I need a Yes "
+                                     "or No answer, why not try again")
                 break
             except ValueError as e:
                 # prints error message
@@ -37,28 +44,30 @@ def game_restart(user1,user2):
             while True:
                 # gets the name for player 2
                 try:
-                    user_name2 = input("Proffessor Oak: Excellent, what is your friends name: ").capitalize().replace(" ", "")
+                    user_name2 = input("Proffessor Oak: Excellent, what is "
+                                       "your friends name: "
+                                       ).capitalize().replace(" ", "")
                     # checks their is a value
                     if not user_name2:
                         raise ValueError("Oops seems you forgot to"
                                          " enter your name, why not try again")
                     # checks the value is in the correct format
                     elif not re.match("^[A-Za-z]+$", user_name2):
-                        raise ValueError("Proffessor Oak: Oops seems you entered a"
-                                        " number, why not try again")
+                        raise ValueError("Proffessor Oak: Oops seems you "
+                                         "entered a number, why not try again")
                     break
                 except ValueError as e:
                     # prints error message
                     print(f"{e}")
             # player 2 becomes the PC
-            play_game(player_1, user2= user_name2, human= True)
+            play_game(player_1, user2=user_name2, human=True)
         else:
             print("Proffessor Oak: No worries you can fight against John")
             # player 2 becomes the PC
-            play_game(player_1, user2= "John", human= False)       
+            play_game(player_1, user2="John", human=False)
     else:
         print("Proffessor Oak: No worries come back any time")
-  
+
 
 def play_game(user1, user2, human):
     # stores players names
@@ -72,7 +81,9 @@ def play_game(user1, user2, human):
     player1 = Player(name=player_1, is_human=True)
     # method called for player1 to choose the pokemon they wish to battle with
     pokemon_battle_player1 = player1.pick_pokemon()
-    print(f"Proffessor Oak: That is you sorted {player_1.capitalize()}, you've choosen your pokemon")
+    print(f"Proffessor Oak: That is you sorted {player_1.capitalize()}, "
+          "you've choosen your pokemon")
+    # print(f"{player_1.capitalize()} picked {pokemon_battle_player1}")
     print("-----------------------------------------------------")
     print(f"Proffessor Oak: Now, {player_2.capitalize()} choose your pokemon")
     print("-----------------------------------------------------")
@@ -80,11 +91,13 @@ def play_game(user1, user2, human):
     player2 = Player(name=player_2, is_human=human)
     # method called for player2 to choose the pokemon they wish to battle with
     pokemon_battle_player2 = player2.pick_pokemon()
-    print(f"Proffessor Oak: That is you sorted {player_2.capitalize()}, you've choosen your pokemon")
+    # print(f"{player_2.capitalize()} picked {pokemon_battle_player2}")
+    print(f"Proffessor Oak: That is you sorted {player_2.capitalize()}, "
+          "you've choosen your pokemon")
     time.sleep(3)
     os.system("clear")
-    print("Proffessor Oak: Excellent you've both now choosen your pokemon, lets"
-          " go to to battle arena")
+    print("Proffessor Oak: Excellent you've both now choosen your pokemon, "
+          "lets go to to battle arena")
     # creates battle area from Battle Class
     battle = Battle(player1, player2)
     # lets palyers choose which pokemon to start the battle with
@@ -94,7 +107,7 @@ def play_game(user1, user2, human):
     print("battle finished")
     # asks user if they wish to restart and play again
     # pass player 1 and 2 name
-    game_restart(player_1,player_2)
+    game_restart(player_1, player_2)
 
 
 def game_start():
@@ -103,7 +116,8 @@ def game_start():
     while True:
         try:
             # askes for users name
-            user_name = input("Proffessor Oak: what is your name young man? ").capitalize().replace(" ", "")
+            user_name = input("Proffessor Oak: what is your name young man? "
+                              ).capitalize().replace(" ", "")
             # checks their is a value
             if not user_name:
                 raise ValueError("Proffessor Oak: Oops seems you forgot to"
@@ -142,7 +156,8 @@ def game_start():
         while True:
             try:
                 # asks for players 2's name
-                user_name2 = input("Hello friend, whats your name be? ").capitalize().replace(" ", "")
+                user_name2 = input("Hello friend, whats your name be? "
+                                   ).capitalize().replace(" ", "")
                 # checks their is a value
                 if not user_name2:
                     raise ValueError("Proffessor Oak: Oops seems you forgot "
@@ -177,7 +192,8 @@ def game_start():
     while True:
         try:
             play = input("Proffessor Oak: Enter 'fight' when your ready to "
-                         "contiune or 'exit' to exit the game: ").lower().replace(" ", "")
+                         "contiune or 'exit' to exit the "
+                         "game: ").lower().replace(" ", "")
             # checks their is a value
             if play.lower() not in ['fight', 'exit']:
                 raise ValueError("Proffessor Oak: Oops, close but I need an "
