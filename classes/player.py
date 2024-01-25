@@ -39,7 +39,7 @@ class Player:
                     try:
                         # input pokemon name
                         pokemon_name = input("Which pokemon would you like "
-                                             "to review: ")
+                                             "to review: ").lower().replace(" ", "")
                         # checks for no value
                         if not pokemon_name:
                             raise ValueError("Proffessor Oak: Oops doesn't "
@@ -95,7 +95,7 @@ class Player:
                         # input players choice on pokemon
                         picking_pokemon = input(f"Do you want to add "
                                                 f"{pokemon_name} to your "
-                                                "battle party? (yes/no): ")
+                                                "battle party? (yes/no): ").lower().replace(" ", "")
                         # checks for no value
                         if not picking_pokemon:
                             raise ValueError("Proffessor Oak: Oops you didn't "
