@@ -26,7 +26,7 @@ class Battle:
                 # asks attacking player for name of pokemon they will use
                 attacker_pokemon_name = input(f"Proffessor Oak: {self.attacker.name} "
                                       "which pokemon "
-                                      "do you want to fight with first: ").lower()
+                                      "do you want to fight with first: ").lower().replace(" ", "")
                 # checks for no value
                 if not attacker_pokemon_name:
                     raise ValueError("Proffessor Oak: Oops doesn't "
@@ -60,7 +60,7 @@ class Battle:
                     # asks defending player for name of pokemon they will use
                     defender_pokemon_name = input(f"Proffessor Oak: {self.defender.name} "
                                                 "which pokemon do you want to fight "
-                                                "with first: ").lower()
+                                                "with first: ").lower().replace(" ", "")
                     # checks for no value
                     if not defender_pokemon_name:
                         raise ValueError("Proffessor Oak: Oops doesn't "
@@ -116,7 +116,7 @@ class Battle:
                     # input asking user what attack they wish to do
                     defender_pokemon_name = input(f"Proffessor Oak: {fainted_pokemon_trainer} "
                                                   "which pokemon do you want to fight "
-                                                  "with next: ")
+                                                  "with next: ").lower().replace(" ", "")
                     # checks if value is a number and if value is either 1,2,3 or 4
                     if defender_pokemon_name in self.defender.battle_pokemon:
                         # updates input value to a number
@@ -168,7 +168,7 @@ class Battle:
                 while True:
                     try:
                         # input asking user what attack they wish to do
-                        player_attack_choice = input(f"what attack do you wish to use: ")
+                        player_attack_choice = input(f"what attack do you wish to use: ").replace(" ", "")
                         # checks if value is a number and if value is either 1,2,3 or 4
                         if player_attack_choice.isdigit() and player_attack_choice in ["1","2","3","4"]:
                             # updates input value to a number
