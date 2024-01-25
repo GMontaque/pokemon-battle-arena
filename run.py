@@ -12,7 +12,7 @@ def game_restart(user1,user2):
     while True:
         # gets the name for player 2
         try:
-            play_again = input(f"Proffessor Oak: Well I hope you had fun {player_1}, do you want to try again: ")
+            play_again = input(f"Proffessor Oak: Well I hope you had fun {player_1}, do you want to try again: ").lower().replace(" ", "")
             # checks their is a value
             if play_again.lower() not in ['yes', 'no']:
                 raise ValueError("Proffessor Oak: Oop, Sorry I need a Yes or No answer, why not try again")
@@ -25,7 +25,7 @@ def game_restart(user1,user2):
         while True:
             # gets the name for player 2
             try:
-                npc_needed = input(f"Proffessor Oak: Excellent, do you wish to play against a human player? ")
+                npc_needed = input(f"Proffessor Oak: Excellent, do you wish to play against a human player? ").lower().replace(" ", "")
                 # checks their is a value
                 if npc_needed.lower() not in ['yes', 'no']:
                     raise ValueError("Proffessor Oak: Oop, Sorry I need a Yes or No answer, why not try again")
@@ -33,12 +33,29 @@ def game_restart(user1,user2):
             except ValueError as e:
                 # prints error message
                 print(f"{e}")
-        if npc_needed == "no":
+        if npc_needed == "yes":
+            while True:
+                # gets the name for player 2
+                try:
+                    user_name2 = input("Proffessor Oak: Excellent, what is your friends name: ").capitalize().replace(" ", "")
+                    # checks their is a value
+                    if not user_name2:
+                        raise ValueError("Oops seems you forgot to"
+                                         " enter your name, why not try again")
+                    # checks the value is in the correct format
+                    elif not re.match("^[A-Za-z]+$", user_name2):
+                        raise ValueError("Proffessor Oak: Oops seems you entered a"
+                                        " number, why not try again")
+                    break
+                except ValueError as e:
+                    # prints error message
+                    print(f"{e}")
+            # player 2 becomes the PC
+            play_game(player_1, user2= user_name2, human= True)
+        else:
             print("Proffessor Oak: No worries you can fight against John")
             # player 2 becomes the PC
-            play_game(player_1, user2= "John", human= False)
-        else:
-            play_game(player_1, player_2, human= True)       
+            play_game(player_1, user2= "John", human= False)       
     else:
         print("Proffessor Oak: No worries come back any time")
   
@@ -48,17 +65,17 @@ def play_game(user1, user2, human):
     player_1 = user1
     player_2 = user2
 
-    print("------------------------------------------------")
+    print("-----------------------------------------------------")
     print(f"Proffessor Oak: Now, {player_1.capitalize()} choose your pokemon")
-    print("------------------------------------------------")
+    print("-----------------------------------------------------")
     # creates player1 object
     player1 = Player(name=player_1, is_human=True)
     # method called for player1 to choose the pokemon they wish to battle with
     pokemon_battle_player1 = player1.pick_pokemon()
     print(f"Proffessor Oak: That is you sorted {player_1.capitalize()}, you've choosen your pokemon")
-    print("------------------------------------------------")
+    print("-----------------------------------------------------")
     print(f"Proffessor Oak: Now, {player_2.capitalize()} choose your pokemon")
-    print("------------------------------------------------")
+    print("-----------------------------------------------------")
     # creates players object
     player2 = Player(name=player_2, is_human=human)
     # method called for player2 to choose the pokemon they wish to battle with
