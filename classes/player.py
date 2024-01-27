@@ -10,6 +10,8 @@ from colorama import Fore, Back, Style
 error_colour = Back.RED + Fore.WHITE
 proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
                   + Style.RESET_ALL)
+
+
 class Player:
     '''create the player class'''
     def __init__(self, **kwargs):
@@ -23,20 +25,19 @@ class Player:
 
     def pick_pokemon(self):
         '''players are asked to pick 3 pokemon they wish to fight with '''
-        for name,entry in pokedex.items():
-                entry['health'] = 240
+        for name, entry in pokedex.items():
+            entry['health'] = 240
         if self.is_human:
             # loops till member chooses 3 pokemon
             while len(self.battle_pokemon) < 3:
                 print("-----------------------------------------------------")
-                print("Please choose from the follow")
+                print(proffessor_oak + "Please choose from the follow")
                 pokemon_names = [
-                    ["Squirtle", "Charmander","Bulbasaur"], 
-                    ["Grimer", "Pikachu","Abra"], 
-                    ["Rattata", "Sandshrew","Hitmonlee"], 
+                    ["Squirtle", "Charmander", "Bulbasaur"],
+                    ["Grimer", "Pikachu", "Abra"],
+                    ["Rattata", "Sandshrew", "Hitmonlee"],
                     ["Dratini"]
                 ]
-                                
                 # display table
                 print(tabulate(pokemon_names, tablefmt="double_grid"))
 
@@ -44,25 +45,28 @@ class Player:
                 while True:
                     try:
                         # input pokemon name
-                        pokemon_name = input(Style.RESET_ALL+Fore.GREEN+"Which pokemon would you like "
-                                             "to review: ").lower().replace(" ", "")
+                        pokemon_name = input(proffessor_oak + "Which pokemon "
+                                             "would you like to review: "
+                                             ).lower().replace(" ", "")
                         # checks for no value
                         if not pokemon_name:
-                            raise ValueError(error_colour+"Proffessor Oak: Oops doesn't "
-                                             "seem like you choose a pokemon, "
-                                             "please try again")
+                            raise ValueError(error_colour + "Proffessor Oak: "
+                                             "Oops doesn't seem like you "
+                                             "choose a pokemon, please "
+                                             "try again")
                         # checks for incorrect value format
                         elif not re.match("^[A-Za-z]+$", pokemon_name):
-                            raise ValueError(error_colour+"Proffessor Oak: Oops don't "
-                                             "think i've heard of that pokemon"
-                                             ", please try again")
+                            raise ValueError(error_colour+"Proffessor Oak: "
+                                             "Oops don't think i've heard of "
+                                             "that pokemon, please try again")
                             ''' checks input matches pokemon name against
                                pokedex dicitionary
                             '''
                         elif not pokedex.get(pokemon_name, None):
-                            raise ValueError(error_colour+"Proffessor Oak: Oops thats not "
-                                             "one of the pokemon you can "
-                                             " choose, please try again")
+                            raise ValueError(error_colour+"Proffessor Oak: "
+                                             "Oops thats not one of the "
+                                             "pokemon you can  choose, "
+                                             "please try again")
                         else:
                             # once user enters a correct value, exits loop
                             break
@@ -85,8 +89,9 @@ class Player:
                       f"{pokedex[pokemon_name]['pokemon_type']}")
 
                 attack_pokemon_list = []
-                for i in range(1,5):
-                    attack_pokemon_list.append(pokedex[pokemon_name]['attacks'][i][1])
+                for i in range(1, 5):
+                    attack_pokemon_list.append(pokedex[
+                        pokemon_name]['attacks'][i][1])
 
                 # pokemon attack list and values
                 print(f"Attack Moves: {', '.join(attack_pokemon_list)}")
@@ -99,17 +104,20 @@ class Player:
                 while True:
                     try:
                         # input players choice on pokemon
-                        picking_pokemon = input(Style.RESET_ALL+Fore.GREEN+f"Do you want to add "
-                                                f"{pokemon_name} to your "
-                                                "battle party? (yes/no): ").lower().replace(" ", "")
+                        picking_pokemon = input(proffessor_oak + f"Do you want"
+                                                f" to add {pokemon_name} to "
+                                                " your battle party? (yes/no):"
+                                                ).lower().replace(" ", "")
                         # checks for no value
                         if not picking_pokemon:
-                            raise ValueError(error_colour+"Proffessor Oak: Oops you didn't "
-                                             "respond, please try again")
+                            raise ValueError(error_colour+"Proffessor Oak:"
+                                             " Oops you didn't respond, "
+                                             "please try again")
                         # checks for incorrect value and format
                         elif picking_pokemon.lower() not in ['yes', 'no']:
-                            raise ValueError(error_colour+"Proffessor Oak: Sorry but i need"
-                                             " a 'YES' or 'NO' answer")
+                            raise ValueError(error_colour+"Proffessor Oak: "
+                                             "Sorry but i need a 'YES' or "
+                                             "'NO' answer")
                         else:
                             # once user enters a correct value, resets loop
                             break
@@ -131,7 +139,8 @@ class Player:
                         copy.deepcopy(self.selected_pokemon_name))
                     # confirmation to user pokemon added
                     print(f"{pokemon_name} added to battle party.")
-                    print("-----------------------------------------------------")
+                    print("-------------------------------------------------"
+                          "---")
                 elif picking_pokemon.lower() == "no":
                     # if user inputs no, function loops back to beginning
                     print(f"Proffessor Oak: No worries, {pokemon_name} "
@@ -171,18 +180,22 @@ pokedex = {
                  "to make jokes and enjoys a good swin",
                  "pokemon_type": "water",
                  "health": 240,
-                 "attacks": {1:["normal","Tackle: 10"], 2:["water","Surf: 20"],
-                              3:["ground","Mud Shot: 30"], 4:["water","Hydro Pump: 40"]},
-                 "x2_attack":{"grass", "electric"}},
+                 "attacks": {1: ["normal", "Tackle: 10"],
+                             2: ["water", "Surf: 20"],
+                             3: ["ground", "Mud Shot: 30"],
+                             4: ["water", "Hydro Pump: 40"]},
+                 "x2_attack": {"grass", "electric"}},
     "charmander": {"name": "charmander",
                    "description": "A flame burns on the tip of its "
                    "tail from birth. It is said that a Charmander "
                    "dies if its flame ever goes out.",
                    "pokemon_type": "fire",
                    "health": 240,
-                   "attacks": {1:["electric","Thunder Punch: 10"], 2:["fire","Flamethrower: 20"],
-                               3:["dragon","Dragon Breath: 30"], 4:["fire","Overheat: 40"]},
-                   "x2_attack":{"water", "ground"}},
+                   "attacks": {1: ["electric", "Thunder Punch: 10"],
+                               2: ["fire", "Flamethrower: 20"],
+                               3: ["dragon", "Dragon Breath: 30"],
+                               4: ["fire", "Overheat: 40"]},
+                   "x2_attack": {"water", "ground"}},
     "bulbasaur": {"name": "bulbasaur",
                   "description": "It bears the seed of a plant on "
                   "its back from birth. The seed slowly develops. "
@@ -192,68 +205,84 @@ pokedex = {
                   "in the wild.",
                   "pokemon_type": "grass",
                   "health": 240,
-                  "attacks": {1:["normal","Tackle: 10"], 2:["grass","Leaf Storm: 20"],
-                              3:["normal","Body Slam: 30"], 4:["grass","Solar Bean: 40"]},
-                  "x2_attack":{"fire", "ice"}},
+                  "attacks": {1: ["normal", "Tackle: 10"],
+                              2: ["grass", "Leaf Storm: 20"],
+                              3: ["normal", "Body Slam: 30"],
+                              4: ["grass", "Solar Bean: 40"]},
+                  "x2_attack": {"fire", "ice"}},
     "grimer": {"name": "grimer",
                "description": "A Sludge Pokémon. Born from sludge, these "
                "Pokémon specialize in Sludge attacks.",
                "pokemon_type": "posion",
                "health": 240,
-               "attacks": {1:["ground","Mud Slap: 10"], 2:["posion","Sludge Bomb: 20"],
-                           3:["ghost","Shadow Punch: 30"], 4:["posion","Memento: 40"]},
-               "x2_attack":{"ground", "psychic"}},
+               "attacks": {1: ["ground", "Mud Slap: 10"],
+                           2: ["posion", "Sludge Bomb: 20"],
+                           3: ["ghost", "Shadow Punch: 30"],
+                           4: ["posion", "Memento: 40"]},
+               "x2_attack": {"ground", "psychic"}},
     "pikachu": {"name": "pikachu",
                 "description": "the Mouse Pokémon. It can generate electric "
                 "attacks from the electric pouches located in both "
                 "of its cheeks",
                 "pokemon_type": "Electric",
                 "health": 240,
-                "attacks": {1:["ground","dig: 10"], 2:["electric","Thunder Punch: 20"],
-                            3:["normal","Quick Attack: 30"], 4:["electric","Thunder: 40"]},
-                "x2_attack":{"ground"}},
+                "attacks": {1: ["ground", "dig: 10"],
+                            2: ["electric", "Thunder Punch: 20"],
+                            3: ["normal", "Quick Attack: 30"],
+                            4: ["electric", "Thunder: 40"]},
+                "x2_attack": {"ground"}},
     "abra": {"name": "abra",
              "description": "a Psychic Power Pokémon. It sleeps eighteen "
                             "hours a day, but employs telekinesis even while "
                             "sleeping.",
              "pokemon_type": "psychic",
              "health": 240,
-             "attacks": {1:["grass","Energy Ball: 10"], 2:["psychic","Dream Eater: 20"],
-                         3:["fighting","Drain Punch: 30"], 4:["psychic","Psychic: 40"]},
-             "x2_attack":{"ghost", "dark"}},
+             "attacks": {1: ["grass", "Energy Ball: 10"],
+                         2: ["psychic", "Dream Eater: 20"],
+                         3: ["fighting", "Drain Punch: 30"],
+                         4: ["psychic", "Psychic: 40"]},
+             "x2_attack": {"ghost", "dark"}},
     "rattata": {"name": "rattata",
                 "description": "A Forest Pokémon, Rattata. It likes cheese, "
                 "nuts, fruits, and berries. It also comes out into open fields"
                 " to steal food from stupid travelers",
                 "pokemon_type": "normal",
                 "health": 240,
-                "attacks": {1:["normal","Quick Attack: 10"], 2:["normal","Pluck: 20"],
-                            3:["ground","Dig: 30"], 4:["normal","Cut: 40"]},
-                "x2_attack":{"fighting"}},
+                "attacks": {1: ["normal", "Quick Attack: 10"],
+                            2: ["normal", "Pluck: 20"],
+                            3: ["ground", "Dig: 30"],
+                            4: ["normal", "Cut: 40"]},
+                "x2_attack": {"fighting", "psychic"}},
     "sandshrew": {"name": "sandshrew",
                   "description": "the Mouse Pokémon. Sandshrew hates moisture"
                   " and lives in holes it digs in dry places. It protects "
                   "itself by curling into a ball.",
                   "pokemon_type": "ground",
                   "health": 240,
-                  "attacks": {1:["fighting","Focus Punch: 10"], 2:["ground","Sand Tomb: 20"],
-                              3:["bug","Fury Cutter: 30"], 4:["ground","Dig: 40"]},
-                  "x2_attack":{"water","grass"}},
+                  "attacks": {1: ["fighting", "Focus Punch: 10"],
+                              2: ["ground", "Sand Tomb: 20"],
+                              3: ["bug", "Fury Cutter: 30"],
+                              4: ["ground", "Dig: 40"]},
+                  "x2_attack": {"water", "grass"}},
     "hitmonlee": {"name": "hitmonlee",
                   "description": "the Kicking Pokémon. This nimble Pokémon "
                   "launches lethal kicks from almost any position.",
                   "pokemon_type": "fighting",
                   "health": 240,
-                  "attacks": {1:["ground","Bulldoze: 10"], 2:["fighting","Focus Blast: 20"],
-                              3:["normal","Body Slam: 30"], 4:["fighting","Close Combat: 40"]},
-                  "x2_attack":{"psychic","flying"}},
+                  "attacks": {1: ["ground", "Bulldoze: 10"],
+                              2: ["fighting", "Focus Blast: 20"],
+                              3: ["normal", "Body Slam: 30"],
+                              4: ["fighting", "Close Combat: 40"]},
+                  "x2_attack": {"psychic", "flying"}},
     "dratini": {"name": "dratini",
                 "description": "the Dragon Pokémon. Dratini sheds its skin as "
                 "it grows, often doing so while hidden behind large "
                 "powerful waterfalls.",
                 "pokemon_type": "dragon",
                 "health": 240,
-                  "attacks": {1:["water","Chilling Water: 10"], 2:["dragon","Draco Meteor: 20"],
-                              3:["ice","Ice Beam: 30"], 4:["dragon","Outrage: 40"]},
-                  "x2_attack":{"dragon","ice"}}
+                "attacks": {1: ["water", "Chilling Water: 10"],
+                            2: ["dragon", "Draco Meteor: 20"],
+                            3: ["ice", "Ice Beam: 30"],
+                            4: ["dragon", "Outrage: 40"]},
+                "x2_attack": {"dragon", "ice"}}
 }
