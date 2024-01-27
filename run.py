@@ -4,6 +4,7 @@ import time
 from classes.player import Player
 from classes.battle import Battle
 from colorama import Fore, Back, Style
+import pyfiglet
 
 error_colour = Back.RED + Fore.WHITE
 proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
@@ -116,6 +117,10 @@ def play_game(user1, user2, human):
 
 
 def game_start():
+    title_text = pyfiglet.figlet_format("Pokemon Battle Arena",
+                                        font="banner3-D",
+                                        justify="center")
+    print(f"{Fore.GREEN}{title_text}\n")
     print("Proffessor Oak: welcome to pokemon battle area "
           "where trainers are tested")
     print("-----------------------------------------------------")
