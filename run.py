@@ -3,6 +3,11 @@ import re
 import time
 from classes.player import Player
 from classes.battle import Battle
+from colorama import Fore, Back, Style
+
+error_colour = Back.RED + Fore.WHITE
+proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
+                  + Style.RESET_ALL)
 
 
 def game_restart(user1, user2):
@@ -113,19 +118,22 @@ def play_game(user1, user2, human):
 def game_start():
     print("Proffessor Oak: welcome to pokemon battle area "
           "where trainers are tested")
+    print("-----------------------------------------------------")
     while True:
         try:
             # askes for users name
-            user_name = input("Proffessor Oak: what is your name young man? "
+            user_name = input(proffessor_oak + " What is your name young man? "
                               ).capitalize().replace(" ", "")
             # checks their is a value
             if not user_name:
-                raise ValueError("Proffessor Oak: Oops seems you forgot to"
-                                 " enter your name, why not try again")
+                raise ValueError(error_colour + "Proffessor Oak: Oops seems "
+                                 " you forgot to enter your name, why "
+                                 "not try again" + Style.RESET_ALL)
+                # print(Style.RESET_ALL)
             # checks the value is just letters
             elif not re.match("^[A-Za-z]+$", user_name):
-                raise ValueError("Proffessor Oak: Oops seems you entered a"
-                                 " number, why not try again")
+                raise ValueError(error_colour + "Proffessor Oak: Oops seems "
+                                 "you entered a number, why not try again" + Style.RESET_ALL)
             break
         except ValueError as e:
             # prints error message
@@ -134,17 +142,19 @@ def game_start():
     while True:
         # gets the name for player 2
         try:
-            pc_check = input(f"Proffessor Oak: Well hello {user_name}, "
+            pc_check = input(proffessor_oak + f" Well hello {user_name}, "
                              "its nice to meet you, did you bring a friend "
                              "to fight agaisnt?: ").lower().replace(" ", "")
             # checks their is a value
             if not pc_check:
-                raise ValueError("Proffessor Oak: Oops seems you forgot to "
-                                 "write Yes or No, why not try again")
+                raise ValueError(error_colour + "Proffessor Oak: Oops seems "
+                                 "you forgot to write Yes or No, why not"
+                                 " try again" + Style.RESET_ALL)
             # checks the value is in the correct format
             elif pc_check.lower() not in ['yes', 'no']:
-                raise ValueError("Proffessor Oak: Oops sorry i didn't "
-                                 "understand, was that a 'yes' or 'no' ")
+                raise ValueError(error_colour + "Proffessor Oak: Oops sorry i"
+                                 " didn't understand, was that a"
+                                 " 'yes' or 'no' " + Style.RESET_ALL)
             break
         except ValueError as e:
             # prints error message
@@ -156,19 +166,22 @@ def game_start():
         while True:
             try:
                 # asks for players 2's name
-                user_name2 = input("Hello friend, whats your name be? "
+                user_name2 = input(proffessor_oak + " Hello friend, whats "
+                                   " your name be?"
                                    ).capitalize().replace(" ", "")
                 # checks their is a value
                 if not user_name2:
-                    raise ValueError("Proffessor Oak: Oops seems you forgot "
-                                     "to enter your name, why not try again")
+                    raise ValueError(error_colour + "Proffessor Oak: Oops "
+                                     "seems you forgot to enter your name, "
+                                     "why not try again" + Style.RESET_ALL)
                 # checks the value is in the correct format
                 elif not re.match("^[A-Za-z]+$", user_name2):
-                    raise ValueError("Proffessor Oak: Oops seems you entered "
-                                     "a number, why not try again")
+                    raise ValueError(error_colour + "Proffessor Oak: Oops "
+                                     " seems you entered a number, why not "
+                                     "try again" + Style.RESET_ALL)
                 # passed to play game as used when picking battle pokemon party
                 human_player = True
-                print(f"Proffessor Oak: Well hello {user_name} and "
+                print(proffessor_oak + f" Well Hello {user_name} and "
                       f"{user_name2}, welcome my names professor oak and "
                       "I hope your ready to fight")
                 break
@@ -178,28 +191,31 @@ def game_start():
     else:
         user_name2 = "John"
         human_player = False
-        print(f"Proffessor Oak: Well hello {user_name}, welcome my names "
+        print(proffessor_oak + f" Well hello {user_name}, welcome my names "
               "professor oak and I hope your ready to fight we have your "
               f"oppointent {user_name2} ready and waiting")
 
-    print("*********************start insert rules of game*******************")
+    print(Fore.GREEN +
+          "*********************start insert rules of game*******************")
     print("content")
-    print("********************* end insert rules of game********************")
+    print(Fore.GREEN +
+          "********************* end insert rules of game********************")
+    print(Style.RESET_ALL)
 
     play = " "
 
     # asks user if they are ready to fight
     while True:
         try:
-            play = input("Proffessor Oak: Enter 'fight' when your ready to "
+            play = input(proffessor_oak + " Enter 'fight' when your ready to "
                          "contiune or 'exit' to exit the "
                          "game: ").lower().replace(" ", "")
             # checks their is a value
             if play.lower() not in ['fight', 'exit']:
-                raise ValueError("Proffessor Oak: Oops, close but I need an "
-                                 "answer, either fight or exit")
+                raise ValueError(error_colour + "Proffessor Oak: Oops, close "
+                                 "but I need an answer, either fight or exit" + Style.RESET_ALL)
             elif play == "fight":
-                print("Proffessor Oak: Great!, now lets pick your pokemon: ")
+                print(proffessor_oak + " Great!, now lets pick your pokemon: ")
                 time.sleep(2.5)
                 os.system("clear")
                 play_game(user1=user_name,
@@ -208,7 +224,7 @@ def game_start():
                 break
             else:
                 # prints if user states no
-                print("Proffessor Oak: Ok see you next time")
+                print(proffessor_oak + " Ok see you next time")
                 break
         except ValueError as e:
             # prints error message
