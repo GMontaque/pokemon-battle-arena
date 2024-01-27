@@ -1,6 +1,8 @@
 import re
 import random
 import copy
+import time
+import os
 from tabulate import tabulate
 
 
@@ -134,6 +136,7 @@ class Player:
                     # if user inputs no, function loops back to beginning
                     print(f"Proffessor Oak: looks like you already addeds, "
                           f"{pokemon_name} why not try another pokemon.")
+            os.system("clear")
         else:
             print(f"Player {self.name} is choosing his pokemon")
             # loops until 3 pokemon selected
@@ -147,7 +150,9 @@ class Player:
                     # adds pokemon
                     self.battle_pokemon[random_pokemon] = (
                         copy.deepcopy(pokedex[random_pokemon]))
+            time.sleep(3)
             print(f"Pokemon selection complete")
+            time.sleep(2)
         return self.battle_pokemon
 
 # pokedex dicitionary stores all the pokemon the user can choose from
