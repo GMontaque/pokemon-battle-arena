@@ -4,8 +4,12 @@ import copy
 import time
 import os
 from tabulate import tabulate
+from colorama import Fore, Back, Style
 
 
+error_colour = Back.RED + Fore.WHITE
+proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
+                  + Style.RESET_ALL)
 class Player:
     '''create the player class'''
     def __init__(self, **kwargs):
@@ -40,23 +44,23 @@ class Player:
                 while True:
                     try:
                         # input pokemon name
-                        pokemon_name = input("Which pokemon would you like "
+                        pokemon_name = input(Style.RESET_ALL+Fore.GREEN+"Which pokemon would you like "
                                              "to review: ").lower().replace(" ", "")
                         # checks for no value
                         if not pokemon_name:
-                            raise ValueError("Proffessor Oak: Oops doesn't "
+                            raise ValueError(error_colour+"Proffessor Oak: Oops doesn't "
                                              "seem like you choose a pokemon, "
                                              "please try again")
                         # checks for incorrect value format
                         elif not re.match("^[A-Za-z]+$", pokemon_name):
-                            raise ValueError("Proffessor Oak: Oops don't "
+                            raise ValueError(error_colour+"Proffessor Oak: Oops don't "
                                              "think i've heard of that pokemon"
                                              ", please try again")
                             ''' checks input matches pokemon name against
                                pokedex dicitionary
                             '''
                         elif not pokedex.get(pokemon_name, None):
-                            raise ValueError("Proffessor Oak: Oops thats not "
+                            raise ValueError(error_colour+"Proffessor Oak: Oops thats not "
                                              "one of the pokemon you can "
                                              " choose, please try again")
                         else:
@@ -95,16 +99,16 @@ class Player:
                 while True:
                     try:
                         # input players choice on pokemon
-                        picking_pokemon = input(f"Do you want to add "
+                        picking_pokemon = input(Style.RESET_ALL+Fore.GREEN+f"Do you want to add "
                                                 f"{pokemon_name} to your "
                                                 "battle party? (yes/no): ").lower().replace(" ", "")
                         # checks for no value
                         if not picking_pokemon:
-                            raise ValueError("Proffessor Oak: Oops you didn't "
+                            raise ValueError(error_colour+"Proffessor Oak: Oops you didn't "
                                              "respond, please try again")
                         # checks for incorrect value and format
                         elif picking_pokemon.lower() not in ['yes', 'no']:
-                            raise ValueError("Proffessor Oak: Sorry but i need"
+                            raise ValueError(error_colour+"Proffessor Oak: Sorry but i need"
                                              " a 'YES' or 'NO' answer")
                         else:
                             # once user enters a correct value, resets loop
