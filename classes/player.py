@@ -33,7 +33,7 @@ class Player:
             # loops till member chooses 3 pokemon
             while len(self.battle_pokemon) < 3:
                 print("-----------------------------------------------------")
-                print(proffessor_oak + "Please choose from the follow")
+                print(game_notification + "Please choose from the follow" + Style.RESET_ALL)
                 pokemon_names = [
                     ["Squirtle", "Charmander", "Bulbasaur"],
                     ["Grimer", "Pikachu", "Abra"],
