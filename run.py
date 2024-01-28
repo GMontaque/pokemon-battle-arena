@@ -81,6 +81,10 @@ def play_game(user1, user2, human):
     player_1 = user1
     player_2 = user2
 
+    subhead_pick_pokemon = pyfiglet.figlet_format("Pokemon Picker",
+                                                  font="slant",
+                                                  justify="center")
+    print(subhead_pick_pokemon)
     print("-----------------------------------------------------")
     print(f"{proffessor_oak} Now, {player_1.capitalize()} choose your pokemon")
     print("-----------------------------------------------------")
@@ -90,6 +94,7 @@ def play_game(user1, user2, human):
     pokemon_battle_player1 = player1.pick_pokemon()
     print(f"Proffessor Oak: That is you sorted {player_1.capitalize()}, "
           "you've choosen your pokemon")
+    print(subhead_pick_pokemon)
     print("-----------------------------------------------------")
     print(f"{proffessor_oak} Now, {player_2.capitalize()} choose your pokemon")
     print("-----------------------------------------------------")
@@ -136,7 +141,8 @@ def game_start():
             # checks the value is just letters
             elif not re.match("^[A-Za-z]+$", user_name):
                 raise ValueError(error_colour + "Proffessor Oak: Oops seems "
-                                 "you entered a number, why not try again" + reset_styling)
+                                 "you entered a number, why not try again"
+                                 + reset_styling)
             break
         except ValueError as e:
             # prints error message
@@ -216,7 +222,8 @@ def game_start():
             # checks their is a value
             if play.lower() not in ['fight', 'exit']:
                 raise ValueError(error_colour + "Proffessor Oak: Oops, close "
-                                 "but I need an answer, either fight or exit" + reset_styling)
+                                 "but I need an answer, either fight or "
+                                 "exit" + reset_styling)
             elif play == "fight":
                 print(proffessor_oak + " Great!, now lets pick your pokemon: ")
                 time.sleep(2.5)
@@ -228,6 +235,10 @@ def game_start():
             else:
                 # prints if user states no
                 print(proffessor_oak + " Ok see you next time")
+                end_game_text = pyfiglet.figlet_format("Game End",
+                                                       font="banner3-D",
+                                                       justify="center")
+                print(end_game_text)
                 break
         except ValueError as e:
             # prints error message
