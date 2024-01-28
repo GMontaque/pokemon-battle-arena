@@ -1,5 +1,7 @@
 import random
 import re
+import time
+import os
 from tabulate import tabulate
 
 class Battle:
@@ -133,6 +135,8 @@ class Battle:
                         print(f"{e}")
 
     def battle_stadium(self):
+        time.sleep(3)
+        os.system("clear")
         print("Proffessor Oak: let the battle begin")
         print("-----------------------------------------------------")
 
@@ -212,6 +216,7 @@ class Battle:
                 # player with fainted pokemon chooses another
                 self.choose_new_pokemon()
                 break
+            time.sleep(1)
             # flips attacker and defending to allow for turn based gameplay
             self.flip()
 
