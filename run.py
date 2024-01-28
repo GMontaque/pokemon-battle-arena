@@ -8,6 +8,7 @@ import pyfiglet
 
 error_colour = Back.RED + Fore.WHITE
 reset_styling = Style.RESET_ALL
+game_notification = Back.BLUE + Fore.GREEN
 proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
                   + Style.RESET_ALL)
 
@@ -20,13 +21,13 @@ def game_restart(user1, user2):
     while True:
         # gets the name for player 2
         try:
-            play_again = input(f"Proffessor Oak: Well I hope you had fun "
-                               "{player_1}, do you want to try again: "
-                               ).lower().replace(" ", "")
+            play_again = input(proffessor_oak + f"Well I hope you had fun "
+                               f"{player_1}, do you want to try again: " 
+                               + reset_styling).lower().replace(" ", "")
             # checks their is a value
             if play_again.lower() not in ['yes', 'no']:
-                raise ValueError("Proffessor Oak: Oop, Sorry I need a Yes "
-                                 "or No answer, why not try again")
+                raise ValueError(error_colour + "Proffessor Oak: Oop, Sorry I need a Yes "
+                                 "or No answer, why not try again" + reset_styling)
             break
         except ValueError as e:
             # prints error message
@@ -36,13 +37,13 @@ def game_restart(user1, user2):
         while True:
             # gets the name for player 2
             try:
-                npc_needed = input(f"Proffessor Oak: Excellent, do you wish "
-                                   "to play against a human player? "
+                npc_needed = input(proffessor_oak + "Excellent, do you wish "
+                                   "to play against a human player? " + reset_styling
                                    ).lower().replace(" ", "")
                 # checks their is a value
                 if npc_needed.lower() not in ['yes', 'no']:
-                    raise ValueError("Proffessor Oak: Oop, Sorry I need a Yes "
-                                     "or No answer, why not try again")
+                    raise ValueError(error_colour + "Proffessor Oak: Oop, Sorry I need a Yes "
+                                     "or No answer, why not try again" + reset_styling)
                 break
             except ValueError as e:
                 # prints error message
@@ -51,17 +52,17 @@ def game_restart(user1, user2):
             while True:
                 # gets the name for player 2
                 try:
-                    user_name2 = input("Proffessor Oak: Excellent, what is "
-                                       "your friends name: "
+                    user_name2 = input(proffessor_oak + "Excellent, what is "
+                                       "your friends name: " + reset_styling
                                        ).capitalize().replace(" ", "")
                     # checks their is a value
                     if not user_name2:
-                        raise ValueError("Oops seems you forgot to"
-                                         " enter your name, why not try again")
+                        raise ValueError(error_colour + "Oops seems you forgot to"
+                                         " enter your name, why not try again" + reset_styling)
                     # checks the value is in the correct format
                     elif not re.match("^[A-Za-z]+$", user_name2):
-                        raise ValueError("Proffessor Oak: Oops seems you "
-                                         "entered a number, why not try again")
+                        raise ValueError(error_colour + "Proffessor Oak: Oops seems you "
+                                         "entered a number, why not try again" + reset_styling)
                     break
                 except ValueError as e:
                     # prints error message
@@ -69,11 +70,11 @@ def game_restart(user1, user2):
             # player 2 becomes the PC
             play_game(player_1, user2=user_name2, human=True)
         else:
-            print("Proffessor Oak: No worries you can fight against John")
+            print(proffessor_oak + "No worries you can fight against John")
             # player 2 becomes the PC
             play_game(player_1, user2="John", human=False)
     else:
-        print("Proffessor Oak: No worries come back any time")
+        print(proffessor_oak + "No worries come back any time")
 
 
 def play_game(user1, user2, human):
@@ -92,8 +93,8 @@ def play_game(user1, user2, human):
     player1 = Player(name=player_1, is_human=True)
     # method called for player1 to choose the pokemon they wish to battle with
     pokemon_battle_player1 = player1.pick_pokemon()
-    print(f"Proffessor Oak: That is you sorted {player_1.capitalize()}, "
-          "you've choosen your pokemon")
+    print(proffessor_oak + f"That is you sorted {player_1.capitalize()}, "
+          "you've choosen your pokemon" + reset_styling)
     print(subhead_pick_pokemon)
     print("-----------------------------------------------------")
     print(f"{proffessor_oak} Now, {player_2.capitalize()} choose your pokemon")
@@ -102,11 +103,11 @@ def play_game(user1, user2, human):
     player2 = Player(name=player_2, is_human=human)
     # method called for player2 to choose the pokemon they wish to battle with
     pokemon_battle_player2 = player2.pick_pokemon()
-    print(f"Proffessor Oak: That is you sorted {player_2.capitalize()}, "
-          "you've choosen your pokemon")
+    print(proffessor_oak + f"That is you sorted {player_2.capitalize()}, "
+          "you've choosen your pokemon" + reset_styling)
     time.sleep(3)
     os.system("clear")
-    print("Proffessor Oak: Excellent you've both now choosen your pokemon, "
+    print(proffessor_oak + "Excellent you've both now choosen your pokemon, "
           "lets go to to battle arena")
     # creates battle area from Battle Class
     battle = Battle(player1, player2)
@@ -114,7 +115,11 @@ def play_game(user1, user2, human):
     battle.fight_setup()
     # starts the actually battle
     battle.battle_stadium()
-    print("battle finished")
+    battle_end_message = pyfiglet.figlet_format("Battle Finished",
+                                                  font="slant",
+                                                  justify="center")
+    print(battle_end_message)
+    # print(game_notification + "battle finished" + reset_styling)
     # asks user if they wish to restart and play again
     # pass player 1 and 2 name
     game_restart(player_1, player_2)
@@ -176,7 +181,7 @@ def game_start():
             try:
                 # asks for players 2's name
                 user_name2 = input(proffessor_oak + " Hello friend, whats "
-                                   " your name be?"
+                                   " your name be? "
                                    ).capitalize().replace(" ", "")
                 # checks their is a value
                 if not user_name2:
