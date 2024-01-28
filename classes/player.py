@@ -9,7 +9,7 @@ from colorama import Fore, Back, Style
 
 error_colour = Back.RED + Fore.WHITE
 reset_styling = Style.RESET_ALL = Style.RESET_ALL
-game_notification = Back.BLUE + Fore.GREEN
+game_notification = Back.BLUE + Fore.White
 proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
                   + Style.RESET_ALL)
 
