@@ -8,7 +8,6 @@ import pyfiglet
 
 error_colour = Back.RED + Fore.WHITE
 reset_styling = Style.RESET_ALL
-game_notification = Back.BLUE + Fore.GREEN
 proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
                   + Style.RESET_ALL)
 
@@ -127,7 +126,6 @@ def play_game(user1, user2, human):
                                                   font="slant",
                                                   justify="center")
     print(battle_end_message)
-    # print(game_notification + "battle finished" + reset_styling)
     # asks user if they wish to restart and play again
     # pass player 1 and 2 name
     game_restart(player_1, player_2)
