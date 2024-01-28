@@ -8,6 +8,8 @@ from colorama import Fore, Back, Style
 
 
 error_colour = Back.RED + Fore.WHITE
+reset_styling = Style.RESET_ALL = Style.RESET_ALL
+game_notification = Back.BLUE + Fore.GREEN
 proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
                   + Style.RESET_ALL)
 
@@ -53,12 +55,12 @@ class Player:
                             raise ValueError(error_colour + "Proffessor Oak: "
                                              "Oops doesn't seem like you "
                                              "choose a pokemon, please "
-                                             "try again")
+                                             "try again" + reset_styling)
                         # checks for incorrect value format
                         elif not re.match("^[A-Za-z]+$", pokemon_name):
                             raise ValueError(error_colour+"Proffessor Oak: "
                                              "Oops don't think i've heard of "
-                                             "that pokemon, please try again")
+                                             "that pokemon, please try again" + reset_styling)
                             ''' checks input matches pokemon name against
                                pokedex dicitionary
                             '''
@@ -66,7 +68,7 @@ class Player:
                             raise ValueError(error_colour+"Proffessor Oak: "
                                              "Oops thats not one of the "
                                              "pokemon you can  choose, "
-                                             "please try again")
+                                             "please try again" + reset_styling)
                         else:
                             # once user enters a correct value, exits loop
                             break
@@ -106,18 +108,18 @@ class Player:
                         # input players choice on pokemon
                         picking_pokemon = input(proffessor_oak + f"Do you want"
                                                 f" to add {pokemon_name} to "
-                                                " your battle party? (yes/no):"
+                                                " your battle party? (yes/no): "
                                                 ).lower().replace(" ", "")
                         # checks for no value
                         if not picking_pokemon:
                             raise ValueError(error_colour+"Proffessor Oak:"
                                              " Oops you didn't respond, "
-                                             "please try again")
+                                             "please try again" + reset_styling)
                         # checks for incorrect value and format
                         elif picking_pokemon.lower() not in ['yes', 'no']:
                             raise ValueError(error_colour+"Proffessor Oak: "
                                              "Sorry but i need a 'YES' or "
-                                             "'NO' answer")
+                                             "'NO' answer" + reset_styling)
                         else:
                             # once user enters a correct value, resets loop
                             break
@@ -125,7 +127,7 @@ class Player:
                         print(f"{e}")
 
                 '''
-                checks user response is yes, also that pokemon_name can
+                checks user response is yes, also that pokemon_name canerror_colour+"Proffessor Oak:"
                 be found in pokedex and
                 pokemon has not already been added to battle_pokemon
                 '''
@@ -138,20 +140,21 @@ class Player:
                     self.battle_pokemon[pokemon_name] = (
                         copy.deepcopy(self.selected_pokemon_name))
                     # confirmation to user pokemon added
-                    print(f"{pokemon_name} added to battle party.")
+                    print(game_notification + f"{pokemon_name} added to battle party." + reset_styling)
                     print("-------------------------------------------------"
                           "---")
                 elif picking_pokemon.lower() == "no":
                     # if user inputs no, function loops back to beginning
-                    print(f"Proffessor Oak: No worries, {pokemon_name} "
-                          "was not added to your battle party.")
+                    print(proffessor_oak + "No worries, why not try again")
+                    print(game_notification + f" {pokemon_name} "
+                          "was not added to your battle party." + reset_styling)
                 else:
                     # if user inputs no, function loops back to beginning
-                    print(f"Proffessor Oak: looks like you already addeds, "
-                          f"{pokemon_name} why not try another pokemon.")
+                    print(error_colour + "Proffessor Oak: looks like you already added, "
+                          f"{pokemon_name} why not try another pokemon." + reset_styling)
             os.system("clear")
         else:
-            print(f"Player {self.name} is choosing his pokemon")
+            print(game_notification +f"Player {self.name} is choosing his pokemon"+ reset_styling)
             # loops until 3 pokemon selected
             while len(self.battle_pokemon) < 3:
                 # selects a random pokemon in pokedex
@@ -164,7 +167,7 @@ class Player:
                     self.battle_pokemon[random_pokemon] = (
                         copy.deepcopy(pokedex[random_pokemon]))
             time.sleep(3)
-            print(f"Pokemon selection complete")
+            print(game_notification +f"Pokemon selection complete"+ reset_styling)
             time.sleep(2)
         return self.battle_pokemon
 
