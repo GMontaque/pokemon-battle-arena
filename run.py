@@ -115,7 +115,7 @@ def play_game(user1, user2, human):
           "you've choosen your pokemon" + reset_styling)
     print(proffessor_oak + "Excellent you've both now choosen your pokemon, "
           "lets go to to battle arena")
-    time.sleep(3)
+    time.sleep(5)
     os.system("clear")
     subhead_Battle_Arena = pyfiglet.figlet_format("Battle Arena",
                                                   font="slant",
@@ -141,7 +141,7 @@ def game_start():
                                         font="banner3-D",
                                         justify="center")
     print(f"{Fore.GREEN}{title_text}\n")
-    print("Proffessor Oak: welcome to pokemon battle area "
+    print("Proffessor Oak: Welcome to pokemon battle area "
           "where trainers are tested")
     print("-----------------------------------------------------")
     while True:
@@ -169,7 +169,7 @@ def game_start():
         try:
             pc_check = input(proffessor_oak + f" Well hello {user_name}, "
                              "its nice to meet you, did you bring a friend "
-                             "to fight agaisnt?: ").lower().replace(" ", "")
+                             "to fight against?: ").lower().replace(" ", "")
             # checks their is a value
             if not pc_check:
                 raise ValueError(error_colour + "Proffessor Oak: Oops seems "
@@ -191,8 +191,8 @@ def game_start():
         while True:
             try:
                 # asks for players 2's name
-                user_name2 = input(proffessor_oak + " Hello friend, whats "
-                                   " your name be? "
+                user_name2 = input(proffessor_oak + " Hello friend, whats"
+                                   " your name? "
                                    ).capitalize().replace(" ", "")
                 # checks their is a value
                 if not user_name2:
@@ -206,8 +206,8 @@ def game_start():
                                      "try again" + reset_styling)
                 # passed to play game as used when picking battle pokemon party
                 human_player = True
-                print(proffessor_oak + f" Well Hello {user_name} and "
-                      f"{user_name2}, welcome my names professor oak and "
+                print(proffessor_oak + f" Well hello {user_name} and "
+                      f"{user_name2}, welcome my name is Professor Oak and "
                       "I hope your ready to fight")
                 break
             except ValueError as e:
@@ -216,8 +216,8 @@ def game_start():
     else:
         user_name2 = "John"
         human_player = False
-        print(proffessor_oak + f" Well hello {user_name}, welcome my names "
-              "professor oak and I hope your ready to fight we have your "
+        print(proffessor_oak + f" Well hello {user_name}, welcome my name is "
+              "Professor Oak and I hope your ready to fight we have your "
               f"oppointent {user_name2} ready and waiting")
 
     print(Fore.GREEN +
