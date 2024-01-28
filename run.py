@@ -7,6 +7,7 @@ from colorama import Fore, Back, Style
 import pyfiglet
 
 error_colour = Back.RED + Fore.WHITE
+reset_styling = Style.RESET_ALL
 proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
                   + Style.RESET_ALL)
 
@@ -81,7 +82,7 @@ def play_game(user1, user2, human):
     player_2 = user2
 
     print("-----------------------------------------------------")
-    print(f"Proffessor Oak: Now, {player_1.capitalize()} choose your pokemon")
+    print(f"{proffessor_oak} Now, {player_1.capitalize()} choose your pokemon")
     print("-----------------------------------------------------")
     # creates player1 object
     player1 = Player(name=player_1, is_human=True)
@@ -89,15 +90,13 @@ def play_game(user1, user2, human):
     pokemon_battle_player1 = player1.pick_pokemon()
     print(f"Proffessor Oak: That is you sorted {player_1.capitalize()}, "
           "you've choosen your pokemon")
-    # print(f"{player_1.capitalize()} picked {pokemon_battle_player1}")
     print("-----------------------------------------------------")
-    print(f"Proffessor Oak: Now, {player_2.capitalize()} choose your pokemon")
+    print(f"{proffessor_oak} Now, {player_2.capitalize()} choose your pokemon")
     print("-----------------------------------------------------")
     # creates players object
     player2 = Player(name=player_2, is_human=human)
     # method called for player2 to choose the pokemon they wish to battle with
     pokemon_battle_player2 = player2.pick_pokemon()
-    # print(f"{player_2.capitalize()} picked {pokemon_battle_player2}")
     print(f"Proffessor Oak: That is you sorted {player_2.capitalize()}, "
           "you've choosen your pokemon")
     time.sleep(3)
@@ -133,12 +132,11 @@ def game_start():
             if not user_name:
                 raise ValueError(error_colour + "Proffessor Oak: Oops seems "
                                  " you forgot to enter your name, why "
-                                 "not try again" + Style.RESET_ALL)
-                # print(Style.RESET_ALL)
+                                 "not try again" + reset_styling)
             # checks the value is just letters
             elif not re.match("^[A-Za-z]+$", user_name):
                 raise ValueError(error_colour + "Proffessor Oak: Oops seems "
-                                 "you entered a number, why not try again" + Style.RESET_ALL)
+                                 "you entered a number, why not try again" + reset_styling)
             break
         except ValueError as e:
             # prints error message
@@ -154,12 +152,12 @@ def game_start():
             if not pc_check:
                 raise ValueError(error_colour + "Proffessor Oak: Oops seems "
                                  "you forgot to write Yes or No, why not"
-                                 " try again" + Style.RESET_ALL)
+                                 " try again" + reset_styling)
             # checks the value is in the correct format
             elif pc_check.lower() not in ['yes', 'no']:
                 raise ValueError(error_colour + "Proffessor Oak: Oops sorry i"
                                  " didn't understand, was that a"
-                                 " 'yes' or 'no' " + Style.RESET_ALL)
+                                 " 'yes' or 'no' " + reset_styling)
             break
         except ValueError as e:
             # prints error message
@@ -178,12 +176,12 @@ def game_start():
                 if not user_name2:
                     raise ValueError(error_colour + "Proffessor Oak: Oops "
                                      "seems you forgot to enter your name, "
-                                     "why not try again" + Style.RESET_ALL)
+                                     "why not try again" + reset_styling)
                 # checks the value is in the correct format
                 elif not re.match("^[A-Za-z]+$", user_name2):
                     raise ValueError(error_colour + "Proffessor Oak: Oops "
                                      " seems you entered a number, why not "
-                                     "try again" + Style.RESET_ALL)
+                                     "try again" + reset_styling)
                 # passed to play game as used when picking battle pokemon party
                 human_player = True
                 print(proffessor_oak + f" Well Hello {user_name} and "
@@ -205,7 +203,7 @@ def game_start():
     print("content")
     print(Fore.GREEN +
           "********************* end insert rules of game********************")
-    print(Style.RESET_ALL)
+    print(reset_styling)
 
     play = " "
 
@@ -218,7 +216,7 @@ def game_start():
             # checks their is a value
             if play.lower() not in ['fight', 'exit']:
                 raise ValueError(error_colour + "Proffessor Oak: Oops, close "
-                                 "but I need an answer, either fight or exit" + Style.RESET_ALL)
+                                 "but I need an answer, either fight or exit" + reset_styling)
             elif play == "fight":
                 print(proffessor_oak + " Great!, now lets pick your pokemon: ")
                 time.sleep(2.5)
