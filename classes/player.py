@@ -30,7 +30,7 @@ class Player:
             entry['health'] = 240
         if self.is_human:
             # loops till member chooses 3 pokemon
-            while len(self.battle_pokemon) < 1:
+            while len(self.battle_pokemon) < 3:
                 print("-----------------------------------------------------")
                 print(game_notification + " Please choose from the follow "
                       + Style.RESET_ALL)
