@@ -24,7 +24,6 @@ class Player:
         # stores the pokemon picked for each player
         self.battle_pokemon = {}
 
-
     def pick_pokemon(self):
         '''players are asked to pick 3 pokemon they wish to fight with '''
         for name, entry in pokedex.items():
@@ -33,7 +32,8 @@ class Player:
             # loops till member chooses 3 pokemon
             while len(self.battle_pokemon) < 3:
                 print("-----------------------------------------------------")
-                print(game_notification + " Please choose from the follow " + Style.RESET_ALL)
+                print(game_notification + " Please choose from the follow "
+                      + Style.RESET_ALL)
                 pokemon_names = [
                     ["Squirtle", "Charmander", "Bulbasaur"],
                     ["Grimer", "Pikachu", "Abra"],
@@ -60,7 +60,8 @@ class Player:
                         elif not re.match("^[A-Za-z]+$", pokemon_name):
                             raise ValueError(error_colour+"Proffessor Oak: "
                                              "Oops don't think i've heard of "
-                                             "that pokemon, please try again" + reset_styling)
+                                             "that pokemon, please try again"
+                                             + reset_styling)
                             ''' checks input matches pokemon name against
                                pokedex dicitionary
                             '''
@@ -68,7 +69,8 @@ class Player:
                             raise ValueError(error_colour+"Proffessor Oak: "
                                              "Oops thats not one of the "
                                              "pokemon you can  choose, "
-                                             "please try again" + reset_styling)
+                                             "please try again"
+                                             + reset_styling)
                         else:
                             # once user enters a correct value, exits loop
                             break
@@ -108,13 +110,14 @@ class Player:
                         # input players choice on pokemon
                         picking_pokemon = input(proffessor_oak + f"Do you want"
                                                 f" to add {pokemon_name} to "
-                                                " your battle party? (yes/no): "
+                                                "your battle party? (yes/no): "
                                                 ).lower().replace(" ", "")
                         # checks for no value
                         if not picking_pokemon:
                             raise ValueError(error_colour+"Proffessor Oak:"
                                              " Oops you didn't respond, "
-                                             "please try again" + reset_styling)
+                                             "please try again"
+                                             + reset_styling)
                         # checks for incorrect value and format
                         elif picking_pokemon.lower() not in ['yes', 'no']:
                             raise ValueError(error_colour+"Proffessor Oak: "
@@ -127,7 +130,7 @@ class Player:
                         print(f"{e}")
 
                 '''
-                checks user response is yes, also that pokemon_name canerror_colour+"Proffessor Oak:"
+                checks user response is yes, also that pokemon_name
                 be found in pokedex and
                 pokemon has not already been added to battle_pokemon
                 '''
@@ -140,21 +143,25 @@ class Player:
                     self.battle_pokemon[pokemon_name] = (
                         copy.deepcopy(self.selected_pokemon_name))
                     # confirmation to user pokemon added
-                    print(game_notification + f" {pokemon_name} added to battle party. " + reset_styling)
+                    print(game_notification + f" {pokemon_name} added to "
+                          "battle party. " + reset_styling)
                     print("-------------------------------------------------"
                           "---")
                 elif picking_pokemon.lower() == "no":
                     # if user inputs no, function loops back to beginning
                     print(proffessor_oak + "No worries, why not try again")
                     print(game_notification + f" {pokemon_name} "
-                          "was not added to your battle party." + reset_styling)
+                          "was not added to your battle party."
+                          + reset_styling)
                 else:
                     # if user inputs no, function loops back to beginning
-                    print(error_colour + "Proffessor Oak: looks like you already added, "
-                          f"{pokemon_name} why not try another pokemon." + reset_styling)
+                    print(error_colour + "Proffessor Oak: looks like you "
+                          f"already added, {pokemon_name} why not try another"
+                          " pokemon." + reset_styling)
             os.system("clear")
         else:
-            print(game_notification +f" Player {self.name} is choosing his pokemon "+ reset_styling)
+            print(game_notification + f" Player {self.name} is choosing his"
+                  " pokemon " + reset_styling)
             # loops until 3 pokemon selected
             while len(self.battle_pokemon) < 3:
                 # selects a random pokemon in pokedex
@@ -167,7 +174,8 @@ class Player:
                     self.battle_pokemon[random_pokemon] = (
                         copy.deepcopy(pokedex[random_pokemon]))
             time.sleep(3)
-            print(game_notification +f" Pokemon selection complete "+ reset_styling)
+            print(game_notification + f" Pokemon selection complete "
+                  + reset_styling)
             time.sleep(2)
         return self.battle_pokemon
 
