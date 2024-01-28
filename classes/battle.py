@@ -8,7 +8,7 @@ from colorama import Fore, Back, Style
 
 error_colour = Back.RED + Fore.WHITE
 reset_styling = Style.RESET_ALL = Style.RESET_ALL
-game_notification = Back.BLUE + Fore.GREEN
+game_notification = Back.BLUE + Fore.WHITE
 proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
                   + Style.RESET_ALL)
 
@@ -104,9 +104,9 @@ class Battle:
     def choose_new_pokemon(self):
         fainted_pokemon_trainer = self.defender.name
         fainted_pokemon = self.defender_pokemon["name"]
-        print(game_notification + f"{fainted_pokemon_trainer} looks like {fainted_pokemon} fainted " + reset_styling)
+        print(game_notification + f" {fainted_pokemon_trainer} looks like {fainted_pokemon} fainted " + reset_styling)
         current_attacking_pokemon = self.attacker_pokemon["name"]
-        print(game_notification + f"the attacker {current_attacking_pokemon} is alive" + reset_styling)
+        print(game_notification + f" the attacker {current_attacking_pokemon} is alive " + reset_styling)
         
         if len(self.defender.battle_pokemon) == 0:
             print(proffessor_oak + f"O dear {fainted_pokemon_trainer} all your pokemon have fainted, you loose" + reset_styling)
@@ -115,7 +115,7 @@ class Battle:
             self.defender_pokemon = self.defender.battle_pokemon[pokemon_random_name]
             print(proffessor_oak + f"Excellent choice, you have choosen "
               f"{pokemon_random_name}" + reset_styling)
-            print(game_notification + f"{fainted_pokemon_trainer} has selected a new pokemon " + reset_styling)
+            print(game_notification + f" {fainted_pokemon_trainer} has selected a new pokemon " + reset_styling)
             self.battle_stadium()
         else:
             current_defender_pokemon = [
@@ -136,7 +136,7 @@ class Battle:
                         f"{defender_pokemon_name}" + reset_styling)
                         # contains the dictionary result of pokemon inside the object battle_pokemon for the attacker
                         self.defender_pokemon = self.defender.battle_pokemon[defender_pokemon_name]
-                        print(game_notification + f"{fainted_pokemon_trainer} has selected a new pokemon " + reset_styling)
+                        print(game_notification + f" {fainted_pokemon_trainer} has selected a new pokemon " + reset_styling)
                         self.battle_stadium()
                         break
                     else:
@@ -182,7 +182,7 @@ class Battle:
                 while True:
                     try:
                         # input asking user what attack they wish to do
-                        player_attack_choice = input(game_notification + f"what attack do you wish to use: " + reset_styling).replace(" ", "")
+                        player_attack_choice = input(game_notification + f" what attack do you wish to use: " + reset_styling).replace(" ", "")
                         # checks if value is a number and if value is either 1,2,3 or 4
                         if player_attack_choice.isdigit() and player_attack_choice in ["1","2","3","4"]:
                             # updates input value to a number
@@ -208,11 +208,11 @@ class Battle:
                 # updates defending pokemon health
                 new_health = defender_health - (int(attack)+40)
                 # prints what the attacker did
-                print(game_notification + f"{attacker_pokemon['name']} used {attack_name} causing {(int(attack)+40)} damage as it was super effective" + reset_styling)
+                print(game_notification + f" {attacker_pokemon['name']} used {attack_name} causing {(int(attack)+40)} damage as it was super effective " + reset_styling)
             else:
                 new_health = defender_health - int(attack)
                 # prints what the attacker did
-                print(game_notification + f"{attacker_pokemon['name']} used {attack_name} causing {attack} damage" + reset_styling)
+                print(game_notification + f" {attacker_pokemon['name']} used {attack_name} causing {attack} damage " + reset_styling)
 
             # updates defending pokemons health
             defender_pokemon["health"] = new_health
