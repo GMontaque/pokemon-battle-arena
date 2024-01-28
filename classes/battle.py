@@ -2,6 +2,7 @@ import random
 import re
 import time
 import os
+import pyfiglet
 from tabulate import tabulate
 from colorama import Fore, Back, Style
 
@@ -36,7 +37,7 @@ class Battle:
             try:
                 # asks attacking player for name of pokemon they will use
                 attacker_pokemon_name = input(proffessor_oak
-                                              + f"{self.attacker.name} which"
+                                              + f"{self.attacker.name.capitalize()} which"
                                               " pokemon do you want to fight "
                                               "with first: "
                                               + reset_styling
@@ -61,9 +62,11 @@ class Battle:
                 print(f"{e}")
 
         # confirms name choice of player 1 pokemon
-        print(proffessor_oak + f"Excellent choice {self.attacker.name},"
+        print(proffessor_oak + "Excellent choice "
+                               f"{self.attacker.name.capitalize()},"
                                " you have choosen "
-              f"{attacker_pokemon_name}" + reset_styling)
+                               f"{attacker_pokemon_name.capitalize()}"
+                               + reset_styling)
         print("-----------------------------------------------------")
         while True:
             if self.defender.is_human:
@@ -76,7 +79,7 @@ class Battle:
                 try:
                     # asks defending player for name of pokemon they will use
                     defender_pokemon_name = input(proffessor_oak
-                                                  + f"{self.defender.name} "
+                                                  + f"{self.defender.name.capitalize()} "
                                                   "which pokemon do you want "
                                                   "to fight with first: "
                                                   + reset_styling
@@ -108,8 +111,8 @@ class Battle:
                 break
 
         # confirms name choice of player 2 pokemon
-        print(proffessor_oak + f"excellent choice {self.defender.name}, you "
-              f"have choosen {defender_pokemon_name}" + reset_styling)
+        print(proffessor_oak + f"Excellent choice {self.defender.name.capitalize()}, you "
+                               f"have choosen {defender_pokemon_name.capitalize()}" + reset_styling)
         print("-----------------------------------------------------")
         # contains the dictionary result of pokemon inside the object
         # battle_pokemon for the attacker
@@ -121,12 +124,12 @@ class Battle:
             defender_pokemon_name]
 
     def choose_new_pokemon(self):
-        fainted_pokemon_trainer = self.defender.name
-        fainted_pokemon = self.defender_pokemon["name"]
+        fainted_pokemon_trainer = self.defender.name.capitalize()
+        fainted_pokemon = self.defender_pokemon["name"].capitalize()
         print(game_notification + f" {fainted_pokemon_trainer} looks like "
-                                  "{fainted_pokemon} fainted " + reset_styling)
+                                  f"{fainted_pokemon} fainted " + reset_styling)
         current_attacking_pokemon = self.attacker_pokemon["name"]
-        print(game_notification + f" the attacker {current_attacking_pokemon}"
+        print(game_notification + f" The attacker {current_attacking_pokemon.capitalize()}"
                                   " is alive " + reset_styling)
         if len(self.defender.battle_pokemon) == 0:
             print(proffessor_oak + f"O dear {fainted_pokemon_trainer} all "
@@ -164,8 +167,8 @@ class Battle:
                     if defender_pokemon_name in self.defender.battle_pokemon:
                         # updates input value to a number
                         # confirms name choice of defending pokemon
-                        print(proffessor_oak + f"excellent choice, you have"
-                              f" choosen {defender_pokemon_name}"
+                        print(proffessor_oak + f"Excellent choice, you have"
+                              f" choosen {defender_pokemon_name.capitalize()}"
                               + reset_styling)
                         # contains the dictionary result of pokemon inside
                         # the object battle_pokemon for the attacker
@@ -185,6 +188,10 @@ class Battle:
     def battle_stadium(self):
         time.sleep(3)
         os.system("clear")
+        battle_area_header = pyfiglet.figlet_format("Battle Arena",
+                                                    font="slant",
+                                                    justify="center")
+        print(battle_area_header)
         print(proffessor_oak + "let the battle begin")
         print("-----------------------------------------------------")
 
@@ -209,12 +216,12 @@ class Battle:
             # displays trainer name, pokemon name, pokemon health and
             # attack pokemon moves
             print(
-                f"[ Trainer:  {self.attacker.name}] \n"
+                f"[ Trainer:  {self.attacker.name.capitalize()}] \n"
                 f"[ Attacker: {attacker_pokemon['name'].capitalize()} HP: "
                 f"{health_bar_attack} ({attacker_health}) ]\n"
                 f"[ Attakcs:  {printed_attacks} |]\n"
                 "\n"
-                f"[ Trainer:  {self.defender.name}]\n"
+                f"[ Trainer:  {self.defender.name.capitalize()}]\n"
                 f"[ Defender: {defender_pokemon['name'].capitalize()} HP: "
                 f"{health_bar_defend} ({defender_health}) ]\n"
             )
@@ -224,7 +231,7 @@ class Battle:
                     try:
                         # input asking user what attack they wish to do
                         player_attack_choice = input(game_notification +
-                                                     f" what attack do you "
+                                                     f" What attack do you "
                                                      "wish to use: "
                                                      + reset_styling
                                                      ).replace(" ", "")
@@ -260,7 +267,7 @@ class Battle:
                 # updates defending pokemon health
                 new_health = defender_health - (int(attack)+40)
                 # prints what the attacker did
-                print(game_notification + f" {attacker_pokemon['name']} used"
+                print(game_notification + f" {attacker_pokemon['name'].capitalize()} used"
                                           f" {attack_name} causing "
                                           f"{(int(attack)+40)} damage as it "
                                           "was super effective "
@@ -268,7 +275,7 @@ class Battle:
             else:
                 new_health = defender_health - int(attack)
                 # prints what the attacker did
-                print(game_notification + f" {attacker_pokemon['name']} used"
+                print(game_notification + f" {attacker_pokemon['name'].capitalize()} used"
                                           f" {attack_name} causing {attack} "
                                           "damage " + reset_styling)
 
