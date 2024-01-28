@@ -109,10 +109,14 @@ def play_game(user1, user2, human):
     pokemon_battle_player2 = player2.pick_pokemon()
     print(proffessor_oak + f"That is you sorted {player_2.capitalize()}, "
           "you've choosen your pokemon" + reset_styling)
-    time.sleep(3)
-    os.system("clear")
     print(proffessor_oak + "Excellent you've both now choosen your pokemon, "
           "lets go to to battle arena")
+    time.sleep(3)
+    os.system("clear")
+    subhead_Battle_Arena = pyfiglet.figlet_format("Battle Arena",
+                                                  font="slant",
+                                                  justify="center")
+    print(subhead_Battle_Arena)
     # creates battle area from Battle Class
     battle = Battle(player1, player2)
     # lets palyers choose which pokemon to start the battle with
