@@ -21,7 +21,7 @@ def game_restart(user1, user2):
     while True:
         # gets the name for player 2
         try:
-            play_again = input(proffessor_oak + f"Well I hope you had fun "
+            play_again = input(proffessor_oak + "Well I hope you had fun "
                                f"{player_1}, do you want to try again: " 
                                + reset_styling).lower().replace(" ", "")
             # checks their is a value
@@ -75,6 +75,10 @@ def game_restart(user1, user2):
             play_game(player_1, user2="John", human=False)
     else:
         print(proffessor_oak + "No worries come back any time")
+        end_game_text = pyfiglet.figlet_format("Game End",
+                                               font="banner3-D",
+                                               justify="center")
+        print(end_game_text)
 
 
 def play_game(user1, user2, human):
