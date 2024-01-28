@@ -109,8 +109,10 @@ class Player:
                     try:
                         # input players choice on pokemon
                         picking_pokemon = input(proffessor_oak + f"Do you want"
-                                                f" to add {pokemon_name.capitalize()} to "
-                                                "your battle party? (yes/no): "
+                                                " to add "
+                                                f"{pokemon_name.capitalize()} "
+                                                "to your battle party? "
+                                                "(yes/no): "
                                                 ).lower().replace(" ", "")
                         # checks for no value
                         if not picking_pokemon:
@@ -143,8 +145,8 @@ class Player:
                     self.battle_pokemon[pokemon_name] = (
                         copy.deepcopy(self.selected_pokemon_name))
                     # confirmation to user pokemon added
-                    print(game_notification + f" {pokemon_name.capitalize()} added to "
-                          "battle party. " + reset_styling)
+                    print(game_notification + f" {pokemon_name.capitalize()}"
+                          " added to battle party. " + reset_styling)
                     print("-------------------------------------------------"
                           "---")
                 elif picking_pokemon.lower() == "no":
@@ -156,8 +158,8 @@ class Player:
                 else:
                     # if user inputs no, function loops back to beginning
                     print(error_colour + "Proffessor Oak: looks like you "
-                          f"already added, {pokemon_name.capitalize()} why not try another"
-                          " pokemon." + reset_styling)
+                          f"already added, {pokemon_name.capitalize()} "
+                          "why not try another pokemon." + reset_styling)
             os.system("clear")
         else:
             print(game_notification + f" Player {self.name} is choosing his"
