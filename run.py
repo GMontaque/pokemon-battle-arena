@@ -21,12 +21,13 @@ def game_restart(user1, user2):
         # gets the name for player 2
         try:
             play_again = input(proffessor_oak + "Well I hope you had fun "
-                               f"{player_1}, do you want to try again: " 
+                               f"{player_1}, do you want to try again: "
                                + reset_styling).lower().replace(" ", "")
             # checks their is a value
             if play_again.lower() not in ['yes', 'no']:
-                raise ValueError(error_colour + "Proffessor Oak: Oop, Sorry I need a Yes "
-                                 "or No answer, why not try again" + reset_styling)
+                raise ValueError(error_colour + "Proffessor Oak: Oop, Sorry I"
+                                 " need a Yes or No answer, why not try again"
+                                 + reset_styling)
             break
         except ValueError as e:
             # prints error message
@@ -37,12 +38,14 @@ def game_restart(user1, user2):
             # gets the name for player 2
             try:
                 npc_needed = input(proffessor_oak + "Excellent, do you wish "
-                                   "to play against a human player? " + reset_styling
+                                   "to play against a human player? "
+                                   + reset_styling
                                    ).lower().replace(" ", "")
                 # checks their is a value
                 if npc_needed.lower() not in ['yes', 'no']:
-                    raise ValueError(error_colour + "Proffessor Oak: Oop, Sorry I need a Yes "
-                                     "or No answer, why not try again" + reset_styling)
+                    raise ValueError(error_colour + "Proffessor Oak: Oop, "
+                                     "Sorry I need a Yes or No answer, why "
+                                     "not try again" + reset_styling)
                 break
             except ValueError as e:
                 # prints error message
@@ -56,12 +59,14 @@ def game_restart(user1, user2):
                                        ).capitalize().replace(" ", "")
                     # checks their is a value
                     if not user_name2:
-                        raise ValueError(error_colour + "Oops seems you forgot to"
-                                         " enter your name, why not try again" + reset_styling)
+                        raise ValueError(error_colour + "Oops seems you forgot"
+                                         "to enter your name, why not try"
+                                         " again" + reset_styling)
                     # checks the value is in the correct format
                     elif not re.match("^[A-Za-z]+$", user_name2):
-                        raise ValueError(error_colour + "Proffessor Oak: Oops seems you "
-                                         "entered a number, why not try again" + reset_styling)
+                        raise ValueError(error_colour + "Proffessor Oak: Oops"
+                                         " seems you entered a number, why not"
+                                         " try again" + reset_styling)
                     break
                 except ValueError as e:
                     # prints error message
@@ -123,8 +128,8 @@ def play_game(user1, user2, human):
     # starts the actually battle
     battle.battle_stadium()
     battle_end_message = pyfiglet.figlet_format("Battle Finished",
-                                                  font="slant",
-                                                  justify="center")
+                                                font="slant",
+                                                justify="center")
     print(battle_end_message)
     # asks user if they wish to restart and play again
     # pass player 1 and 2 name
