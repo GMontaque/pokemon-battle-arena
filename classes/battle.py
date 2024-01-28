@@ -48,7 +48,8 @@ class Battle:
                                      "please try again" + reset_styling)
                     '''checks input matches pokemon name in players battle pack
                     '''
-                elif not self.attacker.battle_pokemon.get(attacker_pokemon_name, None):
+                elif not self.attacker.battle_pokemon.get(
+                     attacker_pokemon_name, None):
                     raise ValueError(error_colour
                                      + "Proffessor Oak: Oops thats not "
                                      "one of the pokemon in your battle pack"
@@ -89,7 +90,8 @@ class Battle:
                         '''checks input matches pokemon name in
                             players battle pack
                         '''
-                    elif not self.defender.battle_pokemon.get(defender_pokemon_name, None):
+                    elif not self.defender.battle_pokemon.get(
+                         defender_pokemon_name, None):
                         raise ValueError(error_colour
                                          + "Proffessor Oak: Oops thats not "
                                          "one of the pokemon in your battle "
@@ -101,7 +103,8 @@ class Battle:
                 except ValueError as e:
                     print(f"{e}")
             else:
-                defender_pokemon_name = random.choice(list(self.defender.battle_pokemon))
+                defender_pokemon_name = random.choice(list(
+                    self.defender.battle_pokemon))
                 break
 
         # confirms name choice of player 2 pokemon
@@ -110,10 +113,12 @@ class Battle:
         print("-----------------------------------------------------")
         # contains the dictionary result of pokemon inside the object
         # battle_pokemon for the attacker
-        self.attacker_pokemon = self.attacker.battle_pokemon[attacker_pokemon_name]
+        self.attacker_pokemon = self.attacker.battle_pokemon[
+            attacker_pokemon_name]
         # contains the dictionary result of pokemon inside the object
         # battle_pokemon for the attacker
-        self.defender_pokemon = self.defender.battle_pokemon[defender_pokemon_name]
+        self.defender_pokemon = self.defender.battle_pokemon[
+            defender_pokemon_name]
 
     def choose_new_pokemon(self):
         fainted_pokemon_trainer = self.defender.name
@@ -128,8 +133,10 @@ class Battle:
                                    "your pokemon have fainted, you loose"
                                    + reset_styling)
         elif self.defender.is_human is False:
-            pokemon_random_name = random.choice(list(self.defender.battle_pokemon))
-            self.defender_pokemon = self.defender.battle_pokemon[pokemon_random_name]
+            pokemon_random_name = random.choice(list(
+                 self.defender.battle_pokemon))
+            self.defender_pokemon = self.defender.battle_pokemon[
+                    pokemon_random_name]
             print(proffessor_oak + f"Excellent choice, you have choosen "
                   f"{pokemon_random_name}" + reset_styling)
             print(game_notification + f" {fainted_pokemon_trainer} has "
@@ -162,7 +169,8 @@ class Battle:
                               + reset_styling)
                         # contains the dictionary result of pokemon inside
                         # the object battle_pokemon for the attacker
-                        self.defender_pokemon = self.defender.battle_pokemon[defender_pokemon_name]
+                        self.defender_pokemon = self.defender.battle_pokemon[
+                            defender_pokemon_name]
                         print(game_notification + f" {fainted_pokemon_trainer}"
                               " has selected a new pokemon " + reset_styling)
                         self.battle_stadium()
@@ -236,12 +244,14 @@ class Battle:
                         print(f"{e}")
             else:
                 # computer chooses random attack
-                player_attack_choice = random.choice(list(attacker_pokemon["attacks"]))
+                player_attack_choice = random.choice(list(
+                    attacker_pokemon["attacks"]))
 
             # gets the number value of the string
             attack = attacker_pokemon["attacks"][player_attack_choice][1][-2:]
             # gets the name of the attack
-            attack_name = attacker_pokemon["attacks"][player_attack_choice][1][:-4]
+            attack_name = attacker_pokemon["attacks"][
+                player_attack_choice][1][:-4]
             #  deducates the attack amount from the defending pokemons health
             defender_health = defender_pokemon["health"]
             attack_type = attacker_pokemon["attacks"][player_attack_choice][0]
