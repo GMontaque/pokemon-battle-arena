@@ -30,7 +30,7 @@ class Player:
             entry['health'] = 240
         if self.is_human:
             # loops till member chooses 3 pokemon
-            while len(self.battle_pokemon) < 3:
+            while len(self.battle_pokemon) < 1:
                 print("-----------------------------------------------------")
                 print(game_notification + " Please choose from the follow "
                       + Style.RESET_ALL)
@@ -109,7 +109,7 @@ class Player:
                     try:
                         # input players choice on pokemon
                         picking_pokemon = input(proffessor_oak + f"Do you want"
-                                                f" to add {pokemon_name} to "
+                                                f" to add {pokemon_name.capitalize()} to "
                                                 "your battle party? (yes/no): "
                                                 ).lower().replace(" ", "")
                         # checks for no value
@@ -143,20 +143,20 @@ class Player:
                     self.battle_pokemon[pokemon_name] = (
                         copy.deepcopy(self.selected_pokemon_name))
                     # confirmation to user pokemon added
-                    print(game_notification + f" {pokemon_name} added to "
+                    print(game_notification + f" {pokemon_name.capitalize()} added to "
                           "battle party. " + reset_styling)
                     print("-------------------------------------------------"
                           "---")
                 elif picking_pokemon.lower() == "no":
                     # if user inputs no, function loops back to beginning
                     print(proffessor_oak + "No worries, why not try again")
-                    print(game_notification + f" {pokemon_name} "
+                    print(game_notification + f" {pokemon_name.capitalize()} "
                           "was not added to your battle party."
                           + reset_styling)
                 else:
                     # if user inputs no, function loops back to beginning
                     print(error_colour + "Proffessor Oak: looks like you "
-                          f"already added, {pokemon_name} why not try another"
+                          f"already added, {pokemon_name.capitalize()} why not try another"
                           " pokemon." + reset_styling)
             os.system("clear")
         else:
