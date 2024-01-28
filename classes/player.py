@@ -33,7 +33,7 @@ class Player:
             # loops till member chooses 3 pokemon
             while len(self.battle_pokemon) < 3:
                 print("-----------------------------------------------------")
-                print(game_notification + "Please choose from the follow" + Style.RESET_ALL)
+                print(game_notification + " Please choose from the follow " + Style.RESET_ALL)
                 pokemon_names = [
                     ["Squirtle", "Charmander", "Bulbasaur"],
                     ["Grimer", "Pikachu", "Abra"],
@@ -140,7 +140,7 @@ class Player:
                     self.battle_pokemon[pokemon_name] = (
                         copy.deepcopy(self.selected_pokemon_name))
                     # confirmation to user pokemon added
-                    print(game_notification + f"{pokemon_name} added to battle party." + reset_styling)
+                    print(game_notification + f" {pokemon_name} added to battle party. " + reset_styling)
                     print("-------------------------------------------------"
                           "---")
                 elif picking_pokemon.lower() == "no":
@@ -154,7 +154,7 @@ class Player:
                           f"{pokemon_name} why not try another pokemon." + reset_styling)
             os.system("clear")
         else:
-            print(game_notification +f"Player {self.name} is choosing his pokemon"+ reset_styling)
+            print(game_notification +f" Player {self.name} is choosing his pokemon "+ reset_styling)
             # loops until 3 pokemon selected
             while len(self.battle_pokemon) < 3:
                 # selects a random pokemon in pokedex
@@ -167,7 +167,7 @@ class Player:
                     self.battle_pokemon[random_pokemon] = (
                         copy.deepcopy(pokedex[random_pokemon]))
             time.sleep(3)
-            print(game_notification +f"Pokemon selection complete"+ reset_styling)
+            print(game_notification +f" Pokemon selection complete "+ reset_styling)
             time.sleep(2)
         return self.battle_pokemon
 
