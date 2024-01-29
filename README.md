@@ -97,3 +97,26 @@ The battle phase was also created in a separate file called battle.py and a clas
 Finally, when the Battle phase is completed, we return to the run.py file. The restart’ function is called which asks the user if they wish to play again or exit the game. If they wish to play again some details are taken and then ’play game’ is called again and the game restarts.
 
 When designing the game, I have used information from the actual Pokémon game such as names descriptions of Pokémon, Pokémon attack moves and the Pokémon types so that a person with previous knowledge of the games can pick up the game I have created easily as they will be able to tap into the same areas of knowledge. I have done the same with the Pokémon attacks and how damage is inflicted against another Pokémon by taking the Pokémon’s type into account.
+
+## Flowchart
+
+- This flow chart shows the user journey from start to finish
+  ![picture of initial game screem](assets/img/)
+
+- This flow chart specifically shows the battle sections of the game
+  ![picture of initial game screem](assets/img/)
+
+- This flow chart specifically shows the Pokémon selection section
+  ![picture of initial game screem](assets/img/)
+
+## Data Model
+
+When planning out the project I had decided that not all my code would be written within my run.py file. This is because I was looking to create and to simplify the layout of the game by grouping together related code. This led to the creation of two extra files each of which contains a class to be used in the game.
+The game begins in the run.py file. Here, I created a function called “play game” which introduces the player to the game and asks the player for some information, including their name and their opponent’s name - or a PC player is selected. Once they have read the rules, they are taken to a second function called ’play game’
+The majority of the game is run within this function. Firstly, a player variable is created for each player and this variable stores as a value an instance of the player class that is created in the player.py file.
+
+When planning the game there were certain actions that related purely to the player, so I grouped all these together inside the player class, as it made it easier to plan and run the game. The other benefit of this approach is that the entire player object can then be passed to different functions and different parts of the object can be extracted and used. For example, each player is made to choose 3 Pokémon they wish to battle with. The selection process to do this is done within the player class as a method called ‘pick Pokémon’. This is stored in a battle pack which is unique to each player.
+
+Once the selection process is complete the next stage of the game is the battle stage, I created another file for this and within that, created the battle class. This class contains a number of different methods. The battle class was created to group together all the methods relating to the battle section of the game. Within the battle class, you will find fight set up, choose new Pokémon, battle stadium and flip.
+
+Once the battle stage is finished, the final section of the game is a function called game Restart which was included in the run.py file. Here the player is given the option to play again or end the game. This, together with the other 2 functions were included in the main run.py as they are the core 3 functions, one starts the game, one runs the game and one restarts the game.
