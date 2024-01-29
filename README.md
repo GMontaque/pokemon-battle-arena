@@ -319,3 +319,60 @@ Once the battle stage is finished, the final section of the game is a function c
 | Confirmation if player 2 is human or PC before game restart                                                        | Player 1 given an input choice of yes or no                                                                                                    | Player 1 is shown an input which accepts a value of yes or no. If player 1 inputs ‘no’, player 2 is updated as PC,. If player 1 inputs ‘yes’, player 2 is asked for their name.  | Pass |
 | Player 2 name input validation for human player                                                                    | Tried to input a variety of values                                                                                                             | Player 2 name should only be accepted if user inputs a string value for player name                                                                                              | Pass |
 | Player 2 selection confirmed, game restarts and players taken to choose battle Pokémon function                    | Confirm game to restart and select player 2                                                                                                    | After player 2 has been chosen, play_game function is called and players asked to choose pokemon in battle pack                                                                  | Pass |
+
+## Deploying the Website to GitHub Pages
+
+- The website was deployed to GitHub Pages using the following steps:
+- In the GitHub repository, go to the "Settings" tab.
+- From the left-side menu, select 'Pages.'
+- In the source section drop-down menu, choose the 'main' branch.
+- Click 'Save.'
+- Upon successful publishing, a live link will be displayed in a green banner.
+
+### To deploy on Heroku:
+
+- Log in to Heroku - or set up a new account.
+- From the dashboard, click 'Create new app'.
+- Name your app - it will need to be unique. Select Region, then 'Create'.
+- Click on the 'Settings' tab.
+- Scroll down to Config Vars and click 'Reveal Config Vars'.
+- In the 'Key' field enter 'PORT', and in the 'Value' field enter '8000'.
+- If there is a credentials file, this will also need to be entered into the Config Vars setting.
+- Staying within 'Settings', scroll down to Buildpacks and click on 'Add Buildpacks'.
+- Select 'python' first and click 'Save changes'.
+- Then do the same again and this time select 'nodejs' and click 'Save changes'.
+- Ensure the buildpacks are in the order of python first and nodejs second.
+- Scroll to the top and select 'Deploy'.
+- In 'Deployment method' select 'GitHub' and confirm you want to connect.
+- Enter your GitHub repository into the search bar, and then 'Connect'.
+- Under 'Automatic deploys', click on 'Enable Automatic Deploys' if you want the app to update every time you push changes to GitHub.
+- Finally, click on 'Deploy Branch' under 'Manual deploy' to deploy your app. Once completed, you will be able to view your deployed link.
+
+### Cloning the Repository
+
+- Click on the "Code" button located near the top right corner of the page.
+- Copy the HTTPS or SSH URL displayed.
+- Open your terminal (or Git Bash on Windows) and navigate to your desired directory.
+- Enter "git clone" followed by a space, and paste the copied URL.
+- Press enter to execute the command, creating a local copy of the GitHub repository.
+- You now have the GitHub repository cloned to your local machine.
+
+## Credit and Content
+
+**Youtube Courses**
+
+- Bro Code
+
+  - Python Course - https://www.youtube.com/watch?v=XKHEtdqhLK8&ab_channel=BroCode
+
+- Tech With Tim
+
+  - Python Object Oriented Programming - https://www.youtube.com/watch?v=JeznW_7DlB0&ab_channel=TechWithTim
+
+- Clear Code
+
+  - The complete guide to Python - https://www.youtube.com/watch?v=mDKM-JtUhhc&ab_channel=ClearCode
+
+- Codecademy
+
+  - Learn Python 3 - https://www.codecademy.com/catalog/language/python
