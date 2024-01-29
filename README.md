@@ -224,3 +224,98 @@ Once the battle stage is finished, the final section of the game is a function c
 - A Pokémon’s accuracy can be reduced or increased
 - A user can swap out Pokémon mid battle
 - Health potions can be used on the players fighting Pokémon
+
+## Technologies and Languages
+
+- Python - Object Oriented Coding Lanugage
+- Gitpod – a cloud development environment
+- GitHub – a code hosting platform for version control, collaboration and editing websites
+- VS Code Desktop – IDE used to code the program
+- Heroku - used to deploy the program
+- Re – regular expression
+  - This was imported and used to check that the user input only contains letters
+- Random
+  - This was used when the pc needed to select an option at random
+- Copy and deepcopy
+  - A deep copy constructs a new compound object and then, recursively, inserts copies into it of the objects found in the original.
+- tabulate
+  - used to create tables in python
+- ## Time
+- ## OS
+
+## Testing
+
+### Play Test
+
+- The testing that i have completed for can be found in the following file
+  - [Website Testing](websiteTesting.md)
+
+### Validator
+
+- run.py
+
+  - [Website Testing](websiteTesting.md)
+
+- player.py
+
+  - [Website Testing](websiteTesting.md)
+
+- battle.py
+  - [Website Testing](websiteTesting.md)
+
+### Bug and errors
+
+- When testing my project in Heroku after a recent push of new code, I was shown the below error message. The error message appeared stating that there was an error in a string that was nested inside an F String, the issue was being caused as I had used double quote for the F string and I had used double quotes for an element inside the F String. To resolve this issue, I changed the quotes around the “name” word to single quotation marks and this solved the issue. I had to do this for a number of lines of code.
+
+[Website Testing](websiteTesting.md)
+
+[Website Testing](websiteTesting.md)
+
+[Website Testing](websiteTesting.md)
+
+- An error that I came across was occurring when the user input a value in some circumstances a user could enter the correct result but the game would not accept the value and throw an error. Initially, this was solved by adding “lower()” to the ends of the input which meant all values were lower case, so there was no issue if the user used capital letters. This did not completely solve the issue as, for example, a user, when asked to input a number, could still find there was an issue due to including whitespace.
+  If the user inputted a value but pressed the space bar before pressing enter to submit the code the game would flag an error due to the extra whitespace. To solve this, I added in the replace method which removed all white space and would then only return the actual value. This was possible because I had not used a double value with space in-between in any part of my game.
+
+[Website Testing](websiteTesting.md)
+
+- Each player is meant to select 3 unique Pokémon which they add to their own battle pack and which they use these to fight against the other player. An issue I was facing was that when both players chose the same Pokémon and executed an attack, both players would lose the same health, not just the defender. I found this error only appeared when I used organic Pokémon selection where the user had to choose. If I used pre-selected data in battle_pokemon, this error did not occur
+  On further testing, I found that the issue was happening because when I was presetting the values in battle_pokemon, it would create two objects but when manually adding values to the battle Pokémon it was counting them as one object shared between both players. To solve this issue, I had to import “copy” and used the method “deepcopy” when adding a Pokémon to battle_pokemon.
+
+[Website Testing](websiteTesting.md)
+
+[Website Testing](websiteTesting.md)
+
+### Manual Testing
+
+| Feature test                                                                                                       | Test carried out                                                                                                                               | Expected outcome                                                                                                                                                                 | pass |
+| ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| Player 1 username input                                                                                            | Various input values passed to the input                                                                                                       | Player 1 name should only be accepted if user inputs a string value                                                                                                              | Pass |
+| Player 1 asked if they are playing against a human or PC                                                           | Player 1 is presented with an input field only yes or no answers accepted                                                                      | Input field only accepts yes and no value so does not proceed until it has one of those                                                                                          | Pass |
+| Player 2 username input                                                                                            | Various input values passed to the input                                                                                                       | Player 2 name should only be accepted if user inputs a string value                                                                                                              | Pass |
+| PC auto selected as player 2                                                                                       | Entered the value of no into the input when asked if playing against human                                                                     | Player 2 is automatically given the pre-selected PC name and the variable human has a value of false                                                                             | Pass |
+| Rules appear on screen after player selection                                                                      | Run the game and complete player selection                                                                                                     | Once player selection is completed, rules automatically appear                                                                                                                   | Pass |
+| Players asked if they are ready to pick Pokémon                                                                    | Onscreen input appears and user inputs a value of fight or exit                                                                                | If user inputs exit, game ends. If user inputs fight, user is taken to Play_game function                                                                                        | Pass |
+| An instance of the player class is created and stored as a value of player 1 and the pick Pokémon method is called | User inputs the value fight which calls play_game function and inside that function the instance object is created which contains pick_pokemon | The player object is created and the pick_pokemon function will be called. The User is then greeted with a print statement showing the Pokémon to select from and an input field | Pass |
+| User inputs Pokémon name, Pokémon details appear                                                                   | Typed in different names and then typed in different Pokémon names in input field                                                              | When user inputs incorrect name they are informed of this, if user inputs correct name Pokémon details appear                                                                    | Pass |
+| User asked if they wish to add a selected Pokémon to their party                                                   | Input field appears looking for a yes or no answer                                                                                             | If user presses yes Pokémon added to battle pack and if no user taken to initial screen asking for Pokémon name                                                                  | Pass |
+| Pokémon picker to loop until user has selected 3 Pokémon for battle pack                                           | Input 5 Pokémon names but only add Pokémons 1, 4 and 5                                                                                         | Pokémon picker should only complete once user has added 3 Pokémon even if they are not the first 3 names reviewed                                                                | Pass |
+| When player 2 is the PC, player 2 will automatically select battle Pokémon                                         | Change the variable human to false                                                                                                             | Pick Pokémon is called and as human has a value of false this automatically runs the pick Pokémon method                                                                         | Pass |
+| Method called first Pokémon in the battle class is called                                                          | Each player inputs a Pokémon name from their battle pack                                                                                       | An input field appears with a table above it showing the 3 Pokémon that player picked and asks the player to input a Pokémon name                                                | Pass |
+| first Pokémon method picker validation                                                                             | Enter Pokémon name from player battle pack as well as other values                                                                             | Code should only proceed when user inputs a Pokémon name in that players battle pack, otherwise an error message should appear                                                   | Pass |
+| Battle phase begins, screen shows each player’s name, Pokémon and Pokémon health                                   | Input an initial Pokémon for player 1 and 2                                                                                                    | Battle area should appear which shows each players names, Pokémon they have chosen and full health                                                                               | Pass |
+| Attacker chooses an attack and defender health is reduced                                                          | Attacker inputs a number between 1 and 4                                                                                                       | When attacker inputs a number the attack value amount should then be reduced from the defender health                                                                            | Pass |
+| Player 1 attack validation                                                                                         | Enter a number value as well as other data type                                                                                                | Error message should appear if user enters any other value other than 1 to 4                                                                                                     | Pass |
+| After each attack, attacker and defender player and Pokémon, are switched                                          | Have the players Pokémon fight each other                                                                                                      | After each attack is completed and the defender’s health is deducted, player and Pokémon are repeatedly switched until defender Pokémon faints.                                  | Pass |
+| Current Defender Pokémon faints, choose new Pokémon method called                                                  | Make defender Pokémon lose the battle                                                                                                          | When defender Pokémon has fainted battle phase should be paused and choose new Pokémon called                                                                                    | Pass |
+| Human defender player asked to pick new Pokémon from battle pack                                                   | Human player Pokémon is made to lose the battle                                                                                                | A check is completed to see if the player whose Pokémon fainted is human before asking them to input the name of the next Pokémon to battle with                                 | Pass |
+| Human player new Pokémon selection validation                                                                      | Tried to input a Pokémon name in player battle pack and random letter and number values                                                        | If any value is entered in the input other than the Pokémon in the players battle pack,an error is printed. Input will only accept and proceed with correct Pokémon name         | Pass |
+| PC defender player picks new Pokémon from battle pack                                                              | PC player Pokémon is made to lose the battle                                                                                                   | A check is completed to see if the player whose Pokémon fainted is the PC, and then PC will also select next Pokémon to fight with                                               | Pass |
+| All Pokémon of a player have fainted, game should end                                                              | When in the battle phase, ensured one player lost all battles                                                                                  | When a player has no Pokémon left to fight with, end game function should be called and break out of battle class                                                                | Pass |
+| End game function called                                                                                           | Ensure a player loses the game                                                                                                                 | End game function is called and player 1 is asked if they wish to play again                                                                                                     | Pass |
+| Player 1 in end game function is shown an input to play again or quit                                              | A player is made to lose the game                                                                                                              | When a player has no Pokémon left to battle with end game function is called and an input appears for player 1 asking to play again                                              | Pass |
+| Player 1 end game validation                                                                                       | Tried to input a variety of values                                                                                                             | If any value is entered in the input other than yes or no, error is outputted                                                                                                    | Pass |
+| Game ends                                                                                                          | End game function is called and value inputted                                                                                                 | Inside the end game function, the user inputs No and the game ends with a goodbye message                                                                                        | Pass |
+| Check player wants to restart game                                                                                 | End game function is called and value inputted                                                                                                 | Inside end game function, user inputs yes which then triggers a second input to appear on screen                                                                                 | Pass |
+| Confirmation if player 2 is human or PC before game restart                                                        | Player 1 given an input choice of yes or no                                                                                                    | Player 1 is shown an input which accepts a value of yes or no. If player 1 inputs ‘no’, player 2 is updated as PC,. If player 1 inputs ‘yes’, player 2 is asked for their name.  | Pass |
+| Player 2 name input validation for human player                                                                    | Tried to input a variety of values                                                                                                             | Player 2 name should only be accepted if user inputs a string value for player name                                                                                              | Pass |
+| Player 2 selection confirmed, game restarts and players taken to choose battle Pokémon function                    | Confirm game to restart and select player 2                                                                                                    | After player 2 has been chosen, play_game function is called and players asked to choose pokemon in battle pack                                                                  | Pass |
