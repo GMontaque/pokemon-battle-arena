@@ -240,27 +240,34 @@ Once the battle stage is finished, the final section of the game is a function c
   - A deep copy constructs a new compound object and then, recursively, inserts copies into it of the objects found in the original.
 - tabulate
   - used to create tables in python
-- ## Time
-- ## OS
+- Colorama
+  - Makes ANSI escape character sequences (for producing colored terminal text and cursor positioning)
+- Time
+  - This module provides various time-related functions
+- OS.sytem
+  - Used to clear the terminal by passing it the value "clear"
+- pyfiglet
+  - Takes ASCII text and renders it in ASCII art fonts
 
 ## Testing
 
 ### Play Test
 
-- The testing that i have completed for can be found in the following file
+- To test my game further i also sent it to a few friends who grew playing pokemon
   - [Website Testing](websiteTesting.md)
 
 ### Validator
 
-- run.py
+- Run.py
 
   - [Website Testing](websiteTesting.md)
 
-- player.py
+- Player.py
 
   - [Website Testing](websiteTesting.md)
 
-- battle.py
+- Battle.py
+
   - [Website Testing](websiteTesting.md)
 
 ### Bug and errors
