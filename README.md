@@ -120,3 +120,107 @@ When planning the game there were certain actions that related purely to the pla
 Once the selection process is complete the next stage of the game is the battle stage, I created another file for this and within that, created the battle class. This class contains a number of different methods. The battle class was created to group together all the methods relating to the battle section of the game. Within the battle class, you will find fight set up, choose new Pokémon, battle stadium and flip.
 
 Once the battle stage is finished, the final section of the game is a function called game Restart which was included in the run.py file. Here the player is given the option to play again or end the game. This, together with the other 2 functions were included in the main run.py as they are the core 3 functions, one starts the game, one runs the game and one restarts the game.
+
+## Colour and Font Scheme
+
+- Colour for user input and name
+- Colour for Pokémon NPC text
+- Colour for loading text
+- Colour for wrong answers
+- Colour for game notifications
+- Colour for end game
+
+## Features
+
+- Welcome page
+
+  - This screen will be the first thing that the player sees when they load up the game, it contains the name of the game to clearly indicate to the player the type of game that they have loaded up. It also contains a message from an in-game character called Professor Oak who welcomes them to the game.
+
+- Player 1 User input name and validation
+
+  - The user is asked to enter their name which will be used throughout the game
+  - When asking for their name, validation has been added to make sure they enter a string value
+  - Error feedback is provided to the user if they raise an error
+
+- Player 2 selection - human or computer
+
+  - Player 1 is asked if they have a friend to play with
+  - if the user states ‘no’ in response, then a PC player will be automatically selected as player 2
+  - If they respond ‘yes’, they are prompted to input player 2’s name
+  - A variable called human is also created and is used later on in the function to automate computer choices
+
+- Game Rules
+
+  - Once both players have been chosen, they are shown the rules of the game
+  - The rules contain information about the Pokémon selection progress.
+  - The rules also contain information about the battle arena.
+  - The rules go through the importance of selecting your Pokémon and depending on your Pokémon type, the attacks can be amplified.
+  - Finally, it contains information about how to restart the game or exit the game.
+
+- Each player reviewing and picking Pokémon for their battle pack.
+
+  - This is the Pokémon selection phase.
+  - A player can input any 1 of the 10 Pokémon and get back a detailed information sheet about that Pokémon. The information sheet will contain their name, description, type of Pokémon and attack moves. There is also important information about weakness to other Pokémon types.
+  - A player can review as many Pokémon as they wish, after each Pokémon’s information sheet, they will be given a choice to add the Pokémon to the battle pack
+
+- Players adding Pokémon to battle pack
+
+  - Adding a Pokémon to a players battle pack is linked with reviewing the Pokémon
+  - After a player inputs a Pokémon’s name and receives the detailed information sheet, they are asked if they wish to add the Pokémon to their battle pack
+  - If they say ‘yes’, the Pokémon is added and this is confirmed by a on screen message
+  - If they type ‘no’, they are taken back to the reviewing stage
+  - An error catch has also been included so that the user is unable to select the same Pokémon twice to add to their battle pack. Each Pokémon must be unique
+
+- PC adding Pokémon to battle pack
+
+  - If the player has chosen not to play against a human player, then the PC will automatically choose their own battle pack Pokémon
+  - This is confirmed on screen for the user to see that their opponent has selected their Pokémon
+  - The variable “human” is used here to check that player 2 is not human
+
+- Entering the battle arena
+
+  - When entering the battle arena there is an on-screen message that first appears from the in-game character Professor Oak informing them they have entered the battle arena.
+  - Each player is then asked which Pokémon they wish to start the battle arena with
+  - Once both players have chosen their starting Pokémon the battle will start
+  - If the user is playing against the computer this selection will be done automatically due to the “human” variable
+
+- Pokémon fight in battle arena display
+
+  - The image attached show the screen that will appear to the user when the battle has started
+  - Included in the image is the attack Pokémon and player at the top along with the attacking Pokémon’s health bar
+  - Below the attacking Pokémon and player is the same information for the defending Pokémon and player
+
+- Health reduction
+
+  - Under the on-screen battle arena, the attacking player will be asked what attack they wish to execute
+  - They have the option to choose 1 of 4 attacks
+  - The player selects the attack by inputting the attack number. The attack hit point value will be the amount of damage that will be taken off the defending Pokémon’s health
+  - This attack can be increased by 40 if the defending Pokémon is weak to the attack move type, i.e fire type is weak to water
+  - Then the attack and defender will switch and the new attacker will then be given the same options and can then attack
+  - This process of flipping will continue until one of the players’ Pokémon has fainted (health is 0)
+
+- Selection of a new Pokémon
+
+  - When a player’s Pokémon has fainted, it triggers a method called ‘Choose new Pokémon’
+  - In the method there is first a check to see if the player with the fainted Pokémon has any Pokémon left in their battle pack as after each Pokémon faints it is removed from the battle pack so it can’t be used again
+  - If there are no Pokémon left for the player to use, the game ends
+  - If the player has a Pokémon left which they can use, they are asked which Pokémon they wish to fight with next
+  - Then the battle restarts with the player whose Pokémon did not faint having the first attack
+
+- Restart and end game
+
+  - When all Pokémon in a players battle pack have fainted (health 0) it will trigger the restart game function
+  - Here player 1 is asked if they want to play another game
+  - If player 1 inputs ‘no’ then the game ends and the in-game character Professor Oak confirm this in a goodbye message, asking them to come back soon
+  - If player 1 inputs ‘yes’, they are asked if they want to play against a human player
+  - If player 1 states ‘no’ a PC player is inputted as player 2
+  - If player 1 has stated yes to a human player, player 2 is prompted for their name and then both player 1 and 2 are taken to the review Pokémon stage to add new Pokémon to their battle pack.
+  - This is the same if player 2 is the computer, but they will select their own Pokémon for their battle pack
+
+## Future Implementations
+
+- Add in accuracy as a factor to if the attacking Pokémon lands their attack
+- Attacks cannot be used infinitely
+- A Pokémon’s accuracy can be reduced or increased
+- A user can swap out Pokémon mid battle
+- Health potions can be used on the players fighting Pokémon
