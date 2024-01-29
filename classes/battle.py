@@ -111,8 +111,11 @@ class Battle:
                 break
 
         # confirms name choice of player 2 pokemon
-        print(proffessor_oak + f"Excellent choice {self.defender.name.capitalize()}, you "
-                               f"have choosen {defender_pokemon_name.capitalize()}" + reset_styling)
+        print(proffessor_oak + "Excellent choice "
+                               f"{self.defender.name.capitalize()}, you "
+                               "have choosen "
+                               f"{defender_pokemon_name.capitalize()}"
+                               + reset_styling)
         print("-----------------------------------------------------")
         # contains the dictionary result of pokemon inside the object
         # battle_pokemon for the attacker
@@ -127,9 +130,11 @@ class Battle:
         fainted_pokemon_trainer = self.defender.name.capitalize()
         fainted_pokemon = self.defender_pokemon["name"].capitalize()
         print(game_notification + f" {fainted_pokemon_trainer} looks like "
-                                  f"{fainted_pokemon} fainted " + reset_styling)
+                                  f"{fainted_pokemon} "
+                                  "fainted " + reset_styling)
         current_attacking_pokemon = self.attacker_pokemon["name"]
-        print(game_notification + f" The attacker {current_attacking_pokemon.capitalize()}"
+        print(game_notification + " The attacker "
+                                  f"{current_attacking_pokemon.capitalize()}"
                                   " is alive " + reset_styling)
         if len(self.defender.battle_pokemon) == 0:
             print(proffessor_oak + f"O dear {fainted_pokemon_trainer} all "
@@ -215,14 +220,18 @@ class Battle:
             # generates the onscreen battle and displays stats
             # displays trainer name, pokemon name, pokemon health and
             # attack pokemon moves
+            trainer = Fore.GREEN + "Trainer:" + Style.RESET_ALL
+            attacker = Fore.GREEN + "Attacker:" + Style.RESET_ALL
+            attacks = Fore.GREEN + "Attacks:" + Style.RESET_ALL
+            defender = Fore.GREEN + "Defender:" + Style.RESET_ALL
             print(
-                f"[ Trainer:  {self.attacker.name.capitalize()}] \n"
-                f"[ Attacker: {attacker_pokemon['name'].capitalize()} HP: "
+                f"[ {trainer} {self.attacker.name.capitalize()}] \n"
+                f"[ {attacker} {attacker_pokemon['name'].capitalize()} HP: "
                 f"{health_bar_attack} ({attacker_health}) ]\n"
-                f"[ Attakcs:  {printed_attacks} |]\n"
+                f"[ {attacks}  {printed_attacks} |]\n"
                 "\n"
-                f"[ Trainer:  {self.defender.name.capitalize()}]\n"
-                f"[ Defender: {defender_pokemon['name'].capitalize()} HP: "
+                f"[ {trainer}  {self.defender.name.capitalize()}]\n"
+                f"[ {defender} {defender_pokemon['name'].capitalize()} HP: "
                 f"{health_bar_defend} ({defender_health}) ]\n"
             )
             # checks if player 2 is human or computer
