@@ -221,10 +221,40 @@ def game_start():
               f"oppointent {user_name2} ready and waiting")
 
     print(Fore.GREEN +
-          "*********************start insert rules of game*******************")
-    print("content")
+          "*********************Game Rules*******************")
+    print('''
+    Welcome trainers, you are about to enter the battle arena but before
+    you do let's go over the rules.\n
+
+    You will each have to pick 3 different Pokémon to battle with from a
+    list of 10 Pokémon we have available to use but be careful trainers
+    and choose wisely as you will find some Pokémon do double the damage
+    to other types of Pokémon. Each Pokemon has a certain type and each
+    Pokémon’s attack also has a type, meaning that if the defending
+    Pokemonis of type water and your attack is of type electric your
+    attack damage is increased by 40 hit points. So make sure that you
+    review each Pokémon before selecting them, you can review a Pokemon
+    by simply typing its name and the details of that Pokemon will
+    appear. You will then be asked if you want to add that Pokemon to
+    your battle pack.
+
+    Once you have both chosen your 3 Pokémon you move onto the battle
+    phase. You will first be asked to choose which of your 3 Pokémon you
+    wish to fight with first, and then each player will take turns
+    attacking. You will find that each Pokémon has 4 attacks and it’s up
+    to you to choose which attack you wish to do, you select an attack by
+    typing in the number next to the attack name.
+
+    If your Pokémon faints and can’t carry on, you can then select a new
+    Pokémon but be careful as if all your Pokémon faint you will lose
+    the game.
+
+    But not to worry as once the battle phase is over you always have
+    the option to play again, maybe against another player or the
+    same player.
+        ''')
     print(Fore.GREEN +
-          "********************* end insert rules of game********************")
+          "**************************************************")
     print(reset_styling)
 
     play = " "
