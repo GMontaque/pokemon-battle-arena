@@ -123,12 +123,26 @@ Once the battle stage is finished, the final section of the game is a function c
 
 ## Colour and Font Scheme
 
-- Colour for user input and name
-- Colour for Pokémon NPC text
-- Colour for loading text
-- Colour for wrong answers
-- Colour for game notifications
-- Colour for end game
+When creating the game, I have created different colour themes for certain aspects of the game, the reason for this being to improve the visuals of the game and its playability as colours have been grouped together for different aspects of the game.
+
+- Professor Oak
+
+  - As Professor Oak is the main character, whenever his name is mentioned, it is shown in a green colour to denote a difference between his name and his spoken text
+
+- Error Message
+
+  - Throughout the whole game if the user inputs an incorrect value they will be shown an error message that has a red background and white text
+
+- Game Notifications
+
+  - A game notification is anything within the game that displays a message to the user which is not spoken text from the in-game character Professor Oak and is informing the user or describing something, for this I used a blue background with white text
+
+- Main Headers - Title and End Game text
+
+  - Here I have used pyfiglet which has been used to style the text, this styling has not been used in any other part of the game to make it clear to the user when the game has started and ended, the font I used is banner3-D.
+
+- Subhead titles - Battle Arena and Pick Pokémon
+  - Here I have also used pyfiglet and the font style "slant" for all subhead titles, this I have kept uniform throughout the project
 
 ## Features
 
@@ -274,23 +288,23 @@ Once the battle stage is finished, the final section of the game is a function c
 
 - When testing my project in Heroku after a recent push of new code, I was shown the below error message. The error message appeared stating that there was an error in a string that was nested inside an F String, the issue was being caused as I had used double quote for the F string and I had used double quotes for an element inside the F String. To resolve this issue, I changed the quotes around the “name” word to single quotation marks and this solved the issue. I had to do this for a number of lines of code.
 
-[Website Testing](websiteTesting.md)
+![image showing double quotes error](img/bug1-img.PNG)
 
-[Website Testing](websiteTesting.md)
+![image showing double quotes error](img/bug1-img2.PNG)
 
-[Website Testing](websiteTesting.md)
+![image showing double quotes error](img/bug1-img3.PNG)
 
 - An error that I came across was occurring when the user input a value in some circumstances a user could enter the correct result but the game would not accept the value and throw an error. Initially, this was solved by adding “lower()” to the ends of the input which meant all values were lower case, so there was no issue if the user used capital letters. This did not completely solve the issue as, for example, a user, when asked to input a number, could still find there was an issue due to including whitespace.
   If the user inputted a value but pressed the space bar before pressing enter to submit the code the game would flag an error due to the extra whitespace. To solve this, I added in the replace method which removed all white space and would then only return the actual value. This was possible because I had not used a double value with space in-between in any part of my game.
 
-[Website Testing](websiteTesting.md)
+![image showing input bug](img/bug2-img.PNG)
 
 - Each player is meant to select 3 unique Pokémon which they add to their own battle pack and which they use these to fight against the other player. An issue I was facing was that when both players chose the same Pokémon and executed an attack, both players would lose the same health, not just the defender. I found this error only appeared when I used organic Pokémon selection where the user had to choose. If I used pre-selected data in battle_pokemon, this error did not occur
   On further testing, I found that the issue was happening because when I was presetting the values in battle_pokemon, it would create two objects but when manually adding values to the battle Pokémon it was counting them as one object shared between both players. To solve this issue, I had to import “copy” and used the method “deepcopy” when adding a Pokémon to battle_pokemon.
 
-[Website Testing](websiteTesting.md)
+![image showing input bug](img/bug3-img.PNG)
 
-[Website Testing](websiteTesting.md)
+![image showing input bug](img/bug3-img2.PNG)
 
 ### Manual Testing
 
