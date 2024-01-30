@@ -140,7 +140,7 @@ def game_start():
     title_text = pyfiglet.figlet_format("Pokemon Battle Arena",
                                         font="banner3-D",
                                         justify="center")
-    print(f"{Fore.CYAN}{title_text}\n")
+    print(f"{Fore.CYAN}{Style.BRIGHT}{title_text}\n")
     print("Proffessor Oak: Welcome to pokemon battle area "
           "where trainers are tested" + reset_styling)
     print("-----------------------------------------------------")
