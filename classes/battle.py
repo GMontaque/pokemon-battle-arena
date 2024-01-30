@@ -36,12 +36,13 @@ class Battle:
                   tablefmt="double_grid"))
             try:
                 # asks attacking player for name of pokemon they will use
-                attacker_pokemon_name = input(proffessor_oak
-                                              + f"{self.attacker.name.capitalize()} which"
-                                              " pokemon do you want to fight "
-                                              "with first: "
-                                              + reset_styling
-                                              ).lower().replace(" ", "")
+                attacker_pokemon_name = input(
+                    proffessor_oak
+                    + f"{self.attacker.name.capitalize()} which"
+                    " pokemon do you want to fight "
+                    "with first: "
+                    + reset_styling
+                    ).lower().replace(" ", "")
                 # checks for no value
                 if not attacker_pokemon_name:
                     raise ValueError(error_colour + "Proffessor Oak: Oops "
@@ -78,12 +79,12 @@ class Battle:
                                tablefmt="double_grid"))
                 try:
                     # asks defending player for name of pokemon they will use
-                    defender_pokemon_name = input(proffessor_oak
-                                                  + f"{self.defender.name.capitalize()} "
-                                                  "which pokemon do you want "
-                                                  "to fight with first: "
-                                                  + reset_styling
-                                                  ).lower().replace(" ", "")
+                    defender_pokemon_name = input(
+                        proffessor_oak
+                        + f"{self.defender.name.capitalize()} "
+                        "which pokemon do you want "
+                        "to fight with first: "
+                        + reset_styling).lower().replace(" ", "")
                     # checks for no value
                     if not defender_pokemon_name:
                         raise ValueError(error_colour
@@ -276,17 +277,18 @@ class Battle:
                 # updates defending pokemon health
                 new_health = defender_health - (int(attack)+40)
                 # prints what the attacker did
-                print(game_notification + f" {attacker_pokemon['name'].capitalize()} used"
-                                          f" {attack_name} causing "
-                                          f"{(int(attack)+40)} damage as it "
-                                          "was super effective "
-                                          + reset_styling)
+                print(game_notification
+                      + f" {attacker_pokemon['name'].capitalize()} used"
+                      f" {attack_name} causing "
+                      f"{(int(attack)+40)} damage as it "
+                      "was super effective " + reset_styling)
             else:
                 new_health = defender_health - int(attack)
                 # prints what the attacker did
-                print(game_notification + f" {attacker_pokemon['name'].capitalize()} used"
-                                          f" {attack_name} causing {attack} "
-                                          "damage " + reset_styling)
+                print(game_notification
+                      + f" {attacker_pokemon['name'].capitalize()} used"
+                      f" {attack_name} causing {attack} "
+                      "damage " + reset_styling)
 
             # updates defending pokemons health
             defender_pokemon["health"] = new_health
