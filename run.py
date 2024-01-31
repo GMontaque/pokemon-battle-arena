@@ -82,7 +82,7 @@ def game_restart(user1, user2):
         end_game_text = pyfiglet.figlet_format("Game End",
                                                font="banner3-D",
                                                justify="center")
-        print(end_game_text)
+        print(f"{Fore.CYAN}{Style.BRIGHT}{end_game_text}")
 
 
 def play_game(user1, user2, human):
@@ -140,10 +140,11 @@ def game_start():
     title_text = pyfiglet.figlet_format("Pokemon Battle Arena",
                                         font="banner3-D",
                                         justify="center")
-    print(f"{Fore.CYAN}{Style.BRIGHT}{title_text}\n")
-    print("Proffessor Oak: Welcome to pokemon battle area "
-          "where trainers are tested" + reset_styling)
+    print(f"{Fore.CYAN}{Style.BRIGHT}{title_text}")
+    time.sleep(5)
     print("-----------------------------------------------------")
+    print("Welcome to pokemon battle area "
+        "where trainers are tested" + reset_styling)
     while True:
         try:
             # askes for users name
@@ -220,8 +221,12 @@ def game_start():
               "Professor Oak and I hope your ready to fight we have your "
               f"oppointent {user_name2} ready and waiting")
 
+    game_rules = pyfiglet.figlet_format("Game Rules",
+                                        font="slant",
+                                        justify="center")
     print(Fore.GREEN +
-          "*********************Game Rules*******************")
+          "**************************************************")
+    print(game_rules)
     print('''
     Welcome trainers, you are about to enter the battle arena but before
     you do let's go over the rules.\n
@@ -284,7 +289,7 @@ def game_start():
                 end_game_text = pyfiglet.figlet_format("Game End",
                                                        font="banner3-D",
                                                        justify="center")
-                print(end_game_text)
+                print(f"{Fore.CYAN}{Style.BRIGHT}{end_game_text}")
                 break
         except ValueError as e:
             # prints error message
