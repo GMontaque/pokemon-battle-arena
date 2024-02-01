@@ -185,9 +185,10 @@ class Battle:
                         self.battle_stadium()
                         break
                     else:
-                        raise ValueError("Proffessor Oak: Oops sorry thats not"
+                        raise ValueError(error_colour + "Proffessor Oak: Oops "
+                                         "sorry thats not"
                                          " one of the options please "
-                                         "try again")
+                                         "try again" + reset_styling)
                 except ValueError as e:
                     print(f"{e}")
 
