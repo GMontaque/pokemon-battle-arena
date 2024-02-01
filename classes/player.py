@@ -81,15 +81,20 @@ class Player:
                 pokemon type and attacks
                 '''
                 print("-----------------------------------------------------")
+
+                name_tag = Fore.GREEN + "Name:" + Style.RESET_ALL
+                description_tag = Fore.GREEN + "Description:" + Style.RESET_ALL
+                type_tag = Fore.GREEN + "Pokemon Type:" + Style.RESET_ALL
+                attack_moves_tag = Fore.GREEN + "Attack Moves:" + Style.RESET_ALL
                 # Pokemon Name
-                print(f"Name: {pokemon_name.capitalize()}")
+                print(f"{name_tag} {pokemon_name.capitalize()}")
 
                 # description
-                print(f"Description: {pokemon_name} is a "
+                print(f"{description_tag} {pokemon_name} is a "
                       f"{pokedex[pokemon_name]['description']}")
 
                 # pokemon type
-                print(f"Pokemon Type: "
+                print(f"{type_tag} "
                       f"{pokedex[pokemon_name]['pokemon_type']}")
 
                 attack_pokemon_list = []
@@ -98,7 +103,7 @@ class Player:
                         pokemon_name]['attacks'][i][1])
 
                 # pokemon attack list and values
-                print(f"Attack Moves: {', '.join(attack_pokemon_list)}")
+                print(f"{attack_moves_tag} {', '.join(attack_pokemon_list)}")
 
                 print("-----------------------------------------------------")
 
