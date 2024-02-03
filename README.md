@@ -376,16 +376,9 @@ To further test the game, I asked a number of my friends who had an interest in 
 | Player 2 name input validation for human player                                                                    | Tried to input a variety of values                                                                                                             | Player 2 name should only be accepted if user inputs a string value for player name                                                                                              | Pass |
 | Player 2 selection confirmed, game restarts and players taken to choose battle Pokémon function                    | Confirm game to restart and select player 2                                                                                                    | After player 2 has been chosen, play_game function is called and players asked to choose pokemon in battle pack                                                                  | Pass |
 
-## Deploying the Website to GitHub Pages
+## Deployment
 
-- The website was deployed to GitHub Pages using the following steps:
-- In the GitHub repository, go to the "Settings" tab.
-- From the left-side menu, select 'Pages.'
-- In the source section drop-down menu, choose the 'main' branch.
-- Click 'Save.'
-- Upon successful publishing, a live link will be displayed in a green banner.
-
-### To deploy on Heroku:
+### Deploy on Heroku:
 
 - Log in to Heroku - or set up a new account.
 - From the dashboard, click 'Create new app'.
