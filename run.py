@@ -6,6 +6,7 @@ from classes.battle import Battle
 from colorama import Fore, Back, Style
 import pyfiglet
 
+# global styling variables
 error_colour = Back.RED + Fore.WHITE
 reset_styling = Style.RESET_ALL
 proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
@@ -13,16 +14,22 @@ proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
 
 
 def game_restart(user1):
+    '''
+    This function is called when the battle function and battle stage is complete
+    player 1 is asked if they wish to play again
+    If yes they are asked if they wish to play again a human or PC player
+    If a human player is choosen they are asked for user name, if PC name auto choosen
+    '''
     # player 1 name
     player_1 = user1
 
     while True:
-        # gets the name for player 2
+        # asks player one if they wish to play again
         try:
             play_again = input(proffessor_oak + "Well I hope you had fun "
                                f"{player_1}, do you want to try again: "
                                + reset_styling).lower().replace(" ", "")
-            # checks their is a value
+            # checks value is yes or no
             if play_again.lower() not in ['yes', 'no']:
                 raise ValueError(error_colour + "Proffessor Oak: Oop, Sorry I"
                                  " need a Yes or No answer, why not try again"
@@ -31,16 +38,16 @@ def game_restart(user1):
         except ValueError as e:
             # prints error message
             print(f"{e}")
-
+    # player 1 selected to play again
     if play_again == "yes":
         while True:
-            # gets the name for player 2
+            # checks if user wants to play against pc or player
             try:
                 npc_needed = input(proffessor_oak + "Excellent, do you wish "
                                    "to play against a human player? "
                                    + reset_styling
                                    ).lower().replace(" ", "")
-                # checks their is a value
+                # checks value is yes or no
                 if npc_needed.lower() not in ['yes', 'no']:
                     raise ValueError(error_colour + "Proffessor Oak: Oop, "
                                      "Sorry I need a Yes or No answer, why "
@@ -49,6 +56,8 @@ def game_restart(user1):
             except ValueError as e:
                 # prints error message
                 print(f"{e}")
+        # player 1 selected yes to playing with human player
+        # asks for player 2 name
         if npc_needed == "yes":
             while True:
                 # gets the name for player 2
@@ -70,13 +79,15 @@ def game_restart(user1):
                 except ValueError as e:
                     # prints error message
                     print(f"{e}")
-            # player 2 becomes the PC
+            # player 2 becomes human player
             play_game(player_1, user2=user_name2, human=True)
         else:
+            # player 1 inputs no to play with human player
             print(proffessor_oak + "No worries you can fight against John")
             # player 2 becomes the PC
             play_game(player_1, user2="John", human=False)
     else:
+        # player 1 select no and game ends, end game message shown
         print(proffessor_oak + "No worries come back any time")
         end_game_text = pyfiglet.figlet_format("Game End",
                                                font="banner3-D",
