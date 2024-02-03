@@ -6,7 +6,7 @@ import pyfiglet
 from tabulate import tabulate
 from colorama import Fore, Back, Style
 
-
+# global styling variables
 error_colour = Back.RED + Fore.WHITE
 reset_styling = Style.RESET_ALL = Style.RESET_ALL
 game_notification = Back.BLUE + Fore.WHITE
@@ -15,27 +15,40 @@ proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
 
 
 class Battle:
+    '''
+    - This is the battle class where the pokemon battles take place
+
+    - It contains 3 methods fight_setup which is first called
+    so trainers can choose there first pokemon to fight with first.
+
+    - choose_new_pokemon: which is called when a players pokemon faints (health 0)
+
+    - battle_stadium where the battle takes palce
+    '''
     def __init__(self, p1, p2):
         # player one object
         self.attacker = p1
         # player two object
         self.defender = p2
-        # pokemon from either player 1 or player 2 who is attacking
+        # pokemon choosen by either player 1 or player 2 who is attacking
         self.attacker_pokemon = None
-        # pokemon from either player 1 or player 2 who is defending
+        # pokemon choosen by either player 1 or player 2 who is defending
         self.defender_pokemon = None
 
     def fight_setup(self):
+        '''
+        Players are asked to choose which pokemon they wish to fight with first
+        '''
         # user inputs pokemon name and value is checked
         while True:
             battle_pokemon_names_attacker = [
                     list(self.attacker.battle_pokemon)
             ]
-            # display table
+            # table displaying pokemon user can choose from
             print(tabulate(battle_pokemon_names_attacker,
                   tablefmt="double_grid"))
             try:
-                # asks attacking player for name of pokemon they will use
+                # asks player 1 to choose a pokemon
                 attacker_pokemon_name = input(
                     proffessor_oak
                     + f"{self.attacker.name.capitalize()} which"
@@ -48,17 +61,15 @@ class Battle:
                     raise ValueError(error_colour + "Proffessor Oak: Oops "
                                      "doesn't seem like you choose a pokemon, "
                                      "please try again" + reset_styling)
-                    '''checks input matches pokemon name in players battle pack
-                    '''
+                # checks input matches pokemon name in players battle pack                
                 elif not self.attacker.battle_pokemon.get(
                      attacker_pokemon_name, None):
                     raise ValueError(error_colour
                                      + "Proffessor Oak: Oops thats not "
                                      "one of the pokemon in your battle pack"
                                      " , please try again" + reset_styling)
-                else:
-                    # once user enters a correct value, exits loop
-                    break
+                # once user enters a correct value, exits loop
+                break
             except ValueError as e:
                 print(f"{e}")
 
@@ -69,16 +80,17 @@ class Battle:
                                f"{attacker_pokemon_name.capitalize()}"
                                + reset_styling)
         print("-----------------------------------------------------")
+        # checks if player 2 is human or pc
         while True:
             if self.defender.is_human:
                 battle_pokemon_names_defender = [
                     list(self.defender.battle_pokemon)
                 ]
-                # display table
+                # table displaying pokemon user can choose from
                 print(tabulate(battle_pokemon_names_defender,
                                tablefmt="double_grid"))
                 try:
-                    # asks defending player for name of pokemon they will use
+                    # asks player 2 to choose a pokemon
                     defender_pokemon_name = input(
                         proffessor_oak
                         + f"{self.defender.name.capitalize()} "
@@ -91,9 +103,7 @@ class Battle:
                                          + "Proffessor Oak: Oops doesn't "
                                          "seem like you choose a pokemon, "
                                          "please try again" + reset_styling)
-                        '''checks input matches pokemon name in
-                            players battle pack
-                        '''
+                    # checks input matches pokemon name in players battle pack 
                     elif not self.defender.battle_pokemon.get(
                          defender_pokemon_name, None):
                         raise ValueError(error_colour
@@ -101,12 +111,12 @@ class Battle:
                                          "one of the pokemon in your battle "
                                          "pack, please try again"
                                          + reset_styling)
-                    else:
-                        # once user enters a correct value, exits loop
-                        break
+                    # once user enters a correct value, exits loop
+                    break
                 except ValueError as e:
                     print(f"{e}")
             else:
+                # player 2 is a PC player so will choose its own pokemon
                 defender_pokemon_name = random.choice(list(
                     self.defender.battle_pokemon))
                 break
@@ -118,41 +128,55 @@ class Battle:
                                f"{defender_pokemon_name.capitalize()}"
                                + reset_styling)
         print("-----------------------------------------------------")
-        # contains the dictionary result of pokemon inside the object
-        # battle_pokemon for the attacker
+        ''' stores the object which relates to the pokemon name selected
+        from the attacking players battle pack'''
         self.attacker_pokemon = self.attacker.battle_pokemon[
             attacker_pokemon_name]
-        # contains the dictionary result of pokemon inside the object
-        # battle_pokemon for the attacker
+        ''' stores the object which relates to the pokemon name selected
+        from the defending players battle pack'''
         self.defender_pokemon = self.defender.battle_pokemon[
             defender_pokemon_name]
 
     def choose_new_pokemon(self):
+        '''
+        when a player pokemon faints (health 0) this function is called
+        player is asked to choose a new pokemon from their battle pack
+        '''
+        # players name whos pokemon fainted
         fainted_pokemon_trainer = self.defender.name.capitalize()
+        # name of fainted pokemon
         fainted_pokemon = self.defender_pokemon["name"].capitalize()
         print(game_notification + f" {fainted_pokemon_trainer} looks like "
                                   f"{fainted_pokemon} "
                                   "fainted " + reset_styling)
+        # name of current attacking pokemon
         current_attacking_pokemon = self.attacker_pokemon["name"]
         print(game_notification + " The attacker "
                                   f"{current_attacking_pokemon.capitalize()}"
                                   " is alive " + reset_styling)
+        # checks if player with fainted pokemon has any left in their battle pack
         if len(self.defender.battle_pokemon) == 0:
+            # battle end message to show player has lost
             print(proffessor_oak + f"O dear {fainted_pokemon_trainer} all "
                                    "your pokemon have fainted, you loose"
                                    + reset_styling)
+        # check if player with fainted pokemon is PC or human
         elif self.defender.is_human is False:
+            # player confirmed as PC, auto select to choose new pokemon
             pokemon_random_name = random.choice(list(
                  self.defender.battle_pokemon))
             self.defender_pokemon = self.defender.battle_pokemon[
                     pokemon_random_name]
+            # confirms choice has been made
             print(proffessor_oak + f"Excellent choice, you have choosen "
                   f"{pokemon_random_name}" + reset_styling)
             print(game_notification + f" {fainted_pokemon_trainer} has "
                                       "selected a new pokemon "
                                       + reset_styling)
+            # restarts battle
             self.battle_stadium()
         else:
+        # player is confirmed as human
             current_defender_pokemon = [
                     list(self.defender.battle_pokemon)
                 ]
@@ -161,30 +185,30 @@ class Battle:
                       headers=["Pokemon Left in party"],
                       tablefmt="double_grid"))
                 try:
-                    # input asking user what attack they wish to do
+                    # input asking user what pokemon they want to choose
                     defender_pokemon_name = input(proffessor_oak +
                                                   f"{fainted_pokemon_trainer} "
                                                   "which pokemon do you want "
                                                   "to fight with next: "
                                                   + reset_styling
                                                   ).lower().replace(" ", "")
-                    # checks if value is a number and if value is
-                    # either 1,2,3 or 4
+                    # checks if value is in players battle pack
                     if defender_pokemon_name in self.defender.battle_pokemon:
-                        # updates input value to a number
-                        # confirms name choice of defending pokemon
+                        # confirms name choice of defending pokemon is in battle pack
                         print(proffessor_oak + f"Excellent choice, you have"
                               f" choosen {defender_pokemon_name.capitalize()}"
                               + reset_styling)
-                        # contains the dictionary result of pokemon inside
-                        # the object battle_pokemon for the attacker
+                        ''' stores the object which relates to the pokemon name selected
+                        from the defending players battle pack'''
                         self.defender_pokemon = self.defender.battle_pokemon[
                             defender_pokemon_name]
                         print(game_notification + f" {fainted_pokemon_trainer}"
                               " has selected a new pokemon " + reset_styling)
+                        # restarts battle
                         self.battle_stadium()
                         break
                     else:
+                        # error if user inputs incorrect value
                         raise ValueError(error_colour + "Proffessor Oak: Oops "
                                          "sorry thats not"
                                          " one of the options please "
