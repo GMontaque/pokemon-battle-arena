@@ -116,9 +116,10 @@ class Player:
                 while True:
                     try:
                         # inputs asks for a yes or no answer
-                        picking_pokemon = input(proffessor_oak + f"Should I add"
-                                                f" {pokemon_name.capitalize()} "
-                                                "to your battle pack? "
+                        picking_pokemon = input(proffessor_oak
+                                                + f"Should I add"
+                                                f" {pokemon_name.capitalize()}"
+                                                " to your battle pack? "
                                                 "(yes/no): "
                                                 ).lower().replace(" ", "")
                         # checks for no value
@@ -265,8 +266,8 @@ pokedex = {
              "x2_attack": {"ghost", "dark"}},
     "rattata": {"name": "rattata",
                 "description": "A Forest Pokémon, Rattata. It likes cheese, "
-                "nuts,\n fruits, and berries. It also comes out into open fields"
-                " to steal food from stupid\n travelers",
+                "nuts,\n fruits, and berries. It also comes out "
+                "into open fields to steal food\n from stupid travelers",
                 "pokemon_type": "normal",
                 "health": 240,
                 "attacks": {1: ["normal", "Quick Attack: 10"],
