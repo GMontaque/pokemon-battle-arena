@@ -132,8 +132,8 @@ def play_game(user1, user2, human):
     print(proffessor_oak + f"That is you sorted {player_2.capitalize()}, "
           "you've choosen your pokemon" + reset_styling)
     # confirmaiton message pokemon picking stage finished
-    print(proffessor_oak + "Excellent you've both now choosen your pokemon, "
-          "lets go to to battle arena")
+    print(proffessor_oak + "Excellent you've both now choosen your pokemon,\n"
+          "lets go to battle arena")
     time.sleep(5)
     os.system("clear")
     # subhead battle arena
