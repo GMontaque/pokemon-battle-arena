@@ -217,8 +217,16 @@ class Battle:
                     print(f"{e}")
 
     def battle_stadium(self):
+        '''
+        function used for the actual battle phase
+        here players will take turns in selecting an attack
+        these attacks reduce the defending pokemons health 
+        this process continues until a pokemon has fainted
+        each player and pokemon flip after each attack
+        '''
         time.sleep(3)
         os.system("clear")
+        # battle area subhead
         battle_area_header = pyfiglet.figlet_format("Battle Arena",
                                                     font="slant",
                                                     justify="center")
@@ -227,7 +235,7 @@ class Battle:
         print("-----------------------------------------------------")
 
         while True:
-            # represents the choosen pokemon object as choose in fight_setup
+            # represents the choosen pokemon objects as choosen in fight_setup
             attacker_pokemon = self.attacker_pokemon
             defender_pokemon = self.defender_pokemon
             # gets the pokemons health
@@ -236,6 +244,7 @@ class Battle:
             # generates the pokemon on screen health bar
             health_bar_attack = "="*int(attacker_health/10)
             health_bar_defend = "="*int(defender_health/10)
+            # generates the onscreen pokemon attack list
             attacker_pokemon_attacks = {}
             for i in range(1, 5):
                 attacker_pokemon_attacks[i] = attacker_pokemon["attacks"][i][1]
@@ -243,13 +252,14 @@ class Battle:
             printed_attacks = ' '.join(f"| {key}: {value}" for key,
                                        value in
                                        attacker_pokemon_attacks.items())
-            # generates the onscreen battle and displays stats
-            # displays trainer name, pokemon name, pokemon health and
-            # attack pokemon moves
+            ''' generates the onscreen battle and displays stats
+             displays trainer name, pokemon name, pokemon health and
+             attack pokemon moves'''
             trainer = Fore.GREEN + "Trainer:" + Style.RESET_ALL
             attacker = Fore.GREEN + "Attacker:" + Style.RESET_ALL
             attacks = Fore.GREEN + "Attacks:" + Style.RESET_ALL
             defender = Fore.GREEN + "Defender:" + Style.RESET_ALL
+            # onscreen battle
             print(
                 f"[ {trainer} {self.attacker.name.capitalize()}] \n"
                 f"[ {attacker} {attacker_pokemon['name'].capitalize()} HP: "
@@ -298,6 +308,7 @@ class Battle:
             defender_health = defender_pokemon["health"]
             attack_type = attacker_pokemon["attacks"][player_attack_choice][0]
             defender_weakness = defender_pokemon["x2_attack"]
+            # checks if attack is super effective against defender
             if attack_type in defender_weakness:
                 # updates defending pokemon health
                 new_health = defender_health - (int(attack)+40)
@@ -308,6 +319,7 @@ class Battle:
                       f"{(int(attack)+40)} damage as it "
                       "was super effective " + reset_styling)
             else:
+                # updates defending pokemon health
                 new_health = defender_health - int(attack)
                 # prints what the attacker did
                 print(game_notification
