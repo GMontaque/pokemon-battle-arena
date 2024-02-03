@@ -303,8 +303,7 @@ When creating the game, I have created different colour themes for certain aspec
 
 ### Play Test
 
-- To test my game further i also sent it to a few friends who grew playing pokemon
-  - [Website Testing](websiteTesting.md)
+To further test the game, I asked a number of my friends who had an interest in the Pokémon game to try out the game I had created to see if there were any bugs to be found and also how they felt about the game. All stated it was enjoyable and did present a challenge, some mentioned styling changes that they would make as well as potential extra features to improve the game further.
 
 ### Validator
 
