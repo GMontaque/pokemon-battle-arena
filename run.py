@@ -12,10 +12,9 @@ proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
                   + Style.RESET_ALL)
 
 
-def game_restart(user1, user2):
-    # player 1 and 2 names
+def game_restart(user1):
+    # player 1 name
     player_1 = user1
-    player_2 = user2
 
     while True:
         # gets the name for player 2
@@ -133,7 +132,7 @@ def play_game(user1, user2, human):
     print(battle_end_message)
     # asks user if they wish to restart and play again
     # pass player 1 and 2 name
-    game_restart(player_1, player_2)
+    game_restart(player_1)
 
 
 def game_start():
@@ -225,9 +224,10 @@ def game_start():
                                         font="slant",
                                         justify="center")
     print(Fore.GREEN +
-          "**************************************************")
+          "**************************************************"
+          + reset_styling)
     print(game_rules)
-    print('''
+    print(Fore.GREEN + '''
     Welcome trainers, you are about to enter the battle arena but before
     you do let's go over the rules.\n
 
