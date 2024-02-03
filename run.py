@@ -15,10 +15,11 @@ proffessor_oak = (Style.RESET_ALL + Fore.GREEN + "Proffessor Oak: "
 
 def game_restart(user1):
     '''
-    This function is called when the battle function and battle stage is complete
-    player 1 is asked if they wish to play again
+    This function is called when the battle function and battle stage is
+    complete player 1 is asked if they wish to play again
     If yes they are asked if they wish to play again a human or PC player
-    If a human player is choosen they are asked for user name, if PC name auto choosen
+    If a human player is choosen they are asked for user name, if PC
+    name auto choosen
     '''
     # player 1 name
     player_1 = user1
@@ -172,7 +173,7 @@ def game_start():
     time.sleep(5)
     print("-----------------------------------------------------")
     print("Welcome to pokemon battle area "
-        "where trainers are tested" + reset_styling)
+          "where trainers are tested" + reset_styling)
 
     # asks player 1 for their name
     while True:
@@ -234,7 +235,8 @@ def game_start():
                     raise ValueError(error_colour + "Proffessor Oak: Oops "
                                      " seems you entered a number, why not "
                                      "try again" + reset_styling)
-                # passed to play game and used when picking battle pokemon party
+                ''' value from play game and used when picking pokemon
+                for battle pack '''
                 human_player = True
                 print(proffessor_oak + f" Well hello {user_name} and "
                       f"{user_name2}, welcome my name is Professor Oak and "
@@ -252,7 +254,6 @@ def game_start():
         print(proffessor_oak + f" Well hello {user_name}, welcome my name is "
               "Professor Oak and I hope your ready to fight we have your "
               f"oppointent {user_name2} ready and waiting")
-    
     # game rules subhead
     game_rules = pyfiglet.figlet_format("Game Rules",
                                         font="slant",
