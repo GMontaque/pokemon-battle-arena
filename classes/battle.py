@@ -54,7 +54,7 @@ class Battle:
                     proffessor_oak
                     + f"{self.attacker.name.capitalize()} which"
                     " pokemon do you want to fight "
-                    "with first: "
+                    "with first:\n"
                     + reset_styling
                     ).lower().replace(" ", "")
                 # checks for no value
@@ -250,7 +250,7 @@ class Battle:
             for i in range(1, 5):
                 attacker_pokemon_attacks[i] = attacker_pokemon["attacks"][i][1]
 
-            printed_attacks = ' '.join(f"| {key}: {value}" for key,
+            printed_attacks = ' '.join(f"{key}: {value} |" for key,
                                        value in
                                        attacker_pokemon_attacks.items())
             ''' generates the onscreen battle and displays stats
@@ -265,7 +265,7 @@ class Battle:
                 f"[ {trainer} {self.attacker.name.capitalize()}] \n"
                 f"[ {attacker} {attacker_pokemon['name'].capitalize()} HP: "
                 f"{health_bar_attack} ({attacker_health}) ]\n"
-                f"[ {attacks}  {printed_attacks} |]\n"
+                f"[ {attacks} | {printed_attacks} ]\n"
                 "\n"
                 f"[ {trainer}  {self.defender.name.capitalize()}]\n"
                 f"[ {defender} {defender_pokemon['name'].capitalize()} HP: "
