@@ -119,7 +119,7 @@ class Player:
                         picking_pokemon = input(proffessor_oak + f"Do you want"
                                                 " to add "
                                                 f"{pokemon_name.capitalize()} "
-                                                "to your battle party? "
+                                                "to your battle pack? "
                                                 "(yes/no): "
                                                 ).lower().replace(" ", "")
                         # checks for no value
