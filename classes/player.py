@@ -87,7 +87,8 @@ class Player:
                 name_tag = Fore.GREEN + "Name:" + Style.RESET_ALL
                 description_tag = Fore.GREEN + "Description:" + Style.RESET_ALL
                 type_tag = Fore.GREEN + "Pokemon Type:" + Style.RESET_ALL
-                attack_moves_tag = Fore.GREEN + "Attack Moves:" + Style.RESET_ALL
+                attack_moves_tag = (Fore.GREEN + "Attack Moves:"
+                                   + Style.RESET_ALL)
                 # prints pokemon player card name
                 print(f"{name_tag} {pokemon_name.capitalize()}")
 
@@ -190,6 +191,8 @@ class Player:
         return self.battle_pokemon
 
 # pokedex dicitionary stores all the pokemon the user can choose from
+
+
 pokedex = {
     "squirtle": {"name": "squirtle",
                  "description": "This Tiny Turtle Pokémon draws its"
