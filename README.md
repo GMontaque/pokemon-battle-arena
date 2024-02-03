@@ -101,13 +101,15 @@ When designing the game, I have used information from the actual Pokémon game s
 ## Flowchart
 
 - This flow chart shows the user journey from start to finish
-  ![picture of initial game screem](assets/img/)
+  ![picture of full game flowchart part 1](img/flowchart-top.png)
+  ![picture of full game flowchart part 1](img/flowchart-bottom.png)
 
 - This flow chart specifically shows the battle sections of the game
-  ![picture of initial game screem](assets/img/)
+  ![picture of battle flowchart](img/flowchart-battle-phase.png)
 
-- This flow chart specifically shows the Pokémon selection section
-  ![picture of initial game screem](assets/img/)
+- This flow chart specifically shows the Pokémon selection
+  ![picture of Pokémon selection flowchart part 1](img/flowchat-pokemon-selection-top.png)
+  ![picture of Pokémon selection flowchart part 1](img/flowchat-pokemon-selection-bottom.png)
 
 ## Data Model
 
