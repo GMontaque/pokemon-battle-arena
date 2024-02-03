@@ -309,15 +309,15 @@ To further test the game, I asked a number of my friends who had an interest in 
 
 - Run.py
 
-  - [Website Testing](websiteTesting.md)
+  - ![Imgage of run.py validation](img/validator-run.py.png)
 
 - Player.py
 
-  - [Website Testing](websiteTesting.md)
+  - ![Imgage of run.py validation](img/validator-player.py.png)
 
 - Battle.py
 
-  - [Website Testing](websiteTesting.md)
+  - ![Imgage of run.py validation](img/validator-battle.py.png)
 
 ### Bug and errors
 
