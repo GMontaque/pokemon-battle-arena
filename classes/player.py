@@ -88,7 +88,7 @@ class Player:
                 description_tag = Fore.GREEN + "Description:" + Style.RESET_ALL
                 type_tag = Fore.GREEN + "Pokemon Type:" + Style.RESET_ALL
                 attack_moves_tag = (Fore.GREEN + "Attack Moves:"
-                                   + Style.RESET_ALL)
+                                    + Style.RESET_ALL)
                 # prints pokemon player card name
                 print(f"{name_tag} {pokemon_name.capitalize()}")
 
