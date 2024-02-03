@@ -116,9 +116,8 @@ class Player:
                 while True:
                     try:
                         # inputs asks for a yes or no answer
-                        picking_pokemon = input(proffessor_oak + f"Do you want"
-                                                " to add "
-                                                f"{pokemon_name.capitalize()} "
+                        picking_pokemon = input(proffessor_oak + f"Should I add"
+                                                f" {pokemon_name.capitalize()} "
                                                 "to your battle pack? "
                                                 "(yes/no): "
                                                 ).lower().replace(" ", "")

@@ -314,7 +314,7 @@ def game_start():
                                  "exit" + reset_styling)
             # game proceeds and calls play_game
             elif play == "fight":
-                print(proffessor_oak + " Great!, now lets pick your pokemon: ")
+                print(proffessor_oak + " Great!, now lets pick your pokemon")
                 time.sleep(2.5)
                 os.system("clear")
                 play_game(user1=user_name,
