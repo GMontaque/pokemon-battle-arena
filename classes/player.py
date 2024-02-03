@@ -197,7 +197,7 @@ pokedex = {
                  "description": "This Tiny Turtle Pokémon draws its"
                  " long neck into its shell to launch incredible "
                  "Water attacks with amazing range and accuracy. "
-                 "The blasts can be quite powerful."
+                 "The\n blasts can be quite powerful."
                  "to make jokes and enjoys a good swin",
                  "pokemon_type": "water",
                  "health": 240,
@@ -233,7 +233,7 @@ pokedex = {
                   "x2_attack": {"fire", "ice"}},
     "grimer": {"name": "grimer",
                "description": "A Sludge Pokémon. Born from sludge, these "
-               "Pokémon specialize in Sludge attacks.",
+               "Pokémon\n specialize in Sludge attacks.",
                "pokemon_type": "posion",
                "health": 240,
                "attacks": {1: ["ground", "Mud Slap: 10"],
@@ -243,7 +243,7 @@ pokedex = {
                "x2_attack": {"ground", "psychic"}},
     "pikachu": {"name": "pikachu",
                 "description": "the Mouse Pokémon. It can generate electric "
-                "attacks from the electric pouches located in both "
+                "attacks\n from the electric pouches located in both "
                 "of its cheeks",
                 "pokemon_type": "Electric",
                 "health": 240,
@@ -265,8 +265,8 @@ pokedex = {
              "x2_attack": {"ghost", "dark"}},
     "rattata": {"name": "rattata",
                 "description": "A Forest Pokémon, Rattata. It likes cheese, "
-                "nuts, fruits, and berries. It also comes out into open fields"
-                " to steal food from stupid travelers",
+                "nuts,\n fruits, and berries. It also comes out into open fields"
+                " to steal food from stupid\n travelers",
                 "pokemon_type": "normal",
                 "health": 240,
                 "attacks": {1: ["normal", "Quick Attack: 10"],
@@ -287,7 +287,7 @@ pokedex = {
                   "x2_attack": {"water", "grass"}},
     "hitmonlee": {"name": "hitmonlee",
                   "description": "the Kicking Pokémon. This nimble Pokémon "
-                  "launches lethal kicks from almost any position.",
+                  "launches\n lethal kicks from almost any position.",
                   "pokemon_type": "fighting",
                   "health": 240,
                   "attacks": {1: ["ground", "Bulldoze: 10"],
@@ -297,7 +297,7 @@ pokedex = {
                   "x2_attack": {"psychic", "flying"}},
     "dratini": {"name": "dratini",
                 "description": "the Dragon Pokémon. Dratini sheds its skin as "
-                "it grows, often doing so while hidden behind large "
+                "it\n grows, often doing so while hidden behind large "
                 "powerful waterfalls.",
                 "pokemon_type": "dragon",
                 "health": 240,
