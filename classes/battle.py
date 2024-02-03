@@ -52,8 +52,8 @@ class Battle:
                 # asks player 1 to choose a pokemon
                 attacker_pokemon_name = input(
                     proffessor_oak
-                    + f"{self.attacker.name.capitalize()} please"
-                    " pick a pokemon to start the battle with: "
+                    + f"{self.attacker.name.capitalize()}, pick"
+                    " your first pokemon to battle with: "
                     + reset_styling
                     ).lower().replace(" ", "")
                 # checks for no value
@@ -93,9 +93,8 @@ class Battle:
                     # asks player 2 to choose a pokemon
                     defender_pokemon_name = input(
                         proffessor_oak
-                        + f"{self.defender.name.capitalize()} "
-                        "please pick a pokemon to start the "
-                        "battle with: "
+                        + f"{self.defender.name.capitalize()}, "
+                        "pick your first pokemon to battle with: "
                         + reset_styling).lower().replace(" ", "")
                     # checks for no value
                     if not defender_pokemon_name:
