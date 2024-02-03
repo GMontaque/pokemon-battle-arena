@@ -6,7 +6,7 @@ import os
 from tabulate import tabulate
 from colorama import Fore, Back, Style
 
-
+# global styling variables
 error_colour = Back.RED + Fore.WHITE
 reset_styling = Style.RESET_ALL = Style.RESET_ALL
 game_notification = Back.BLUE + Fore.WHITE
@@ -19,17 +19,19 @@ class Player:
     def __init__(self, **kwargs):
         # name of the player
         self.name = kwargs["name"]
-        # if player is human or computer
+        # stores value if player is human or PC
         self.is_human = kwargs["is_human"]
         # stores the pokemon picked for each player
         self.battle_pokemon = {}
 
     def pick_pokemon(self):
         '''players are asked to pick 3 pokemon they wish to fight with '''
+        # resets all pokemon health to full
         for name, entry in pokedex.items():
             entry['health'] = 240
+        # checks if player picking is human
         if self.is_human:
-            # loops till member chooses 3 pokemon
+            # loops till member chooses 3 pokemon for battle pack
             while len(self.battle_pokemon) < 3:
                 print("-----------------------------------------------------")
                 print(game_notification + " Please choose from the follow "
@@ -40,7 +42,7 @@ class Player:
                     ["Rattata", "Sandshrew", "Hitmonlee"],
                     ["Dratini"]
                 ]
-                # display table
+                # display pokemon player can choose from in a table
                 print(tabulate(pokemon_names, tablefmt="double_grid"))
 
                 # user inputs pokemon name and value is checked
@@ -71,9 +73,9 @@ class Player:
                                              "pokemon you can  choose, "
                                              "please try again"
                                              + reset_styling)
-                        else:
-                            # once user enters a correct value, exits loop
-                            break
+
+                        # once user enters a correct value, exits loop
+                        break
                     except ValueError as e:
                         print(f"{e}")
 
@@ -81,22 +83,22 @@ class Player:
                 pokemon type and attacks
                 '''
                 print("-----------------------------------------------------")
-
+                # styling for pokemon player card names
                 name_tag = Fore.GREEN + "Name:" + Style.RESET_ALL
                 description_tag = Fore.GREEN + "Description:" + Style.RESET_ALL
                 type_tag = Fore.GREEN + "Pokemon Type:" + Style.RESET_ALL
                 attack_moves_tag = Fore.GREEN + "Attack Moves:" + Style.RESET_ALL
-                # Pokemon Name
+                # prints pokemon player card name
                 print(f"{name_tag} {pokemon_name.capitalize()}")
 
-                # description
+                # prints pokemon player card description
                 print(f"{description_tag} {pokemon_name} is a "
                       f"{pokedex[pokemon_name]['description']}")
 
-                # pokemon type
+                # prints pokemon player card pokemon type
                 print(f"{type_tag} "
                       f"{pokedex[pokemon_name]['pokemon_type']}")
-
+                # prints pokemon player card attacks
                 attack_pokemon_list = []
                 for i in range(1, 5):
                     attack_pokemon_list.append(pokedex[
@@ -112,7 +114,7 @@ class Player:
                 '''
                 while True:
                     try:
-                        # input players choice on pokemon
+                        # inputs asks for a yes or no answer
                         picking_pokemon = input(proffessor_oak + f"Do you want"
                                                 " to add "
                                                 f"{pokemon_name.capitalize()} "
@@ -130,15 +132,14 @@ class Player:
                             raise ValueError(error_colour+"Proffessor Oak: "
                                              "Sorry but i need a 'YES' or "
                                              "'NO' answer" + reset_styling)
-                        else:
-                            # once user enters a correct value, resets loop
-                            break
+                        # once user enters a correct value, resets loop
+                        break
                     except ValueError as e:
                         print(f"{e}")
 
                 '''
-                checks user response is yes, also that pokemon_name
-                be found in pokedex and
+                checks if user response was yes and also that pokemon_name
+                can be found in pokedex and that the
                 pokemon has not already been added to battle_pokemon
                 '''
                 if (picking_pokemon.lower() == "yes" and
@@ -155,18 +156,19 @@ class Player:
                     print("-------------------------------------------------"
                           "---")
                 elif picking_pokemon.lower() == "no":
-                    # if user inputs no, function loops back to beginning
+                    # if user inputs no, loops back to beginning
                     print(proffessor_oak + "No worries, why not try again")
                     print(game_notification + f" {pokemon_name.capitalize()} "
                           "was not added to your battle party."
                           + reset_styling)
                 else:
-                    # if user inputs no, function loops back to beginning
+                    # prints if user has already added pokemon to battle pack
                     print(error_colour + "Proffessor Oak: looks like you "
                           f"already added, {pokemon_name.capitalize()} "
                           "why not try another pokemon." + reset_styling)
             os.system("clear")
         else:
+            # PC player choose 3 pokemon
             print(game_notification + f" Player {self.name} is choosing his"
                   " pokemon " + reset_styling)
             # loops until 3 pokemon selected
@@ -174,21 +176,20 @@ class Player:
                 # selects a random pokemon in pokedex
                 random_pokemon = random.choice(list(pokedex.keys()))
                 ''' checks pokemon is not in battle_pokemon
-                before added new value
+                before adding a new value
                 '''
                 if random_pokemon not in self.battle_pokemon:
                     # adds pokemon
                     self.battle_pokemon[random_pokemon] = (
                         copy.deepcopy(pokedex[random_pokemon]))
             time.sleep(3)
+            # confimration message PC picked pokemon
             print(game_notification + f" Pokemon selection complete "
                   + reset_styling)
             time.sleep(2)
         return self.battle_pokemon
 
 # pokedex dicitionary stores all the pokemon the user can choose from
-
-
 pokedex = {
     "squirtle": {"name": "squirtle",
                  "description": "This Tiny Turtle Pokémon draws its"
