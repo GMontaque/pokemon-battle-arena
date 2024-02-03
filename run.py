@@ -96,10 +96,17 @@ def game_restart(user1):
 
 
 def play_game(user1, user2, human):
+    '''
+    function is used for the core of the game
+    function asks each player to first pick their pokemon to fight with
+    function will begin and run the battle phase
+    when battle phase is complete function calls game_restart
+    '''
     # stores players names
     player_1 = user1
     player_2 = user2
 
+    # subhead pokemon picker
     subhead_pick_pokemon = pyfiglet.figlet_format("Pokemon Picker",
                                                   font="slant",
                                                   justify="center")
@@ -117,32 +124,35 @@ def play_game(user1, user2, human):
     print("-----------------------------------------------------")
     print(f"{proffessor_oak} Now, {player_2.capitalize()} choose your pokemon")
     print("-----------------------------------------------------")
-    # creates players object
+    # creates player 2 object
     player2 = Player(name=player_2, is_human=human)
     # method called for player2 to choose the pokemon they wish to battle with
     pokemon_battle_player2 = player2.pick_pokemon()
     print(proffessor_oak + f"That is you sorted {player_2.capitalize()}, "
           "you've choosen your pokemon" + reset_styling)
+    # confirmaiton message pokemon picking stage finished
     print(proffessor_oak + "Excellent you've both now choosen your pokemon, "
           "lets go to to battle arena")
     time.sleep(5)
     os.system("clear")
+    # subhead battle arena
     subhead_Battle_Arena = pyfiglet.figlet_format("Battle Arena",
                                                   font="slant",
                                                   justify="center")
     print(subhead_Battle_Arena)
     # creates battle area from Battle Class
     battle = Battle(player1, player2)
-    # lets palyers choose which pokemon to start the battle with
+    # lets pplayers choose which pokemon to start the battle with
     battle.fight_setup()
-    # starts the actually battle
+    # starts the battle
     battle.battle_stadium()
+    # subhead end game message
     battle_end_message = pyfiglet.figlet_format("Battle Finished",
                                                 font="slant",
                                                 justify="center")
     print(battle_end_message)
-    # asks user if they wish to restart and play again
-    # pass player 1 and 2 name
+    # end game function called, player 1 name passed
+    # asked if they wish to restart and play again
     game_restart(player_1)
 
 
