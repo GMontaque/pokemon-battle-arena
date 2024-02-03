@@ -21,7 +21,8 @@ class Battle:
     - It contains 3 methods fight_setup which is first called
     so trainers can choose there first pokemon to fight with first.
 
-    - choose_new_pokemon: which is called when a players pokemon faints (health 0)
+    - choose_new_pokemon: which is called when a players pokemon
+      faints (health 0)
 
     - battle_stadium where the battle takes palce
     '''
@@ -61,7 +62,7 @@ class Battle:
                     raise ValueError(error_colour + "Proffessor Oak: Oops "
                                      "doesn't seem like you choose a pokemon, "
                                      "please try again" + reset_styling)
-                # checks input matches pokemon name in players battle pack                
+                # checks input matches pokemon name in players battle pack
                 elif not self.attacker.battle_pokemon.get(
                      attacker_pokemon_name, None):
                     raise ValueError(error_colour
@@ -103,7 +104,7 @@ class Battle:
                                          + "Proffessor Oak: Oops doesn't "
                                          "seem like you choose a pokemon, "
                                          "please try again" + reset_styling)
-                    # checks input matches pokemon name in players battle pack 
+                    # checks input matches pokemon name in players battle pack
                     elif not self.defender.battle_pokemon.get(
                          defender_pokemon_name, None):
                         raise ValueError(error_colour
@@ -154,7 +155,7 @@ class Battle:
         print(game_notification + " The attacker "
                                   f"{current_attacking_pokemon.capitalize()}"
                                   " is alive " + reset_styling)
-        # checks if player with fainted pokemon has any left in their battle pack
+        # checks if player with fainted pokemon, has pokemon left to use
         if len(self.defender.battle_pokemon) == 0:
             # battle end message to show player has lost
             print(proffessor_oak + f"O dear {fainted_pokemon_trainer} all "
@@ -176,7 +177,7 @@ class Battle:
             # restarts battle
             self.battle_stadium()
         else:
-        # player is confirmed as human
+            # player is confirmed as human
             current_defender_pokemon = [
                     list(self.defender.battle_pokemon)
                 ]
@@ -194,12 +195,12 @@ class Battle:
                                                   ).lower().replace(" ", "")
                     # checks if value is in players battle pack
                     if defender_pokemon_name in self.defender.battle_pokemon:
-                        # confirms name choice of defending pokemon is in battle pack
+                        # confirms name choice of defending pokemon
                         print(proffessor_oak + f"Excellent choice, you have"
                               f" choosen {defender_pokemon_name.capitalize()}"
                               + reset_styling)
-                        ''' stores the object which relates to the pokemon name selected
-                        from the defending players battle pack'''
+                        ''' stores the object which relates to the pokemon
+                        name selected from the defending players battle pack'''
                         self.defender_pokemon = self.defender.battle_pokemon[
                             defender_pokemon_name]
                         print(game_notification + f" {fainted_pokemon_trainer}"
@@ -220,7 +221,7 @@ class Battle:
         '''
         function used for the actual battle phase
         here players will take turns in selecting an attack
-        these attacks reduce the defending pokemons health 
+        these attacks reduce the defending pokemons health
         this process continues until a pokemon has fainted
         each player and pokemon flip after each attack
         '''
