@@ -157,6 +157,14 @@ def play_game(user1, user2, human):
 
 
 def game_start():
+    '''
+    This is the inital function which is called when the program runs
+    In this function player 1 is asked for their name
+    Player 1 is asked if player 2 is human or pc
+    If palyer 2 is human then player 2 is asked for their name
+    If palyer 2 is PC, name is auto selected and variable human set as False
+    '''
+    # main title
     title_text = pyfiglet.figlet_format("Pokemon Battle Arena",
                                         font="banner3-D",
                                         justify="center")
@@ -165,6 +173,8 @@ def game_start():
     print("-----------------------------------------------------")
     print("Welcome to pokemon battle area "
         "where trainers are tested" + reset_styling)
+
+    # asks player 1 for their name
     while True:
         try:
             # askes for users name
@@ -184,9 +194,8 @@ def game_start():
         except ValueError as e:
             # prints error message
             print(f"{e}")
-
+    # asks if player 1 brought a human friend to play with
     while True:
-        # gets the name for player 2
         try:
             pc_check = input(proffessor_oak + f" Well hello {user_name}, "
                              "its nice to meet you, did you bring a friend "
@@ -207,7 +216,7 @@ def game_start():
             print(f"{e}")
 
     ''' checks if answer to pc_check is true and user wants to
-        play 2 palyer or against a pc'''
+        play against a human player or against a pc'''
     if pc_check == "yes":
         while True:
             try:
@@ -225,7 +234,7 @@ def game_start():
                     raise ValueError(error_colour + "Proffessor Oak: Oops "
                                      " seems you entered a number, why not "
                                      "try again" + reset_styling)
-                # passed to play game as used when picking battle pokemon party
+                # passed to play game and used when picking battle pokemon party
                 human_player = True
                 print(proffessor_oak + f" Well hello {user_name} and "
                       f"{user_name2}, welcome my name is Professor Oak and "
@@ -234,13 +243,17 @@ def game_start():
             except ValueError as e:
                 # prints error message
                 print(f"{e}")
+    # player 1 inputed no and player 2 set as PC player
     else:
+        # Player 2 PC name
         user_name2 = "John"
+        # passed to play game and used when picking battle pokemon party
         human_player = False
         print(proffessor_oak + f" Well hello {user_name}, welcome my name is "
               "Professor Oak and I hope your ready to fight we have your "
               f"oppointent {user_name2} ready and waiting")
-
+    
+    # game rules subhead
     game_rules = pyfiglet.figlet_format("Game Rules",
                                         font="slant",
                                         justify="center")
@@ -248,6 +261,7 @@ def game_start():
           "**************************************************"
           + reset_styling)
     print(game_rules)
+    # game rules text
     print(Fore.GREEN + '''
     Welcome trainers, you are about to enter the battle arena but before
     you do let's go over the rules.\n
@@ -283,6 +297,7 @@ def game_start():
           "**************************************************")
     print(reset_styling)
 
+    # stores user choice if they wish to play
     play = " "
 
     # asks user if they are ready to fight
@@ -296,6 +311,7 @@ def game_start():
                 raise ValueError(error_colour + "Proffessor Oak: Oops, close "
                                  "but I need an answer, either fight or "
                                  "exit" + reset_styling)
+            # game proceeds and calls play_game
             elif play == "fight":
                 print(proffessor_oak + " Great!, now lets pick your pokemon: ")
                 time.sleep(2.5)
