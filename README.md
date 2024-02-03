@@ -2,7 +2,7 @@
 
 ## About the Project
 
-![picture of initial game screem](assets/img/)
+![picture of initial game screem](img/game-homepage.png)
 
 - I have taken inspiration for creating this game from the very popular Pokémon franchise – the aim of which is to build up your skills, catch new Pokémon and battle other trainers with the Pokémon you catch.
 
@@ -129,26 +129,42 @@ When creating the game, I have created different colour themes for certain aspec
 
   - As Professor Oak is the main character, whenever his name is mentioned, it is shown in a green colour to denote a difference between his name and his spoken text
 
+  ![picture of proffessor oak colour style](img/professor-oak-colour.png)
+
 - Error Message
 
   - Throughout the whole game if the user inputs an incorrect value they will be shown an error message that has a red background and white text
+
+  ![picture of initial game screen](img/error-message-colour.png)
 
 - Game Notifications
 
   - A game notification is anything within the game that displays a message to the user which is not spoken text from the in-game character Professor Oak and is informing the user or describing something, for this I used a blue background with white text
 
+  ![picture of game notification style](img/notification-colour.png)
+  ![picture of game notification style](img/notification-colour-2.png)
+
 - Main Headers - Title and End Game text
 
   - Here I have used pyfiglet which has been used to style the text, this styling has not been used in any other part of the game to make it clear to the user when the game has started and ended, the font I used is banner3-D.
 
+  ![picture of main title](img/main-header.png)
+  ![picture of end game title](img/end-game-message.png)
+
 - Subhead titles - Battle Arena and Pick Pokémon
+
   - Here I have also used pyfiglet and the font style "slant" for all subhead titles, this I have kept uniform throughout the project
+
+  ![picture of subhead title](img/battle-arena-subhead.png)
+  ![picture of subhead title](img/pokemon-picker-subhead.png)
 
 ## Features
 
 - Welcome page
 
   - This screen will be the first thing that the player sees when they load up the game, it contains the name of the game to clearly indicate to the player the type of game that they have loaded up. It also contains a message from an in-game character called Professor Oak who welcomes them to the game.
+
+  ![welcome page image](img/welcome-page.png)
 
 - Player 1 User input name and validation
 
@@ -163,6 +179,8 @@ When creating the game, I have created different colour themes for certain aspec
   - If they respond ‘yes’, they are prompted to input player 2’s name
   - A variable called human is also created and is used later on in the function to automate computer choices
 
+  ![player 2 name selection](img/player2-name.png)
+
 - Game Rules
 
   - Once both players have been chosen, they are shown the rules of the game
@@ -171,11 +189,16 @@ When creating the game, I have created different colour themes for certain aspec
   - The rules go through the importance of selecting your Pokémon and depending on your Pokémon type, the attacks can be amplified.
   - Finally, it contains information about how to restart the game or exit the game.
 
+  ![game rules](img/game-rules.png)
+
 - Each player reviewing and picking Pokémon for their battle pack.
 
   - This is the Pokémon selection phase.
   - A player can input any 1 of the 10 Pokémon and get back a detailed information sheet about that Pokémon. The information sheet will contain their name, description, type of Pokémon and attack moves. There is also important information about weakness to other Pokémon types.
   - A player can review as many Pokémon as they wish, after each Pokémon’s information sheet, they will be given a choice to add the Pokémon to the battle pack
+
+  ![pokemon picker](img/pokemon-picker.png)
+  ![pokemon picker](img/pokemon-picker-selection.png)
 
 - Players adding Pokémon to battle pack
 
@@ -191,6 +214,8 @@ When creating the game, I have created different colour themes for certain aspec
   - This is confirmed on screen for the user to see that their opponent has selected their Pokémon
   - The variable “human” is used here to check that player 2 is not human
 
+  ![PC pokemon picker](img/pc-picking-pokemon.png)
+
 - Entering the battle arena
 
   - When entering the battle arena there is an on-screen message that first appears from the in-game character Professor Oak informing them they have entered the battle arena.
@@ -198,11 +223,15 @@ When creating the game, I have created different colour themes for certain aspec
   - Once both players have chosen their starting Pokémon the battle will start
   - If the user is playing against the computer this selection will be done automatically due to the “human” variable
 
+  ![enter battle arena](img/battle-arena-subhead.png)
+
 - Pokémon fight in battle arena display
 
   - The image attached show the screen that will appear to the user when the battle has started
   - Included in the image is the attack Pokémon and player at the top along with the attacking Pokémon’s health bar
   - Below the attacking Pokémon and player is the same information for the defending Pokémon and player
+
+  ![battle arena fight](img/battle-arena-fight.png)
 
 - Health reduction
 
@@ -213,6 +242,8 @@ When creating the game, I have created different colour themes for certain aspec
   - Then the attack and defender will switch and the new attacker will then be given the same options and can then attack
   - This process of flipping will continue until one of the players’ Pokémon has fainted (health is 0)
 
+  ![health reduction of pokemon](img/health-reduction.png)
+
 - Selection of a new Pokémon
 
   - When a player’s Pokémon has fainted, it triggers a method called ‘Choose new Pokémon’
@@ -220,6 +251,9 @@ When creating the game, I have created different colour themes for certain aspec
   - If there are no Pokémon left for the player to use, the game ends
   - If the player has a Pokémon left which they can use, they are asked which Pokémon they wish to fight with next
   - Then the battle restarts with the player whose Pokémon did not faint having the first attack
+
+  ![select new pokemon](img/pick-new-pokemon.png)
+  ![select new pokemon](img/pick-new-pokemon-choosen.png)
 
 - Restart and end game
 
@@ -230,6 +264,8 @@ When creating the game, I have created different colour themes for certain aspec
   - If player 1 states ‘no’ a PC player is inputted as player 2
   - If player 1 has stated yes to a human player, player 2 is prompted for their name and then both player 1 and 2 are taken to the review Pokémon stage to add new Pokémon to their battle pack.
   - This is the same if player 2 is the computer, but they will select their own Pokémon for their battle pack
+
+  ![game restart](img/game-restart.png)
 
 ## Future Implementations
 
