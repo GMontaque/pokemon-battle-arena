@@ -188,7 +188,7 @@ class Player:
             # confimration message PC picked pokemon
             print(game_notification + f" Pokemon selection complete "
                   + reset_styling)
-             # creates time delay and stops user input
+            # creates time delay and stops user input
             os.system("stty -echo")
             time.sleep(2)
             sys.stdout.flush()

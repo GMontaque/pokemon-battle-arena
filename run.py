@@ -191,7 +191,6 @@ def game_start():
     sys.stdout.flush()
     tcflush(sys.stdin, TCIOFLUSH)
     os.system("stty echo")
-    
     print("-----------------------------------------------------")
     print("Welcome to pokemon battle arena "
           "where trainers are tested" + reset_styling)
@@ -290,17 +289,17 @@ def game_start():
 
     You will each have to pick 3 different Pokémon to battle with from a
     list of 10 Pokémon we have available to use but be careful trainers
-    and choose wisely as you will find some Pokémon do double the damage
+    and choose wisely. You will find some Pokémon do double the damage
     to other types of Pokémon. Each Pokemon has a certain type and each
     Pokémon’s attack also has a type, meaning that if the defending
-    Pokemonis of type water and your attack is of type electric your
+    Pokemon is of type water and your attack is of type electric your
     attack damage is increased by 40 hit points. So make sure that you
     review each Pokémon before selecting them, you can review a Pokemon
     by simply typing its name and the details of that Pokemon will
     appear. You will then be asked if you want to add that Pokemon to
     your battle pack.
 
-    Once you have both chosen your 3 Pokémon you move onto the battle
+    Once both players have chosen your 3 Pokémon you move onto the battle
     phase. You will first be asked to choose which of your 3 Pokémon you
     wish to fight with first, and then each player will take turns
     attacking. You will find that each Pokémon has 4 attacks and it’s up
