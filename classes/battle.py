@@ -227,8 +227,8 @@ class Battle:
         os.system("clear")
         # battle arena subhead
         battle_arena_header = pyfiglet.figlet_format("Battle Arena",
-                                                    font="slant",
-                                                    justify="center")
+                                                     font="slant",
+                                                     justify="center")
         print(battle_arena_header)
         print(proffessor_oak + "let the battle begin")
         print("-----------------------------------------------------")
