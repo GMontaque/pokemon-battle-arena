@@ -141,7 +141,7 @@ def play_game(user1, user2, human):
                                                   font="slant",
                                                   justify="center")
     print(subhead_Battle_Arena)
-    # creates battle area from Battle Class
+    # creates battle arena from Battle Class
     battle = Battle(player1, player2)
     # lets pplayers choose which pokemon to start the battle with
     battle.fight_setup()
@@ -172,7 +172,7 @@ def game_start():
     print(f"{Fore.CYAN}{Style.BRIGHT}{title_text}")
     time.sleep(5)
     print("-----------------------------------------------------")
-    print("Welcome to pokemon battle area "
+    print("Welcome to pokemon battle arena "
           "where trainers are tested" + reset_styling)
 
     # asks player 1 for their name
