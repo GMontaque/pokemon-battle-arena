@@ -125,6 +125,7 @@ def play_game(user1, user2, human):
     pokemon_battle_player1 = player1.pick_pokemon()
     print(proffessor_oak + f"That is you sorted {player_1.capitalize()}, "
           "you've choosen your pokemon" + reset_styling)
+    # creates time delay and stops user input
     os.system("stty -echo")
     time.sleep(2)
     sys.stdout.flush()
@@ -143,6 +144,7 @@ def play_game(user1, user2, human):
     # confirmaiton message pokemon picking stage finished
     print(proffessor_oak + "Excellent you've both now choosen your pokemon,\n"
           "lets go to battle arena")
+    # creates time delay and stops user input
     os.system("stty -echo")
     time.sleep(6)
     sys.stdout.flush()
@@ -183,7 +185,7 @@ def game_start():
                                         font="banner3-D",
                                         justify="center")
     print(f"{Fore.CYAN}{Style.BRIGHT}{title_text}")
-    
+    # creates time delay and stops user input
     os.system("stty -echo")
     time.sleep(5)
     sys.stdout.flush()
@@ -335,6 +337,7 @@ def game_start():
             # game proceeds and calls play_game
             elif play == "fight":
                 print(proffessor_oak + " Great!, now lets pick your pokemon")
+                # creates time delay and stops user input
                 os.system("stty -echo")
                 time.sleep(2.5)
                 sys.stdout.flush()

@@ -225,6 +225,7 @@ class Battle:
         this process continues until a pokemon has fainted
         each player and pokemon flip after each attack
         '''
+        # creates time delay and stops user input
         os.system("stty -echo")
         time.sleep(3)
         sys.stdout.flush()
@@ -344,6 +345,7 @@ class Battle:
                 # player with fainted pokemon chooses another
                 self.choose_new_pokemon()
                 break
+            # creates time delay and stops user input
             os.system("stty -echo")
             time.sleep(1)
             sys.stdout.flush()
