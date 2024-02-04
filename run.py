@@ -28,7 +28,7 @@ def game_restart(user1):
         # asks player one if they wish to play again
         try:
             play_again = input(proffessor_oak + "Well I hope you had fun "
-                               f"{player_1}, do you want to try again: "
+                               f"{player_1}, will you play again?: "
                                + reset_styling).lower().replace(" ", "")
             # checks value is yes or no
             if play_again.lower() not in ['yes', 'no']:
@@ -80,6 +80,8 @@ def game_restart(user1):
                 except ValueError as e:
                     # prints error message
                     print(f"{e}")
+            print(proffessor_oak + "Excellent!, now let's pick your pokemon "
+                  "to go battle with")
             # player 2 becomes human player
             play_game(player_1, user2=user_name2, human=True)
         else:
@@ -121,6 +123,7 @@ def play_game(user1, user2, human):
     pokemon_battle_player1 = player1.pick_pokemon()
     print(proffessor_oak + f"That is you sorted {player_1.capitalize()}, "
           "you've choosen your pokemon" + reset_styling)
+    time.sleep(2)
     print(subhead_pick_pokemon)
     print("-----------------------------------------------------")
     print(f"{proffessor_oak} Now, {player_2.capitalize()} choose your pokemon")
