@@ -58,19 +58,13 @@ class Player:
                                              "Oops doesn't seem like you "
                                              "choose a pokemon, please "
                                              "try again" + reset_styling)
-                        # checks for incorrect value format
-                        elif not re.match("^[A-Za-z]+$", pokemon_name):
-                            raise ValueError(error_colour+"Proffessor Oak: "
-                                             "Oops don't think i've heard of "
-                                             "that pokemon, please try again"
-                                             + reset_styling)
-                            ''' checks input matches pokemon name against
-                               pokedex dicitionary
+                            ''' checks if input name matches pokemon name in
+                               pokedex
                             '''
                         elif not pokedex.get(pokemon_name, None):
                             raise ValueError(error_colour+"Proffessor Oak: "
                                              "Oops thats not one of the "
-                                             "pokemon you can  choose, "
+                                             "pokemon available, "
                                              "please try again"
                                              + reset_styling)
 
