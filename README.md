@@ -153,12 +153,13 @@ When creating the game, I have created different colour themes for certain aspec
   ![picture of main title](img/main-header.png)
   ![picture of end game title](img/end-game-message.png)
 
-- Subhead titles - Battle Arena and Pick Pokémon
+- Subhead titles - Battle Arena, Game Rules and Pick Pokémon
 
   - Here I have also used pyfiglet and the font style "slant" for all subhead titles, this I have kept uniform throughout the project
 
   ![picture of subhead title](img/battle-arena-subhead.png)
   ![picture of subhead title](img/pokemon-picker-subhead.png)
+  ![picture of subhead title](img/game-rules-subhead.png)
 
 ## Features
 
