@@ -3,6 +3,8 @@ import random
 import copy
 import time
 import os
+import sys
+from termios import tcflush, TCIOFLUSH
 from tabulate import tabulate
 from colorama import Fore, Back, Style
 
@@ -177,11 +179,19 @@ class Player:
                     # adds pokemon
                     self.battle_pack[random_pokemon] = (
                         copy.deepcopy(pokedex[random_pokemon]))
+            os.system("stty -echo")
             time.sleep(3)
+            sys.stdout.flush()
+            tcflush(sys.stdin, TCIOFLUSH)
+            os.system("stty echo")
             # confimration message PC picked pokemon
             print(game_notification + f" Pokemon selection complete "
                   + reset_styling)
+            os.system("stty -echo")
             time.sleep(2)
+            sys.stdout.flush()
+            tcflush(sys.stdin, TCIOFLUSH)
+            os.system("stty echo")
         return self.battle_pack
 
 # pokedex dicitionary stores all the pokemon the user can choose from

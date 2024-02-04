@@ -3,6 +3,8 @@ import re
 import time
 import os
 import pyfiglet
+import sys
+from termios import tcflush, TCIOFLUSH
 from tabulate import tabulate
 from colorama import Fore, Back, Style
 
@@ -223,7 +225,11 @@ class Battle:
         this process continues until a pokemon has fainted
         each player and pokemon flip after each attack
         '''
+        os.system("stty -echo")
         time.sleep(3)
+        sys.stdout.flush()
+        tcflush(sys.stdin, TCIOFLUSH)
+        os.system("stty echo")
         os.system("clear")
         # battle arena subhead
         battle_arena_header = pyfiglet.figlet_format("Battle Arena",
@@ -338,7 +344,11 @@ class Battle:
                 # player with fainted pokemon chooses another
                 self.choose_new_pokemon()
                 break
+            os.system("stty -echo")
             time.sleep(1)
+            sys.stdout.flush()
+            tcflush(sys.stdin, TCIOFLUSH)
+            os.system("stty echo")
             # flips attacker and defending to allow for turn based gameplay
             self.flip()
 

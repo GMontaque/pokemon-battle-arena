@@ -1,6 +1,8 @@
 import os
 import re
 import time
+import sys
+from termios import tcflush, TCIOFLUSH
 from classes.player import Player
 from classes.battle import Battle
 from colorama import Fore, Back, Style
@@ -123,7 +125,11 @@ def play_game(user1, user2, human):
     pokemon_battle_player1 = player1.pick_pokemon()
     print(proffessor_oak + f"That is you sorted {player_1.capitalize()}, "
           "you've choosen your pokemon" + reset_styling)
+    os.system("stty -echo")
     time.sleep(2)
+    sys.stdout.flush()
+    tcflush(sys.stdin, TCIOFLUSH)
+    os.system("stty echo")
     print(subhead_pick_pokemon)
     print("-----------------------------------------------------")
     print(f"{proffessor_oak} Now, {player_2.capitalize()} choose your pokemon")
@@ -137,7 +143,11 @@ def play_game(user1, user2, human):
     # confirmaiton message pokemon picking stage finished
     print(proffessor_oak + "Excellent you've both now choosen your pokemon,\n"
           "lets go to battle arena")
-    time.sleep(5)
+    os.system("stty -echo")
+    time.sleep(6)
+    sys.stdout.flush()
+    tcflush(sys.stdin, TCIOFLUSH)
+    os.system("stty echo")
     os.system("clear")
     # subhead battle arena
     subhead_Battle_Arena = pyfiglet.figlet_format("Battle Arena",
@@ -173,7 +183,13 @@ def game_start():
                                         font="banner3-D",
                                         justify="center")
     print(f"{Fore.CYAN}{Style.BRIGHT}{title_text}")
+    
+    os.system("stty -echo")
     time.sleep(5)
+    sys.stdout.flush()
+    tcflush(sys.stdin, TCIOFLUSH)
+    os.system("stty echo")
+    
     print("-----------------------------------------------------")
     print("Welcome to pokemon battle arena "
           "where trainers are tested" + reset_styling)
@@ -319,7 +335,11 @@ def game_start():
             # game proceeds and calls play_game
             elif play == "fight":
                 print(proffessor_oak + " Great!, now lets pick your pokemon")
+                os.system("stty -echo")
                 time.sleep(2.5)
+                sys.stdout.flush()
+                tcflush(sys.stdin, TCIOFLUSH)
+                os.system("stty echo")
                 os.system("clear")
                 play_game(user1=user_name,
                           user2=user_name2,
