@@ -67,7 +67,7 @@ class Battle:
                     raise ValueError(error_colour
                                      + "Proffessor Oak: Oops thats not "
                                      "one of the pokemon in your battle pack"
-                                     " , please try again" + reset_styling)
+                                     ",\n please try again" + reset_styling)
                 # once user enters a correct value, exits loop
                 break
             except ValueError as e:
