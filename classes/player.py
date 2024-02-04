@@ -22,7 +22,7 @@ class Player:
         # stores value if player is human or PC
         self.is_human = kwargs["is_human"]
         # stores the pokemon picked for each player
-        self.battle_pokemon = {}
+        self.battle_pack = {}
 
     def pick_pokemon(self):
         '''players are asked to pick 3 pokemon they wish to fight with '''
@@ -32,7 +32,7 @@ class Player:
         # checks if player picking is human
         if self.is_human:
             # loops till member chooses 3 pokemon for battle pack
-            while len(self.battle_pokemon) < 3:
+            while len(self.battle_pack) < 3:
                 print("-----------------------------------------------------")
                 print(game_notification + " Please choose from the follow "
                       + Style.RESET_ALL)
@@ -141,15 +141,15 @@ class Player:
                 '''
                 checks if user response was yes and also that pokemon_name
                 can be found in pokedex and that the
-                pokemon has not already been added to battle_pokemon
+                pokemon has not already been added to battle_pack
                 '''
                 if (picking_pokemon.lower() == "yes" and
                    pokemon_name in pokedex and pokemon_name
-                   not in self.battle_pokemon):
+                   not in self.battle_pack):
                     # get the key in the pokedex dicitionary
                     self.selected_pokemon_name = pokedex[pokemon_name]
-                    # adds selected pokemon to battle_pokemon as dictionary
-                    self.battle_pokemon[pokemon_name] = (
+                    # adds selected pokemon to battle_pack as dictionary
+                    self.battle_pack[pokemon_name] = (
                         copy.deepcopy(self.selected_pokemon_name))
                     # confirmation to user pokemon added
                     print(game_notification + f" {pokemon_name.capitalize()}"
@@ -173,22 +173,22 @@ class Player:
             print(game_notification + f" Player {self.name} is choosing his"
                   " pokemon " + reset_styling)
             # loops until 3 pokemon selected
-            while len(self.battle_pokemon) < 3:
+            while len(self.battle_pack) < 3:
                 # selects a random pokemon in pokedex
                 random_pokemon = random.choice(list(pokedex.keys()))
-                ''' checks pokemon is not in battle_pokemon
+                ''' checks pokemon is not in battle_pack
                 before adding a new value
                 '''
-                if random_pokemon not in self.battle_pokemon:
+                if random_pokemon not in self.battle_pack:
                     # adds pokemon
-                    self.battle_pokemon[random_pokemon] = (
+                    self.battle_pack[random_pokemon] = (
                         copy.deepcopy(pokedex[random_pokemon]))
             time.sleep(3)
             # confimration message PC picked pokemon
             print(game_notification + f" Pokemon selection complete "
                   + reset_styling)
             time.sleep(2)
-        return self.battle_pokemon
+        return self.battle_pack
 
 # pokedex dicitionary stores all the pokemon the user can choose from
 

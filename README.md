@@ -336,8 +336,8 @@ To further test the game, I asked a number of my friends who had an interest in 
 
 ![image showing input bug](img/bug2-img.PNG)
 
-- Each player is meant to select 3 unique Pokémon which they add to their own battle pack and which they use these to fight against the other player. An issue I was facing was that when both players chose the same Pokémon and executed an attack, both players would lose the same health, not just the defender. I found this error only appeared when I used organic Pokémon selection where the user had to choose. If I used pre-selected data in battle_pokemon, this error did not occur
-  On further testing, I found that the issue was happening because when I was presetting the values in battle_pokemon, it would create two objects but when manually adding values to the battle Pokémon it was counting them as one object shared between both players. To solve this issue, I had to import “copy” and used the method “deepcopy” when adding a Pokémon to battle_pokemon.
+- Each player is meant to select 3 unique Pokémon which they add to their own battle pack and which they use these to fight against the other player. An issue I was facing was that when both players chose the same Pokémon and executed an attack, both players would lose the same health, not just the defender. I found this error only appeared when I used organic Pokémon selection where the user had to choose. If I used pre-selected data in battle_pack, this error did not occur
+  On further testing, I found that the issue was happening because when I was presetting the values in battle_pack, it would create two objects but when manually adding values to the battle Pokémon it was counting them as one object shared between both players. To solve this issue, I had to import “copy” and used the method “deepcopy” when adding a Pokémon to battle_pack.
 
 ![image showing input bug](img/bug3-img.PNG)
 
