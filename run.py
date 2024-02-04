@@ -184,7 +184,7 @@ def game_start():
             # checks their is a value
             if not user_name:
                 raise ValueError(error_colour + "Proffessor Oak: Oops seems "
-                                 " you forgot to enter your name, why "
+                                 "you forgot to enter your name, why "
                                  "not try again" + reset_styling)
             # checks the value is just letters
             elif not re.match("^[A-Za-z]+$", user_name):
@@ -199,7 +199,7 @@ def game_start():
     while True:
         try:
             pc_check = input(proffessor_oak + f" Well hello {user_name}, "
-                             "its nice to meet you, did you bring a friend "
+                             "its nice to meet you, did you bring\n a friend "
                              "to fight against?: ").lower().replace(" ", "")
             # checks their is a value
             if not pc_check:
@@ -233,14 +233,14 @@ def game_start():
                 # checks the value is in the correct format
                 elif not re.match("^[A-Za-z]+$", user_name2):
                     raise ValueError(error_colour + "Proffessor Oak: Oops "
-                                     " seems you entered a number, why not "
+                                     "seems you entered a number, why not "
                                      "try again" + reset_styling)
                 ''' value from play game and used when picking pokemon
                 for battle pack '''
                 human_player = True
                 print(proffessor_oak + f" Well hello {user_name} and "
-                      f"{user_name2}, welcome my name is Professor Oak and "
-                      "I hope your ready to fight")
+                      f"{user_name2} welcome, my name is\n Professor Oak and "
+                      "I hope your ready to fight\n")
                 break
             except ValueError as e:
                 # prints error message
@@ -251,9 +251,9 @@ def game_start():
         user_name2 = "John"
         # passed to play game and used when picking battle pokemon party
         human_player = False
-        print(proffessor_oak + f" Well hello {user_name}, welcome my name is "
+        print(proffessor_oak + f" Well hello {user_name} and welcome, my name is "
               "Professor Oak and I hope your ready to fight we have your "
-              f"oppointent {user_name2} ready and waiting")
+              f"oppointent {user_name2} ready and waiting\n")
     # game rules subhead
     game_rules = pyfiglet.figlet_format("Game Rules",
                                         font="slant",
@@ -305,7 +305,7 @@ def game_start():
     while True:
         try:
             play = input(proffessor_oak + " Enter 'fight' when your ready to "
-                         "contiune or 'exit' to exit the "
+                         "contiune or 'exit' to\n exit the "
                          "game: ").lower().replace(" ", "")
             # checks their is a value
             if play.lower() not in ['fight', 'exit']:
