@@ -411,6 +411,23 @@ To further test the game, I asked a number of my friends who had an interest in 
 
 ## Credit and Content
 
+**Tutor Support**
+
+- John and Roman
+
+  - For the solution to the issue of stopping user typing and inputting data without a prompt
+
+  ```
+  import sys
+  from termios import tcflush, TCIOFLUSH#
+
+  os.system("stty -echo")
+  time.sleep(2)
+  sys.stdout.flush()
+  tcflush(sys.stdin, TCIOFLUSH)
+  os.system("stty echo")
+  ```
+
 **Youtube Courses**
 
 - Bro Code
