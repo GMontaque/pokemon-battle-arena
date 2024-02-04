@@ -159,8 +159,8 @@ class Player:
                 else:
                     # prints if user has already added pokemon to battle pack
                     print(error_colour + "Proffessor Oak: looks like you "
-                          f"already added, {pokemon_name.capitalize()} "
-                          "why not try another pokemon." + reset_styling)
+                          f"already added {pokemon_name.capitalize()}, "
+                          "please pick again" + reset_styling)
             os.system("clear")
         else:
             # PC player choose 3 pokemon
